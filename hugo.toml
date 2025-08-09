@@ -1,0 +1,53 @@
+baseURL = 'https://rehab-center.ru/'
+languageCode = 'ru-ru'
+title = 'Центр медицинской и психологической помощи «Здравница»'
+# theme = 'hugo-serif-theme'
+
+[params]
+  description = "Центр медицинской и психологической помощи «Здравница» - лечение алкоголизма, наркомании, реабилитация зависимых"
+  phone1 = "8 800 300 61 03"
+  phone2 = "8 495 532 44 03"
+  address = "Москва, Кутузовский пр-т, 36с1"
+  license = "Л041-01137-77/01242550"
+  
+[menu]
+  [[menu.main]]
+    identifier = "narcology"
+    name = "Наркология"
+    url = "/narcology/"
+    weight = 1
+  [[menu.main]]
+    identifier = "psychiatry"
+    name = "Психиатрия"
+    url = "/psychiatry/"
+    weight = 2
+  [[menu.main]]
+    identifier = "rehabilitation"
+    name = "Реабилитация"
+    url = "/rehabilitation/"
+    weight = 3
+  [[menu.main]]
+    identifier = "psychology"
+    name = "Психология"
+    url = "/psychology/"
+    weight = 4
+  [[menu.main]]
+    identifier = "therapy"
+    name = "Терапия"
+    url = "/therapy/"
+    weight = 5
+  [[menu.main]]
+    identifier = "doctors"
+    name = "Врачи"
+    url = "/doctors/"
+    weight = 6
+  [[menu.main]]
+    identifier = "prices"
+    name = "Цены"
+    url = "/prices/"
+    weight = 7
+  [[menu.main]]
+    identifier = "about"
+    name = "О нас"
+    url = "/about/"
+    weight = 8
