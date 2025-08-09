@@ -1,0 +1,25 @@
+{{ define "main" }}
+<article>
+    <header>
+        <h1>{{ .Title }}</h1>
+        {{ if .Params.description }}
+        <p class="description">{{ .Params.description }}</p>
+        {{ end }}
+    </header>
+
+    <div class="content">
+        {{ .Content }}
+    </div>
+
+    {{ if .Params.contact_info }}
+    <section class="contact-info">
+        <h2>Контактная информация</h2>
+        <p><strong>Телефоны:</strong></p>
+        <p class="phone">{{ .Site.Params.phone1 }}</p>
+        <p class="phone">{{ .Site.Params.phone2 }}</p>
+        <p><strong>Адрес:</strong> {{ .Site.Params.address }}</p>
+        <a href="tel:{{ .Site.Params.phone1 }}" class="btn btn-primary">Позвонить сейчас</a>
+    </section>
+    {{ end }}
+</article>
+{{ end }}

@@ -1,0 +1,14 @@
+{{ define "main" }}
+<main>
+  <h1>Отзывы</h1>
+  {{ range .Pages }}
+    <section style="margin-bottom: 2rem;">
+      <h2>{{ .Title }}</h2>
+      {{ with .Params.image }}
+        <img src="{{ . | relURL }}" alt="Фото {{ $.Title }}" style="max-width: 200px;">
+      {{ end }}
+      <div>{{ .Content }}</div>
+    </section>
+  {{ end }}
+</main>
+{{ end }}

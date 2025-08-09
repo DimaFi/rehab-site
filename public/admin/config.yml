@@ -1,0 +1,35 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "pages"
+    label: "Страницы"
+    folder: "content/pages"
+    create: true
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Содержание", name: "body", widget: "markdown" }
+
+  - name: "posts"
+    label: "Статьи"
+    folder: "content/posts"
+    create: true
+    fields:
+      - { label: "Заголовок", name: "title", widget: "string" }
+      - { label: "Дата", name: "date", widget: "datetime" }
+      - { label: "Содержание", name: "body", widget: "markdown" }
+
+  - name: "reviews"
+    label: "Отзывы"
+    folder: "content/reviews"
+    create: true
+    fields:
+      - { label: "Имя", name: "title", widget: "string" }
+      - { label: "Фото", name: "image", widget: "image" }
+      - { label: "Отзыв", name: "body", widget: "markdown" }
