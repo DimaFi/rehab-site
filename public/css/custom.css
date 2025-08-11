@@ -103,17 +103,22 @@ body {
 }
 
 .logo-circle {
-    width: 40px;
+    width: 40px;       /* нормальный размер кружка */
     height: 40px;
-    background: linear-gradient(45deg, #27ae60, #3498db);
     border-radius: 50%;
+    overflow: hidden; /* чтобы картинка была в круге */
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
+    background: white; /* фон на случай прозрачности логотипа */
 }
+
+.logo-circle img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* подгон под форму */
+}
+
 
 .logo-text {
     font-size: 18px;
