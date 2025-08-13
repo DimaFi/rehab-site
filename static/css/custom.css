@@ -470,57 +470,138 @@ body {
     background-color: white;
 }
 
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 30px;
-}
-
-.feature-card {
-    text-align: center;
-    padding: 30px 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
+.why-choose-slider {
     position: relative;
-    transition: transform 0.3s;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
-.feature-card:hover {
-    transform: translateY(-5px);
+.slider-wrapper {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-.feature-number {
+.why-slide {
     position: absolute;
-    top: 15px;
-    left: 15px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.why-slide.active {
+    opacity: 1;
+}
+
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.8) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide-content {
+    text-align: center;
+    color: white;
+    max-width: 600px;
+    padding: 40px;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.slide-number {
+    display: inline-block;
     background-color: #3498db;
     color: white;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.feature-icon {
-    font-size: 48px;
-    margin-bottom: 15px;
-}
-
-.feature-card h3 {
     font-size: 18px;
     font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
-.feature-card p {
-    font-size: 14px;
-    color: #666;
-    line-height: 1.4;
+.slide-content h3 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+.slide-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Навигация слайдера */
+.why-slider-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+.why-prev-btn, .why-next-btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.why-prev-btn:hover, .why-next-btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.1);
+}
+
+.why-slider-dots {
+    display: flex;
+    gap: 12px;
+}
+
+.why-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #bdc3c7;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.why-dot.active {
+    background-color: #3498db;
+    transform: scale(1.2);
+}
+
+.why-dot:hover {
+    background-color: #3498db;
 }
 
 /* Секция "Как мы работаем" */
@@ -555,6 +636,50 @@ body {
 
 .work-card.consultation {
     background-color: #27ae60;
+}
+
+.work-card.social {
+    background-color: #9b59b6;
+}
+
+.work-card .availability {
+    font-size: 12px;
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-color: rgba(255,255,255,0.2);
+    transition: background-color 0.3s;
+}
+
+.social-link:hover {
+    background-color: rgba(255,255,255,0.3);
+}
+
+.social-icon {
+    font-size: 16px;
+}
+
+.image-caption {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    color: #666;
 }
 
 .work-card h3 {
@@ -620,9 +745,9 @@ body {
 }
 
 .clinic-info-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
     position: relative;
 }
 
@@ -632,10 +757,19 @@ body {
     background-color: white;
     border-radius: 8px;
     transition: transform 0.3s;
+    max-width: 60%;
 }
 
-.clinic-info-item:nth-child(even) {
-    margin-top: 40px;
+.clinic-info-item:nth-child(1) {
+    align-self: flex-start;
+}
+
+.clinic-info-item:nth-child(2) {
+    align-self: flex-end;
+}
+
+.clinic-info-item:nth-child(3) {
+    align-self: flex-start;
 }
 
 .clinic-info-item:hover {
@@ -830,7 +964,7 @@ body {
     background-color: #229954;
 }
 
-/* Контактная форма */
+/* Секция "Задайте вопрос" */
 .contact-form-section {
     padding: 60px 0;
     background-color: #f8f9fa;
@@ -843,11 +977,110 @@ body {
     align-items: start;
 }
 
-.contact-form {
+.contact-methods {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+}
+
+.contact-method {
     background-color: white;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.method-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.contact-method h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.phone-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.phone-link {
+    display: block;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.phone-link:hover {
+    transform: translateY(-2px);
+}
+
+.phone-link.primary {
+    background-color: #27ae60;
+    color: white;
+}
+
+.phone-link.secondary {
+    background-color: #3498db;
+    color: white;
+}
+
+.messenger-links {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.messenger-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.messenger-link:hover {
+    transform: translateY(-2px);
+}
+
+.messenger-link.whatsapp {
+    background-color: #25d366;
+    color: white;
+}
+
+.messenger-link.telegram {
+    background-color: #0088cc;
+    color: white;
+}
+
+.messenger-link.viber {
+    background-color: #7360f2;
+    color: white;
+}
+
+.messenger-icon {
+    font-size: 20px;
+}
+
+.method-description {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
 }
 
 .form-group {
@@ -922,25 +1155,240 @@ body {
 }
 
 .document-card {
-    text-align: center;
-    padding: 30px 20px;
-    background-color: #f8f9fa;
-    border-radius: 8px;
-    transition: transform 0.3s;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .document-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
-.document-image {
-    font-size: 60px;
-    margin-bottom: 15px;
+.document-preview {
+    position: relative;
+    height: 200px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
 
-.document-card p {
+.pdf-icon {
+    font-size: 80px;
+    color: white;
+    z-index: 2;
+    position: relative;
+}
+
+.document-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.document-card:hover .document-overlay {
+    opacity: 1;
+}
+
+.view-pdf {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.document-info {
+    padding: 25px;
+    text-align: center;
+}
+
+.document-info h3 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.document-info p {
     font-size: 14px;
     color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.document-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.preview-btn, .download-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.preview-btn {
+    background-color: #3498db;
+    color: white;
+}
+
+.preview-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.download-btn {
+    background-color: #27ae60;
+    color: white;
+}
+
+.download-btn:hover {
+    background-color: #229954;
+    transform: translateY(-2px);
+}
+
+.preview-icon, .download-icon {
+    font-size: 16px;
+}
+
+/* Модальное окно для предпросмотра PDF */
+.pdf-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.pdf-modal-content {
+    position: relative;
+    background-color: white;
+    margin: 2% auto;
+    padding: 0;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 1000px;
+    height: 90%;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.pdf-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    border-radius: 12px 12px 0 0;
+}
+
+.pdf-modal-header h3 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #666;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    background-color: #e9ecef;
+    color: #333;
+}
+
+.pdf-modal-body {
+    padding: 0;
+    height: calc(100% - 140px);
+}
+
+#pdfViewer {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.pdf-modal-footer {
+    padding: 20px 30px;
+    border-top: 1px solid #e9ecef;
+    background-color: #f8f9fa;
+    border-radius: 0 0 12px 12px;
+    text-align: center;
+}
+
+.full-pdf-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background-color: #27ae60;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.full-pdf-btn:hover {
+    background-color: #229954;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.full-pdf-icon {
+    font-size: 18px;
 }
 
 /* Интересные статьи */
@@ -1374,6 +1822,43 @@ footer {
         font-size: 20px;
     }
     
+    /* Адаптивность новых секций */
+    .work-cards {
+        gap: 15px;
+    }
+    
+    .work-card {
+        padding: 20px;
+    }
+    
+    .social-links {
+        gap: 8px;
+    }
+    
+    .social-link {
+        padding: 6px 10px;
+        font-size: 14px;
+    }
+    
+    .contact-methods {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .contact-method {
+        padding: 25px;
+    }
+    
+    .phone-link {
+        padding: 12px 16px;
+        font-size: 16px;
+    }
+    
+    .messenger-link {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+    
 
 }
 
@@ -1400,8 +1885,11 @@ footer {
     
     /* Адаптивность блока о клинике */
     .clinic-info-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
+    }
+    
+    .clinic-info-item {
+        max-width: 100%;
     }
     
     .clinic-number {
@@ -1423,5 +1911,239 @@ footer {
     
     .clinic-info-item p {
         font-size: 13px;
+    }
+    
+    /* Адаптивность для мобильных устройств */
+    .work-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .form-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .contact-method {
+        padding: 20px;
+    }
+    
+    .contact-methods {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .method-icon {
+        font-size: 36px;
+    }
+    
+    .phone-link {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+    
+    .messenger-link {
+        padding: 10px 14px;
+        font-size: 12px;
+    }
+    
+    /* Адаптивность документов */
+    .documents-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .document-preview {
+        height: 150px;
+    }
+    
+    .pdf-icon {
+        font-size: 60px;
+    }
+    
+    .document-info {
+        padding: 20px;
+    }
+    
+    .document-actions {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .preview-btn, .download-btn {
+        padding: 8px 14px;
+        font-size: 13px;
+    }
+    
+    /* Адаптивность модального окна */
+    .pdf-modal-content {
+        width: 95%;
+        height: 95%;
+        margin: 2.5% auto;
+    }
+    
+    .pdf-modal-header {
+        padding: 15px 20px;
+    }
+    
+    .pdf-modal-header h3 {
+        font-size: 18px;
+    }
+    
+    .pdf-modal-footer {
+        padding: 15px 20px;
+    }
+    
+    .full-pdf-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .documents-grid {
+        gap: 15px;
+    }
+    
+    .document-preview {
+        height: 120px;
+    }
+    
+    .pdf-icon {
+        font-size: 50px;
+    }
+    
+    .document-info {
+        padding: 15px;
+    }
+    
+    .document-info h3 {
+        font-size: 16px;
+    }
+    
+    .document-info p {
+        font-size: 13px;
+    }
+    
+    .preview-btn, .download-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .pdf-modal-content {
+        width: 98%;
+        height: 98%;
+        margin: 1% auto;
+    }
+    
+    .pdf-modal-header {
+        padding: 10px 15px;
+    }
+    
+    .pdf-modal-header h3 {
+        font-size: 16px;
+    }
+    
+    .close-modal {
+        font-size: 24px;
+        width: 25px;
+        height: 25px;
+    }
+    
+    .pdf-modal-footer {
+        padding: 10px 15px;
+    }
+    
+    .full-pdf-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    /* Адаптивность слайдера "Почему выбирают нас" */
+    .slider-wrapper {
+        height: 400px;
+    }
+    
+    .slide-content {
+        padding: 30px 20px;
+        max-width: 90%;
+    }
+    
+    .slide-content h3 {
+        font-size: 24px;
+    }
+    
+    .slide-content p {
+        font-size: 16px;
+    }
+    
+    .slide-number {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .why-slider-nav {
+        margin-top: 20px;
+        padding: 0 10px;
+    }
+    
+    .why-prev-btn, .why-next-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .why-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-wrapper {
+        height: 350px;
+    }
+    
+    .slide-content {
+        padding: 20px 15px;
+        max-width: 95%;
+    }
+    
+    .slide-content h3 {
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    
+    .slide-content p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+    
+    .slide-number {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+        margin-bottom: 15px;
+    }
+    
+    .why-slider-nav {
+        margin-top: 15px;
+        padding: 0 5px;
+    }
+    
+    .why-prev-btn, .why-next-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 14px;
+    }
+    
+    .why-slider-dots {
+        gap: 8px;
+    }
+    
+    .why-dot {
+        width: 8px;
+        height: 8px;
     }
 }

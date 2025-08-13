@@ -84,4 +84,104 @@ document.addEventListener('DOMContentLoaded', function() {
             dots[next].classList.add('active');
         }
     });
+    
+    // Функции для работы с PDF документами
+    window.previewPDF = function(pdfUrl) {
+        const modal = document.getElementById('pdfModal');
+        const iframe = document.getElementById('pdfViewer');
+        const title = document.getElementById('pdfModalTitle');
+        const fullPdfLink = document.getElementById('fullPdfLink');
+        
+        // Устанавливаем URL для iframe
+        iframe.src = pdfUrl;
+        
+        // Обновляем заголовок и ссылку
+        const fileName = pdfUrl.split('/').pop().replace('.pdf', '');
+        title.textContent = `Предпросмотр: ${fileName}`;
+        fullPdfLink.href = pdfUrl;
+        
+        // Показываем модальное окно
+        modal.style.display = 'block';
+        
+        // Блокируем прокрутку страницы
+        document.body.style.overflow = 'hidden';
+    };
+    
+    window.closePDFModal = function() {
+        const modal = document.getElementById('pdfModal');
+        const iframe = document.getElementById('pdfViewer');
+        
+        // Скрываем модальное окно
+        modal.style.display = 'none';
+        
+        // Очищаем iframe
+        iframe.src = '';
+        
+        // Восстанавливаем прокрутку страницы
+        document.body.style.overflow = 'auto';
+    };
+    
+    // Закрытие модального окна по клику вне его
+    document.getElementById('pdfModal').addEventListener('click', function(e) {
+        if (e.target === this) {
+            closePDFModal();
+        }
+    });
+    
+    // Закрытие модального окна по клавише Escape
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const modal = document.getElementById('pdfModal');
+            if (modal.style.display === 'block') {
+                closePDFModal();
+            }
+        }
+    });
+    
+    // Слайдер "Почему выбирают нас"
+    let currentWhySlide = 0;
+    const whySlides = document.querySelectorAll('.why-slide');
+    const whyDots = document.querySelectorAll('.why-dot');
+    const totalWhySlides = whySlides.length;
+    
+    function showWhySlide(index) {
+        // Скрываем все слайды
+        whySlides.forEach(slide => slide.classList.remove('active'));
+        whyDots.forEach(dot => dot.classList.remove('active'));
+        
+        // Показываем текущий слайд
+        whySlides[index].classList.add('active');
+        whyDots[index].classList.add('active');
+        
+        currentWhySlide = index;
+    }
+    
+    function changeWhySlide(direction) {
+        const next = (currentWhySlide + direction + totalWhySlides) % totalWhySlides;
+        showWhySlide(next);
+    }
+    
+    function goToWhySlide(index) {
+        showWhySlide(index);
+    }
+    
+    // Автоматическое переключение слайдов "Почему выбирают нас"
+    if (totalWhySlides > 0) {
+        setInterval(() => {
+            changeWhySlide(1);
+        }, 6000); // Переключение каждые 6 секунд
+    }
+    
+    // Обработка клавиш стрелок для слайдера "Почему выбирают нас"
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'ArrowLeft') {
+            changeWhySlide(-1);
+        } else if (e.key === 'ArrowRight') {
+            changeWhySlide(1);
+        }
+    });
+    
+    // Делаем функции глобально доступными
+    window.changeWhySlide = changeWhySlide;
+    window.goToWhySlide = goToWhySlide;
 });
