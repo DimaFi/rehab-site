@@ -51,3 +51,8 @@ title = 'Центр медицинской и психологической п�
     name = "О нас"
     url = "/about/"
     weight = 8
+  [[menu.main]]
+    identifier = "posts"
+    name = "СТАТЬИ"
+    url = "/posts/"
+    weight = 9
