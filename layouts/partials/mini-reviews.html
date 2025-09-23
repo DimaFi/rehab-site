@@ -1,0 +1,47 @@
+{{/*
+  Мини-отзывы с кнопками по темам. Источник данных: /data/mini_reviews.(yaml|json|toml)
+  Структура (yaml):
+  topics:
+    - key: detox
+      title: Детокс
+      items:
+        - name: Иван П.
+          text: "Короткий отзыв..."
+          link: "/reviews/ivan-p/" # опционально
+          enabled: true
+*/}}
+
+{{ $data := site.Data.mini_reviews }}
+{{ if not $data }}{{ return }}{{ end }}
+
+<section class="mini-reviews">
+  <div class="mini-filter">
+    {{ range $i, $t := $data.topics }}
+      <button class="mini-btn{{ if eq $i 0 }} active{{ end }}" data-topic="{{ $t.key }}">{{ $t.title }}</button>
+    {{ end }}
+    <a class="mini-all" href="/reviews/">Все отзывы</a>
+  </div>
+  <div class="mini-grid">
+    {{ range $i, $t := $data.topics }}
+      <div class="mini-topic{{ if eq $i 0 }} active{{ end }}" data-topic="{{ $t.key }}">
+        {{ range $j, $it := $t.items }}
+          {{ if or (not (isset $it "enabled")) ($it.enabled) }}
+          <div class="mini-card">
+            <div class="mini-head">
+              <div class="mini-avatar">👤</div>
+              <div class="mini-name">{{ cond (isset $it "name") $it.name "Анонимно" }}</div>
+            </div>
+            <div class="mini-text">{{ $it.text }}</div>
+            {{ with $it.link }}
+              <a class="mini-link" href="{{ . }}" aria-label="Полный отзыв">Читать</a>
+            {{ end }}
+          </div>
+          {{ end }}
+        {{ end }}
+      </div>
+    {{ end }}
+  </div>
+</section>
+
+<script defer src="/js/reviews.js"></script>
+

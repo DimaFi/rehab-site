@@ -56,3 +56,8 @@ title = 'Центр медицинской и психологической п�
     name = "СТАТЬИ"
     url = "/posts/"
     weight = 9
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

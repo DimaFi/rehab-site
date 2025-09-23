@@ -1,0 +1,41 @@
+{{ define "main" }}
+<article class="review-single container" style="padding: 40px 0;">
+  <nav class="breadcrumbs">
+    <a href="/">Главная</a> <span class="sep">/</span>
+    <a href="/reviews/">Отзывы</a> <span class="sep">/</span>
+    <span>{{ if .Title }}{{ .Title }}{{ else }}Анонимно{{ end }}</span>
+  </nav>
+
+  <header class="review-single-header">
+    <h1 class="page-title">{{ if .Title }}{{ .Title }}{{ else }}Анонимно{{ end }}</h1>
+    {{ with .Date }}<time class="review-date" datetime="{{ .Format "2006-01-02" }}">{{ .Format "02.01.2006" }}</time>{{ end }}
+  </header>
+
+  <section class="review-single-media">
+    {{ with .Params.photo }}
+      <figure class="review-cover">
+        <img src="{{ . }}" alt="Фото пациента" loading="lazy" />
+      </figure>
+    {{ else }}
+      {{ with .Params.avatar }}
+        <figure class="review-cover is-avatar">
+          <img src="{{ . }}" alt="Фото пациента" loading="lazy" />
+        </figure>
+      {{ end }}
+    {{ end }}
+  </section>
+
+  <section class="review-single-content">
+    {{ .Content }}
+  </section>
+
+  {{ with .Params.images }}
+    <section class="review-gallery">
+      {{ range . }}
+        <figure class="gallery-item"><img src="{{ . }}" alt="Фото к отзыву" loading="lazy" /></figure>
+      {{ end }}
+    </section>
+  {{ end }}
+</article>
+{{ end }}
+

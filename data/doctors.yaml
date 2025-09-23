@@ -1,0 +1,44 @@
+title: "Специалисты"
+categories:
+  - key: leaders
+    title: "Руководители"
+    members:
+      - name: "Мирзоев Умедджон Нурмахмадович"
+        role: "Консультант высшей категории, руководитель стационара реабилитации"
+        photo: "/images/photo-med/umeddjon2.png"
+        slug: "/doctors/umeddjon-mirzoev/"
+        badge: "Руководитель стационара"
+      - name: "Макаров Никита Александрович"
+        role: "Руководитель программы ресоциализации"
+        photo: "/images/photo-med/makarov.png"
+        slug: "/doctors/nikita-makarov/"
+        badge: "Руководитель программы"
+
+  - key: doctors
+    title: "Врачи"
+    members:
+      - name: "Коышникова Ксения"
+        role: "Психолог, арт-терапевт"
+        photo: "/images/photo-med/koyshnikova.png"
+        slug: "/doctors/kseniya-koyshnikova/"
+      - name: "Коленкина Ксения"
+        role: "Психолог, руководитель проекта \"Здоровая семья\""
+        photo: "/images/photo-med/kolenkina.png"
+        slug: "/doctors/kseniya-kolenkina/"
+
+  - key: rehab
+    title: "Специалисты реабилитации"
+    members:
+      - name: "Виктор Николаевич"
+        role: "Специалист по реабилитации"
+        photo: "/images/photo-med/umeddjon2.png"
+        slug: "/doctors/viktor-nikolaevich/"
+
+  - key: massage
+    title: "Массажисты"
+    members:
+      - name: "Иванов Сергей Петрович"
+        role: "Массажист"
+        photo: "/images/photo-med/umeddjon.jpeg"
+        slug: "/doctors/sergey-ivanov/"
+

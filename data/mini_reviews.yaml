@@ -1,0 +1,47 @@
+topics:
+  - key: detox
+    title: Детокс
+    items:
+      - name: Анонимно
+        text: "Благодарю за быструю детоксикацию и поддержку."
+        link: "/reviews/detox-case-1/"
+        enabled: true
+      - name: Юлия К.
+        text: "Сняли ломку за сутки, дальше продолжила лечение."
+        link: "/reviews/detox-case-2/"
+        enabled: true
+      - name: Сергей Б.
+        text: "Очень человечный подход, всё по делу."
+        link: "/reviews/detox-case-3/"
+        enabled: true
+  - key: rehab
+    title: Реабилитация
+    items:
+      - name: Анонимно
+        text: "Прошёл курс, 6 месяцев ремиссии, спасибо наставнику."
+        link: "/reviews/rehab-case-1/"
+        enabled: true
+      - name: Максим
+        text: "Группа и психолог – топ. Вернулся к работе."
+        link: "/reviews/rehab-case-2/"
+        enabled: true
+      - name: Ольга
+        text: "Сын в ремиссии, низкий поклон персоналу."
+        link: "/reviews/rehab-case-3/"
+        enabled: true
+  - key: family
+    title: Родственникам
+    items:
+      - name: Мама пациента
+        text: "Дали опору и план, перестали спасать неправильно."
+        link: "/reviews/family-case-1/"
+        enabled: true
+      - name: Жена пациента
+        text: "Созависимость разобрали по полочкам, стало легче."
+        link: "/reviews/family-case-2/"
+        enabled: true
+      - name: Папа пациента
+        text: "Без морализаторства, конкретная помощь семье."
+        link: "/reviews/family-case-3/"
+        enabled: true
+

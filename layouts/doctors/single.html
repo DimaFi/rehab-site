@@ -1,0 +1,35 @@
+{{ define "main" }}
+<div class="container doctor-page">
+    <nav class="breadcrumbs"><a href="/">Главная</a> <span class="sep">/</span> <a href="/doctors/">Специалисты</a> <span class="sep">/</span> <span>{{ .Title }}</span></nav>
+
+    <div class="doctor-header">
+        <div class="doctor-photo">
+            {{ with .Params.photo }}
+            <img src="{{ . }}" alt="{{ $.Title }}">
+            {{ else }}
+            <div class="photo-placeholder">👨‍⚕️</div>
+            {{ end }}
+            {{ with .Params.badge }}
+            <span class="team-ribbon">{{ . }}</span>
+            {{ end }}
+        </div>
+        <div class="doctor-info">
+            <h1 class="doctor-name">{{ .Title }}</h1>
+            {{ with .Params.subtitle }}<div class="doctor-subtitle">{{ . }}</div>{{ end }}
+            {{ with .Params.address }}<div class="doctor-address">{{ . }}</div>{{ end }}
+            {{ with .Params.summary }}<p class="doctor-summary">{{ . }}</p>{{ end }}
+            <a href="#" class="doctor-cta">ЗАПИСАТЬСЯ НА ПРИЁМ</a>
+        </div>
+    </div>
+
+    <div class="doctor-content">
+        {{ if .Content }}
+        {{ .Content }}
+        {{ else }}
+        <p>Текст-заглушка: персональная страница специалиста будет дополнена позднее. Здесь будет размещена подробная информация о стаже, квалификациях, подходах и графике приёма.</p>
+        {{ end }}
+    </div>
+</div>
+{{ end }}
+
+

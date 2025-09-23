@@ -1,0 +1,48 @@
+{{ define "main" }}
+<div class="container">
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">{{ .Title }}</h1>
+            {{ with .Params.lead }}
+            <p class="hero-description">{{ . }}</p>
+            {{ end }}
+            <a href="#contact-social" class="cta-button">Бесплатная консультация</a>
+            <a href="tel:{{ .Site.Params.phone1 }}" class="consultation-box">
+                <div class="doctor-avatar">👨‍⚕️</div>
+                <div class="consultation-text">
+                    <strong>Позвоните нам:</strong><br/>{{ .Site.Params.phone1 }}
+                </div>
+            </a>
+        </div>
+        <aside class="promotions-sidebar">
+            <div class="promotions-title">Почему выбирают нас</div>
+            <div class="slider-container">
+                <div class="slider-wrapper">
+                    <div class="slide active">
+                        <div class="slide-image"><img src="/images/info/doctor.jpg" alt="Наркология"></div>
+                        <div class="slide-content">
+                            <span class="promotion-tag">24/7</span>
+                            <h3>Выезд нарколога круглосуточно</h3>
+                            <p>Оперативная помощь на дому в Москве и области.</p>
+                            <a href="/prices/" class="promotion-btn">Цены</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <button class="slider-btn" aria-label="prev">‹</button>
+                    <div class="slider-dots"><span class="dot active"></span></div>
+                    <button class="slider-btn" aria-label="next">›</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    {{ if .Content }}
+    <section class="services-pricing-section">
+        <div class="content">{{ .Content }}</div>
+    </section>
+    {{ end }}
+</div>
+{{ end }}
+
+

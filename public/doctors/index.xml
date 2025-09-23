@@ -7,5 +7,26 @@
     <generator>Hugo</generator>
     <language>ru-ru</language>
     <atom:link href="http://localhost:1313/doctors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Макаров Никита Александрович</title>
+      <link>http://localhost:1313/doctors/nikita-makarov/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/doctors/nikita-makarov/</guid>
+      <description>Опыт работы 5 лет. Руководит программами ресоциализации.</description>
+    </item>
+    <item>
+      <title>Мирзоев Умедджон Нурмахмадович</title>
+      <link>http://localhost:1313/doctors/umeddjon-mirzoev/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/doctors/umeddjon-mirzoev/</guid>
+      <description>Опыт работы в сфере реабилитации – 9 лет. Специализация: организация стационара, консультирование.</description>
+    </item>
+    <item>
+      <title>Терехов Василий Станиславович</title>
+      <link>http://localhost:1313/doctors/terekhov-vasilii-stanislavovich/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/doctors/terekhov-vasilii-stanislavovich/</guid>
+      <description>Руководитель отдела профилактики, координатор лечебных и реабилитационных программ. Опыт работы более 13 лет.</description>
+    </item>
   </channel>
 </rss>

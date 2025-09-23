@@ -1,0 +1,36 @@
+{{ define "main" }}
+<div class="container doctors-page">
+    <nav class="breadcrumbs"><a href="/">Главная</a> <span class="sep">/</span> <span>Специалисты</span></nav>
+    <h1 class="page-title">{{ .Title | default "Специалисты" }}</h1>
+
+    
+
+    {{ $data := .Site.Data.doctors }}
+    {{ if $data }}
+        {{ range $data.categories }}
+        <section class="team-section">
+            <h2 class="team-title">{{ .title }}</h2>
+            <div class="team-grid">
+                {{ range .members }}
+                <a class="team-card" href="{{ .slug | default "#" }}" aria-label="{{ .name }}">
+                    {{ with .badge }}
+                    <span class="team-ribbon">{{ . }}</span>
+                    {{ end }}
+                    <div class="team-photo">
+                        <img src="{{ .photo }}" alt="{{ .name }}" loading="lazy">
+                    </div>
+                    <div class="team-info">
+                        <div class="team-name">{{ .name }}</div>
+                        <div class="team-role">{{ .role }}</div>
+                    </div>
+                </a>
+                {{ end }}
+            </div>
+        </section>
+        {{ end }}
+    {{ else }}
+        <p>Данные о специалистах временно недоступны.</p>
+    {{ end }}
+</div>
+{{ end }}
+

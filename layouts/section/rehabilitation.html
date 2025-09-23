@@ -1,0 +1,47 @@
+{{ define "main" }}
+<div class="container">
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">{{ .Title }}</h1>
+            {{ with .Params.lead }}
+            <p class="hero-description">{{ . }}</p>
+            {{ end }}
+            <a href="#contact-social" class="cta-button">Начать реабилитацию</a>
+            <a href="tel:{{ .Site.Params.phone1 }}" class="consultation-box">
+                <div class="doctor-avatar">🏥</div>
+                <div class="consultation-text">
+                    <strong>Круглосуточная помощь:</strong><br/>{{ .Site.Params.phone1 }}
+                </div>
+            </a>
+        </div>
+        <aside class="promotions-sidebar">
+            <div class="promotions-title">Реабилитационный центр</div>
+            <div class="slider-container">
+                <div class="slider-wrapper">
+                    <div class="slide active">
+                        <div class="slide-image"><img src="/images/info/rehab.jpg" alt="Реабилитация"></div>
+                        <div class="slide-content">
+                            <h3>Эффективные программы</h3>
+                            <p>Индивидуальная и групповая терапия, социальная адаптация.</p>
+                            <a href="/reviews/" class="promotion-btn">Отзывы</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-nav">
+                    <button class="slider-btn" aria-label="prev">‹</button>
+                    <div class="slider-dots"><span class="dot active"></span></div>
+                    <button class="slider-btn" aria-label="next">›</button>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    {{ if .Content }}
+    <section class="services-pricing-section">
+        <div class="content">{{ .Content }}</div>
+    </section>
+    {{ end }}
+</div>
+{{ end }}
+
+

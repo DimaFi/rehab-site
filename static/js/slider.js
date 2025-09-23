@@ -91,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const iframe = document.getElementById('pdfViewer');
         const title = document.getElementById('pdfModalTitle');
         const fullPdfLink = document.getElementById('fullPdfLink');
+        if (!modal || !iframe || !title || !fullPdfLink) return;
         
         // Устанавливаем URL для iframe
         iframe.src = pdfUrl;
@@ -110,6 +111,7 @@ document.addEventListener('DOMContentLoaded', function() {
     window.closePDFModal = function() {
         const modal = document.getElementById('pdfModal');
         const iframe = document.getElementById('pdfViewer');
+        if (!modal || !iframe) return;
         
         // Скрываем модальное окно
         modal.style.display = 'none';
@@ -122,17 +124,20 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     
     // Закрытие модального окна по клику вне его
-    document.getElementById('pdfModal').addEventListener('click', function(e) {
-        if (e.target === this) {
-            closePDFModal();
-        }
-    });
+    const pdfModalEl = document.getElementById('pdfModal');
+    if (pdfModalEl) {
+        pdfModalEl.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePDFModal();
+            }
+        });
+    }
     
     // Закрытие модального окна по клавише Escape
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             const modal = document.getElementById('pdfModal');
-            if (modal.style.display === 'block') {
+            if (modal && modal.style.display === 'block') {
                 closePDFModal();
             }
         }
@@ -184,4 +189,154 @@ document.addEventListener('DOMContentLoaded', function() {
     // Делаем функции глобально доступными
     window.changeWhySlide = changeWhySlide;
     window.goToWhySlide = goToWhySlide;
+
+    // Слайдер специалистов (4 видимых, сдвиг по 1)
+
+    const specialistsMap = new WeakMap();
+    let specialistsDelegationBound = false;
+
+    function bindSpecialistsDelegation() {
+        if (specialistsDelegationBound) return;
+        specialistsDelegationBound = true;
+        document.addEventListener('click', (e) => {
+            const btn = e.target.closest('.specialists-prev, .specialists-next');
+            if (!btn) return;
+            const slider = btn.closest('.specialists-slider');
+            if (!slider) return;
+            const api = specialistsMap.get(slider);
+            if (!api) return;
+            e.preventDefault();
+            e.stopPropagation();
+            if (btn.classList.contains('specialists-prev')) api.prev();
+            else api.next();
+        });
+    }
+
+    function initSpecialistsSlider() {
+        const sliders = document.querySelectorAll('.specialists-slider');
+        if (!sliders.length) return;
+        bindSpecialistsDelegation();
+        sliders.forEach(setupSlider);
+    }
+
+    function setupSlider(slider) {
+        const viewport = slider.querySelector('.specialists-viewport');
+        const track = slider.querySelector('.specialists-track');
+        const prevBtn = slider.querySelector('.specialists-prev');
+        const nextBtn = slider.querySelector('.specialists-next');
+        const cards = Array.from(track.querySelectorAll('.specialist-card'));
+        if (cards.length === 0) return;
+
+        function getVisibleCount() {
+            const w = window.innerWidth;
+            if (w <= 480) return 1;
+            if (w <= 768) return 2;
+            return Number(slider.getAttribute('data-visible') || 4);
+        }
+        let visible = getVisibleCount();
+        let stepPx = 0; // точный шаг с учетом gap
+
+        // Клонируем для бесконечной прокрутки
+        let prependClones = cards.slice(-visible).map(n => n.cloneNode(true));
+        let appendClones = cards.slice(0, visible).map(n => n.cloneNode(true));
+        prependClones.forEach(n => track.insertBefore(n, track.firstChild));
+        appendClones.forEach(n => track.appendChild(n));
+
+        let allItems = Array.from(track.children);
+        let index = visible; // стартовая позиция — первый реальный элемент
+
+        function computeStepPx() {
+            const items = track.querySelectorAll('.specialist-card');
+            if (items.length <= 1) {
+                const rect = items[0]?.getBoundingClientRect();
+                return rect ? rect.width : 0;
+            }
+            const first = items[0].getBoundingClientRect();
+            const second = items[1].getBoundingClientRect();
+            const dx = Math.round(second.left - first.left);
+            return Math.abs(dx) || first.width; //fallback
+        }
+
+        function updateTransform(animate = true) {
+            if (!animate) track.style.transition = 'none';
+            else track.style.transition = 'transform .35s ease';
+            const offset = -index * stepPx;
+            track.style.transform = `translateX(${offset}px)`;
+        }
+
+        function onResize() {
+            const newVisible = getVisibleCount();
+            if (newVisible !== visible) {
+                // пересоздаем клоны при изменении видимых карточек
+                // удалить старые клоны
+                allItems.forEach((node, idx) => {
+                    // реальные узлы имеют класс specialist-card и присутствуют в исходном массиве cards
+                });
+                // восстановить трек в исходное состояние (оставить только реальные карточки)
+                track.innerHTML = '';
+                cards.forEach(n => track.appendChild(n));
+                visible = newVisible;
+                prependClones = cards.slice(-visible).map(n => n.cloneNode(true));
+                appendClones = cards.slice(0, visible).map(n => n.cloneNode(true));
+                prependClones.forEach(n => track.insertBefore(n, track.firstChild));
+                appendClones.forEach(n => track.appendChild(n));
+                allItems = Array.from(track.children);
+                index = visible;
+            }
+            stepPx = computeStepPx();
+            updateTransform(false);
+        }
+
+        function goNext() {
+            index += 1;
+            updateTransform(true);
+        }
+
+        function goPrev() {
+            index -= 1;
+            updateTransform(true);
+        }
+
+        track.addEventListener('transitionend', () => {
+            // Если ушли в правые клоны, мгновенно перекидываем к реальным
+            if (index >= allItems.length - visible) {
+                index = visible;
+                updateTransform(false);
+            }
+            // Если ушли в левые клоны, перекидываем в конец реальных
+            if (index < visible) {
+                index = allItems.length - visible * 2;
+                updateTransform(false);
+            }
+        });
+
+        // прямые обработчики (на случай отключения делегирования)
+        nextBtn && nextBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); goNext(); });
+        prevBtn && prevBtn.addEventListener('click', (e) => { e.preventDefault(); e.stopPropagation(); goPrev(); });
+
+        window.addEventListener('resize', () => {
+            // дождемся переназначения layout
+            requestAnimationFrame(onResize);
+        });
+        // первичный расчет после рендера
+        requestAnimationFrame(() => {
+            onResize();
+            updateTransform(false);
+        });
+
+        // сохранить API в карту
+        specialistsMap.set(slider, { next: goNext, prev: goPrev });
+    }
+    // Инициализируем после объявления всех вспомогательных сущностей
+    initSpecialistsSlider();
+
+    // Блокируем переход только для карточек-заглушек (href="#")
+    document.addEventListener('click', function(e) {
+        const card = e.target.closest('.team-card');
+        if (!card) return;
+        const href = card.getAttribute('href');
+        if (!href || href === '#') {
+            e.preventDefault();
+        }
+    });
 });

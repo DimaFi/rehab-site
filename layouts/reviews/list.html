@@ -1,14 +1,40 @@
 {{ define "main" }}
-<main>
-  <h1>Отзывы</h1>
-  {{ range .Pages }}
-    <section style="margin-bottom: 2rem;">
-      <h2>{{ .Title }}</h2>
-      {{ with .Params.image }}
-        <img src="{{ . | relURL }}" alt="Фото {{ $.Title }}" style="max-width: 200px;">
-      {{ end }}
-      <div>{{ .Content }}</div>
-    </section>
-  {{ end }}
-</main>
+<section class="reviews-page container" style="padding: 40px 0;">
+  <h1 class="section-title" style="margin-bottom: 20px;">Отзывы пациентов</h1>
+
+  {{/* Мини-отзывы (фиксированные 9 по темам) */}}
+  {{ partial "mini-reviews.html" . }}
+
+  <div class="reviews-list">
+    {{ $pages := .Pages.ByDate.Reverse }}
+    {{ range $pages }}
+      <article class="review-item">
+        <div class="review-head">
+          <div class="review-avatar">
+            {{ with .Params.avatar }}
+              <img src="{{ . }}" alt="Аватар" loading="lazy" />
+            {{ else }}
+              <div class="avatar-placeholder">👤</div>
+            {{ end }}
+          </div>
+          <div class="review-meta">
+            <h2 class="review-title">{{ if .Title }}{{ .Title }}{{ else }}Анонимно{{ end }}</h2>
+            {{ with .Date }}<time class="review-date" datetime="{{ .Format "2006-01-02" }}">{{ .Format "02.01.2006" }}</time>{{ end }}
+          </div>
+          {{ $hasDetail := or (.Params.detail) (.Params.has_detail) }}
+          {{ if $hasDetail }}
+            <a class="review-expand" href="{{ .RelPermalink }}" aria-label="Полная версия отзыва">+</a>
+          {{ end }}
+        </div>
+        <div class="review-text clamp-6">
+          {{ if .Summary }}
+            {{ .Summary | safeHTML }}
+          {{ else }}
+            {{ .Plain | truncate 600 }}
+          {{ end }}
+        </div>
+      </article>
+    {{ end }}
+  </div>
+</section>
 {{ end }}

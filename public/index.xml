@@ -30,6 +30,13 @@
       <description>&lt;h1 id=&#34;отзыв-иванова-ап&#34;&gt;Отзыв Иванова А.П.&lt;/h1&gt;&#xA;&lt;h2 id=&#34;история-лечения-алкогольной-зависимости&#34;&gt;История лечения алкогольной зависимости&lt;/h2&gt;&#xA;&lt;p&gt;Меня зовут Александр Петрович Иванов, мне 45 лет. Хочу поделиться своей историей выздоровления от алкогольной зависимости.&lt;/p&gt;&#xA;&lt;h3 id=&#34;как-все-началось&#34;&gt;Как все началось&lt;/h3&gt;&#xA;&lt;p&gt;Алкоголь вошел в мою жизнь постепенно. Сначала это были редкие встречи с друзьями, затем - регулярные посиделки по выходным. Со временем я стал пить все чаще и больше. Работа, семья, здоровье - все отходило на второй план.&lt;/p&gt;&#xA;&lt;h3 id=&#34;осознание-проблемы&#34;&gt;Осознание проблемы&lt;/h3&gt;&#xA;&lt;p&gt;Критический момент наступил, когда я потерял работу из-за прогулов. Жена была на грани развода, дети сторонились меня. Я понимал, что нужно что-то менять, но не знал, как.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Александр П.</title>
+      <link>http://localhost:1313/reviews/example-review/</link>
+      <pubDate>Sun, 15 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/reviews/example-review/</guid>
+      <description>&lt;p&gt;Короткая версия отзыва попадает в общий список. Полную версию можно открыть по «+» справа в карточке. Здесь будет полный текст отзыва — история лечения, фотографии до/после и благодарности персоналу центра.&lt;/p&gt;&#xA;&lt;p&gt;Полный текст может занимать несколько экранов. Вы можете редактировать, добавлять фото в список &lt;code&gt;images&lt;/code&gt; или убрать флаг &lt;code&gt;detail: true&lt;/code&gt;, чтобы отключить отдельную страницу.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Зависимости</title>
       <link>http://localhost:1313/pages/dependence/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -44,11 +51,32 @@
       <description>&lt;h1 id=&#34;контакты&#34;&gt;Контакты&lt;/h1&gt;&#xA;&lt;h2 id=&#34;центр-медицинской-и-психологической-помощи-здравница&#34;&gt;Центр медицинской и психологической помощи «Здравница»&lt;/h2&gt;&#xA;&lt;h3 id=&#34;телефоны-для-связи&#34;&gt;Телефоны для связи&lt;/h3&gt;&#xA;&lt;h4 id=&#34;бесплатный-номер&#34;&gt;Бесплатный номер&lt;/h4&gt;&#xA;&lt;p&gt;&lt;strong&gt;8 800 300 61 03&lt;/strong&gt; - работает 24/7&lt;/p&gt;&#xA;&lt;h4 id=&#34;московский-номер&#34;&gt;Московский номер&lt;/h4&gt;&#xA;&lt;p&gt;&lt;strong&gt;8 495 532 44 03&lt;/strong&gt; - работает 24/7&lt;/p&gt;&#xA;&lt;h4 id=&#34;whatsapp&#34;&gt;WhatsApp&lt;/h4&gt;&#xA;&lt;p&gt;&lt;strong&gt;+7 495 532 44 03&lt;/strong&gt; - для текстовых сообщений&lt;/p&gt;&#xA;&lt;h3 id=&#34;наши-отделения&#34;&gt;Наши отделения&lt;/h3&gt;&#xA;&lt;h4 id=&#34;медицинский-центр-москва&#34;&gt;Медицинский центр (Москва)&lt;/h4&gt;&#xA;&lt;p&gt;&lt;strong&gt;Адрес:&lt;/strong&gt; г. Москва, Кутузовский проспект - 36, пом. 1/1&#xA;&lt;strong&gt;Часы работы:&lt;/strong&gt; Ежедневно с 7:00 до 23:00&#xA;&lt;strong&gt;Услуги:&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Консультации врачей-наркологов&lt;/li&gt;&#xA;&lt;li&gt;Консультации психиатров&lt;/li&gt;&#xA;&lt;li&gt;Консультации психологов&lt;/li&gt;&#xA;&lt;li&gt;Диагностика зависимостей&lt;/li&gt;&#xA;&lt;li&gt;Амбулаторное лечение&lt;/li&gt;&#xA;&lt;li&gt;Капельницы и детоксикация&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h4 id=&#34;консультационный-центр-здравница-москва&#34;&gt;Консультационный центр «Здравница» (Москва)&lt;/h4&gt;&#xA;&lt;p&gt;&lt;strong&gt;Адрес:&lt;/strong&gt; г. Москва, Кутузовский проспект - 36, стр. 1, п. 1, пом. 101&#xA;&lt;strong&gt;Часы работы:&lt;/strong&gt; Ежедневно с 7:00 до 23:00&#xA;&lt;strong&gt;Услуги:&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Макаров Никита Александрович</title>
+      <link>http://localhost:1313/doctors/nikita-makarov/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/doctors/nikita-makarov/</guid>
+      <description>Опыт работы 5 лет. Руководит программами ресоциализации.</description>
+    </item>
+    <item>
+      <title>Мирзоев Умедджон Нурмахмадович</title>
+      <link>http://localhost:1313/doctors/umeddjon-mirzoev/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/doctors/umeddjon-mirzoev/</guid>
+      <description>Опыт работы в сфере реабилитации – 9 лет. Специализация: организация стационара, консультирование.</description>
+    </item>
+    <item>
       <title>Реабилитация наркомании</title>
       <link>http://localhost:1313/pages/rehabilitation/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/pages/rehabilitation/</guid>
       <description>&lt;p&gt;Пребывание в реабилитационном стационаре чаще всего имеет срок 6 месяцев и включает в себя 3 этапа – диагностический, коррекционный и стабилизационный.&lt;/p&gt;&#xA;&lt;p&gt;На первом этапе устраняется психологический дискомфорт и составляется индивидуальный план выздоровления.&lt;/p&gt;&#xA;&lt;p&gt;На втором этапе — глубокая проработка личности, групповая терапия, работа с консультантами.&lt;/p&gt;&#xA;&lt;p&gt;На стабилизационном этапе происходит закрепление навыков, наблюдение и разработка дальнейшего плана трезвой жизни.&lt;/p&gt;&#xA;&lt;h3 id=&#34;наши-преимущества&#34;&gt;Наши преимущества&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;✅ Гарантия анонимности 100%&lt;/li&gt;&#xA;&lt;li&gt;✅ Поддержка на каждом этапе&lt;/li&gt;&#xA;&lt;li&gt;✅ Наставники с опытом ремиссии более 5 лет&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>Терехов Василий Станиславович</title>
+      <link>http://localhost:1313/doctors/terekhov-vasilii-stanislavovich/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/doctors/terekhov-vasilii-stanislavovich/</guid>
+      <description>Руководитель отдела профилактики, координатор лечебных и реабилитационных программ. Опыт работы более 13 лет.</description>
     </item>
   </channel>
 </rss>
