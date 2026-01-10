@@ -269,7 +269,14 @@
                         <h3>Бесплатная консультация</h3>
                         <a class="phone-link secondary" href="tel:{{ .Site.Params.phone2 }}">{{ .Site.Params.phone2 }}</a>
                         <p>Консультация нарколога бесплатно</p>
-                        <p class="availability">Отвечаем за 2 минуты</p>
+                        <p class="availability">🚑 Экстренная помощь 24/7 - Отвечаем за 2 минуты</p>
+                        
+                        <div class="emergency-call">
+                            <h4>Вызвать скорую</h4>
+                            <a class="phone-link secondary" href="tel:{{ .Site.Params.phone1 }}">{{ .Site.Params.phone1 }}</a>
+                            <p>Экстренный вызов наркологической помощи</p>
+                            <p class="availability">🚑 Круглосуточная скорая помощь</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -395,28 +402,28 @@
         <h2 class="section-title">Отзывы наших пациентов</h2>
         
         <div class="reviews-filter">
-            <a class="filter-btn active" href="/reviews/">Все</a>
-            <button class="filter-btn">Алкоголизм</button>
-            <button class="filter-btn">Наркомания</button>
-            <button class="filter-btn">Реабилитация</button>
+            <a href="/reviews/" class="filter-btn active">Все</a>
+            <button class="filter-btn" data-filter="алкоголизм">Алкоголизм</button>
+            <button class="filter-btn" data-filter="наркомания">Наркомания</button>
+            <button class="filter-btn" data-filter="реабилитация">Реабилитация</button>
         </div>
         
         <div class="reviews-grid">
-            <div class="review-card">
+            <div class="review-card" data-category="алкоголизм">
                 <div class="review-rating">⭐⭐⭐⭐⭐ 5.0</div>
                 <h3>Иван Смирнов</h3>
                 <p>Очень благодарен центру за помощь. Профессиональный подход и внимательное отношение к пациенту. Результат превзошел все ожидания.</p>
                 <a href="#" class="read-more">Читать полностью</a>
             </div>
             
-            <div class="review-card">
+            <div class="review-card" data-category="наркомания">
                 <div class="review-rating">⭐⭐⭐⭐⭐ 5.0</div>
                 <h3>Мария Козлова</h3>
                 <p>Долго искала хороший центр для лечения близкого человека. Здесь нашли понимание и профессиональную помощь. Спасибо всему коллективу!</p>
                 <a href="#" class="read-more">Читать полностью</a>
             </div>
             
-            <div class="review-card">
+            <div class="review-card" data-category="реабилитация">
                 <div class="review-rating">⭐⭐⭐⭐⭐ 5.0</div>
                 <h3>Александр Петров</h3>
                 <p>Прошел полный курс реабилитации. Врачи настоящие профессионалы своего дела. Теперь живу полноценной жизнью.</p>
@@ -425,32 +432,8 @@
         </div>
         
         <div class="leave-review">
-            <button class="leave-review-btn">Оставить отзыв</button>
-        </div>
-    </div>
-</div>
-
-<!-- Контактная форма -->
-<div class="contact-form-section">
-    <div class="container">
-        <h2 class="section-title">Задайте вопрос - мы всегда на связи</h2>
-        
-        <div class="form-content">
-            <div class="contact-methods">
-                <div class="contact-method">
-                    <div class="method-icon">📞</div>
-                    <h3>Позвоните нам</h3>
-                    <div class="phone-links">
-                        <a href="tel:{{ .Site.Params.phone1 }}" class="phone-link primary">
-                            {{ .Site.Params.phone1 }} - Бесплатно
-                        </a>
-                        <a href="tel:{{ .Site.Params.phone2 }}" class="phone-link secondary">
-                            {{ .Site.Params.phone2 }} - Москва
-                        </a>
-                    </div>
-                    <p class="method-description">Круглосуточная горячая линия. Отвечаем за 2 минуты.</p>
-                </div>
-            </div>
+            <a href="/about/" class="leave-review-btn">Свяжитесь с нами - оставьте отзыв</a>
+            <p class="review-note">Напишите нам через социальные сети или по телефону - мы добавим ваш отзыв на сайт</p>
         </div>
     </div>
 </div>
@@ -574,4 +557,72 @@
 </div>
 
 {{ .Content }}
+
+<script>
+// Фильтрация отзывов
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const reviewCards = document.querySelectorAll('.review-card');
+    
+    if (!filterButtons.length || !reviewCards.length) return;
+    
+    filterButtons.forEach(function(button) {
+        // Пропускаем ссылки (кнопка "Все" теперь ссылка на /reviews/)
+        if (button.tagName === 'A') return;
+        
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Убираем active со всех кнопок (кроме ссылок)
+            filterButtons.forEach(function(btn) {
+                if (btn.tagName === 'BUTTON') {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Добавляем active к нажатой кнопке
+            this.classList.add('active');
+            
+            // Получаем значение фильтра
+            const filter = this.getAttribute('data-filter');
+            
+            // Фильтруем карточки отзывов
+            reviewCards.forEach(function(card) {
+                const category = card.getAttribute('data-category');
+                let shouldShow = false;
+                
+                if (filter === 'all') {
+                    shouldShow = true;
+                } else if (category && category.toLowerCase() === filter.toLowerCase()) {
+                    shouldShow = true;
+                }
+                
+                if (shouldShow) {
+                    // Показываем карточку
+                    if (card.style.display === 'none') {
+                        card.style.display = '';
+                        // Сбрасываем opacity и transform перед анимацией
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.8)';
+                    }
+                    // Используем requestAnimationFrame для плавной анимации
+                    requestAnimationFrame(function() {
+                        setTimeout(function() {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    });
+                } else {
+                    // Скрываем карточку с анимацией
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.8)';
+                    setTimeout(function() {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+});
+</script>
 {{ end }}

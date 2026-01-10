@@ -1,0 +1,57 @@
+{{ define "main" }}
+<div class="about-page">
+    <!-- Hero секция -->
+    <div class="about-hero">
+        <div class="container">
+            <h1 class="about-main-title">{{ .Title }}</h1>
+            {{ if .Params.description }}
+            <p class="about-subtitle">{{ .Params.description }}</p>
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- Статистика -->
+    <div class="about-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Лет опыта</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Пациентов ежегодно</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Медицинских центра</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Круглосуточная помощь</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="container about-content">
+        {{ .Content }}
+    </div>
+
+    <!-- CTA секция -->
+    <div class="about-cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Мы готовы помочь вам прямо сейчас!</h2>
+                <p>Позвоните по номеру <a href="tel:88003006103" class="cta-phone">8 800 300 61 03</a> или напишите в мессенджер - первая консультация бесплатна и анонимна.</p>
+                <div class="cta-buttons">
+                    <a href="tel:88003006103" class="cta-btn-primary">Позвонить сейчас</a>
+                    <a href="#contact-social" class="cta-btn-secondary">Написать в мессенджер</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
+

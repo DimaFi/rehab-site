@@ -1,0 +1,62 @@
+{{ define "main" }}
+<div class="post-page">
+    <!-- Хлебные крошки -->
+    <nav class="breadcrumbs container">
+        <a href="/">Главная</a> <span class="sep">/</span>
+        <a href="/posts/">Статьи</a> <span class="sep">/</span>
+        <span>{{ .Title }}</span>
+    </nav>
+
+    <!-- Hero секция статьи -->
+    <div class="post-hero">
+        <div class="container">
+            <div class="post-meta">
+                {{ with .Date }}
+                <time class="post-date" datetime="{{ .Format "2006-01-02" }}">
+                    {{ .Format "02.01.2006" }}
+                </time>
+                {{ end }}
+                {{ with .Params.categories }}
+                <div class="post-categories">
+                    {{ range . }}
+                    <span class="category-tag">{{ . }}</span>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </div>
+            <h1 class="post-title">{{ .Title }}</h1>
+            {{ if .Params.description }}
+            <p class="post-description">{{ .Params.description }}</p>
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- Основной контент статьи -->
+    <div class="container">
+        <article class="post-content">
+            {{ .Content }}
+        </article>
+
+        <!-- Теги статьи -->
+        {{ with .Params.tags }}
+        <div class="post-tags">
+            <strong>Теги:</strong>
+            {{ range . }}
+            <a href="/tags/{{ . | urlize }}/" class="tag-link">{{ . }}</a>
+            {{ end }}
+        </div>
+        {{ end }}
+
+        <!-- CTA секция -->
+        <div class="post-cta">
+            <h2>Нужна помощь специалиста?</h2>
+            <p>Запишитесь на консультацию к нашим психологам и психотерапевтам. Первая консультация бесплатна и анонимна.</p>
+            <div class="cta-buttons">
+                <a href="tel:88003006103" class="cta-btn-primary">Позвонить: 8 800 300 61 03</a>
+                <a href="tel:84955324403" class="cta-btn-secondary">Позвонить: 8 495 532 44 03</a>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
+

@@ -11,8 +11,8 @@
       <article class="review-item">
         <div class="review-head">
           <div class="review-avatar">
-            {{ with .Params.avatar }}
-              <img src="{{ . }}" alt="Аватар" loading="lazy" />
+            {{ if .Params.avatar }}
+              <img src="{{ .Params.avatar }}" alt="Аватар" loading="lazy" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<div class=\\'avatar-placeholder\\'>👤</div>';" />
             {{ else }}
               <div class="avatar-placeholder">👤</div>
             {{ end }}

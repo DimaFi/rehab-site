@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-	<meta name="generator" content="Hugo 0.135.0"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+	<meta name="generator" content="Hugo 0.148.1"><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Центр медицинской и психологической помощи «Здравница» - Центр медицинской и психологической помощи «Здравница»</title>
@@ -23,8 +23,8 @@
             </div>
             <div class="top-bar-right">
                 <div class="phone-numbers">
-                    <span>8 800 300 61 03</span>
-                    <span>8 495 532 44 03</span>
+                    <span>8 800 300 61 03 <span class="emergency-note">🚑 Круглосуточно</span></span>
+                    <span>8 495 532 44 03 <span class="emergency-note">🚑 Экстренная помощь</span></span>
                 </div>
                 <a class="order-call-btn" href="#contact-social">Заказать звонок</a>
             </div>
@@ -36,7 +36,7 @@
         <div class="container">
             <a href="/" class="logo">
                     <div class="logo-circle">
-                        <img src="/images/info/logo2.png" alt="Здравница" />
+                        <img src="/images/info/logo3-2.png" alt="Здравница" />
                     </div>
                 <div class="logo-text">ПЕРВАЯ НАРКОЛОГИЧЕСКАЯ СЛУЖБА</div>
             </a>
@@ -58,7 +58,7 @@
                 
                 <li><a href="/about/" >О нас</a></li>
                 
-                <li><a href="/posts/" >СТАТЬИ</a></li>
+                <li><a href="/posts/" >Статьи</a></li>
                 
             </ul>
         </div>
@@ -337,7 +337,14 @@
                         <h3>Бесплатная консультация</h3>
                         <a class="phone-link secondary" href="tel:8%20495%20532%2044%2003">8 495 532 44 03</a>
                         <p>Консультация нарколога бесплатно</p>
-                        <p class="availability">Отвечаем за 2 минуты</p>
+                        <p class="availability">🚑 Экстренная помощь 24/7 - Отвечаем за 2 минуты</p>
+                        
+                        <div class="emergency-call">
+                            <h4>Вызвать скорую</h4>
+                            <a class="phone-link secondary" href="tel:8%20800%20300%2061%2003">8 800 300 61 03</a>
+                            <p>Экстренный вызов наркологической помощи</p>
+                            <p class="availability">🚑 Круглосуточная скорая помощь</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -463,28 +470,28 @@
         <h2 class="section-title">Отзывы наших пациентов</h2>
         
         <div class="reviews-filter">
-            <a class="filter-btn active" href="/reviews/">Все</a>
-            <button class="filter-btn">Алкоголизм</button>
-            <button class="filter-btn">Наркомания</button>
-            <button class="filter-btn">Реабилитация</button>
+            <a href="/reviews/" class="filter-btn active">Все</a>
+            <button class="filter-btn" data-filter="алкоголизм">Алкоголизм</button>
+            <button class="filter-btn" data-filter="наркомания">Наркомания</button>
+            <button class="filter-btn" data-filter="реабилитация">Реабилитация</button>
         </div>
         
         <div class="reviews-grid">
-            <div class="review-card">
+            <div class="review-card" data-category="алкоголизм">
                 <div class="review-rating">⭐⭐⭐⭐⭐ 5.0</div>
                 <h3>Иван Смирнов</h3>
                 <p>Очень благодарен центру за помощь. Профессиональный подход и внимательное отношение к пациенту. Результат превзошел все ожидания.</p>
                 <a href="#" class="read-more">Читать полностью</a>
             </div>
             
-            <div class="review-card">
+            <div class="review-card" data-category="наркомания">
                 <div class="review-rating">⭐⭐⭐⭐⭐ 5.0</div>
                 <h3>Мария Козлова</h3>
                 <p>Долго искала хороший центр для лечения близкого человека. Здесь нашли понимание и профессиональную помощь. Спасибо всему коллективу!</p>
                 <a href="#" class="read-more">Читать полностью</a>
             </div>
             
-            <div class="review-card">
+            <div class="review-card" data-category="реабилитация">
                 <div class="review-rating">⭐⭐⭐⭐⭐ 5.0</div>
                 <h3>Александр Петров</h3>
                 <p>Прошел полный курс реабилитации. Врачи настоящие профессионалы своего дела. Теперь живу полноценной жизнью.</p>
@@ -493,32 +500,8 @@
         </div>
         
         <div class="leave-review">
-            <button class="leave-review-btn">Оставить отзыв</button>
-        </div>
-    </div>
-</div>
-
-
-<div class="contact-form-section">
-    <div class="container">
-        <h2 class="section-title">Задайте вопрос - мы всегда на связи</h2>
-        
-        <div class="form-content">
-            <div class="contact-methods">
-                <div class="contact-method">
-                    <div class="method-icon">📞</div>
-                    <h3>Позвоните нам</h3>
-                    <div class="phone-links">
-                        <a href="tel:8%20800%20300%2061%2003" class="phone-link primary">
-                            8 800 300 61 03 - Бесплатно
-                        </a>
-                        <a href="tel:8%20495%20532%2044%2003" class="phone-link secondary">
-                            8 495 532 44 03 - Москва
-                        </a>
-                    </div>
-                    <p class="method-description">Круглосуточная горячая линия. Отвечаем за 2 минуты.</p>
-                </div>
-            </div>
+            <a href="/about/" class="leave-review-btn">Свяжитесь с нами - оставьте отзыв</a>
+            <p class="review-note">Напишите нам через социальные сети или по телефону - мы добавим ваш отзыв на сайт</p>
         </div>
     </div>
 </div>
@@ -648,120 +631,150 @@
 
 
 
+<script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const reviewCards = document.querySelectorAll('.review-card');
+    
+    if (!filterButtons.length || !reviewCards.length) return;
+    
+    filterButtons.forEach(function(button) {
+        
+        if (button.tagName === 'A') return;
+        
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            
+            filterButtons.forEach(function(btn) {
+                if (btn.tagName === 'BUTTON') {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            
+            this.classList.add('active');
+            
+            
+            const filter = this.getAttribute('data-filter');
+            
+            
+            reviewCards.forEach(function(card) {
+                const category = card.getAttribute('data-category');
+                let shouldShow = false;
+                
+                if (filter === 'all') {
+                    shouldShow = true;
+                } else if (category && category.toLowerCase() === filter.toLowerCase()) {
+                    shouldShow = true;
+                }
+                
+                if (shouldShow) {
+                    
+                    if (card.style.display === 'none') {
+                        card.style.display = '';
+                        
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.8)';
+                    }
+                    
+                    requestAnimationFrame(function() {
+                        setTimeout(function() {
+                            card.style.opacity = '1';
+                            card.style.transform = 'scale(1)';
+                        }, 10);
+                    });
+                } else {
+                    
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.8)';
+                    setTimeout(function() {
+                        card.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+});
+</script>
+
     </main>
 
     
-    <footer>
+<footer>
+    
+    <div class="footer-bottom">
         <div class="container">
-            
-            <div class="footer-main">
-                
-                <div class="footer-column">
-                    <h3>Контактная информация</h3>
-                    <div class="phone-numbers">
-                        <p>8 800 300 61 03</p>
-                        <p>8 495 532 44 03</p>
-                    </div>
-                    <div class="communication-links">
-                        <a href="#" class="whatsapp-link">
-                            <span class="whatsapp-icon">📱</span>
-                            WhatsApp
-                        </a>
-                        <a href="#" class="call-me-link">Позвоните мне</a>
-                    </div>
-                    
-                    <div class="center-locations">
-                        <div class="location-item">
-                            <span class="location-icon">🏥</span>
-                            <div class="location-info">
-                                <h4>Медицинский центр</h4>
-                                <p>г. Москва, Кутузовский проспект - 36, пом. 1/1</p>
-                                <p>Часы работы: Ежедневно с 7 до 23</p>
-                            </div>
-                        </div>
-                        
-                        <div class="location-item">
-                            <span class="location-icon">🏥</span>
-                            <div class="location-info">
-                                <h4>Консультационный центр «Здравница»</h4>
-                                <p>г. Москва, Кутузовский проспект - 36, стр. 1, п. 1, пом. 101</p>
-                                <p>Часы работы: Ежедневно с 7 до 23</p>
-                            </div>
-                        </div>
-                        
-                        <div class="location-item">
-                            <span class="location-icon">🏥</span>
-                            <div class="location-info">
-                                <h4>Реабилитационный центр «Здравница»</h4>
-                                <p>Волоколамск, автовокзал</p>
-                                <p>Часы работы: Круглосуточно</p>
-                            </div>
-                        </div>
-                    </div>
+            <div class="footer-bottom-content">
+                <div class="copyright">
+                    © 2018 - 2025 Все права защищены. ООО "Эвалюция" | ИНН: 1800041336
                 </div>
-                
-                
-                <div class="footer-column">
-                    <h3>Правовая информация</h3>
-                    <div class="legal-info">
-                        <p>Предложения на сайте носят информационный характер и не являются публичной офертой, определяемой положениями Статьи 437 (2) ГК РФ.</p>
-                        <p>Медицинские услуги предоставляются ООО "ЦМПП ЗДРАВНИЦА" ОГРН: 1237700702095</p>
-                        <p>ИНН: 7730312460 г. Москва, Кутузовский проспект 36, помещение 1/1 на основании лицензии на медицинскую деятельность №Л041-01137-77/01242550</p>
-                        <p>- Распоряжение Правительства РФ № 2406-р от 12.10.2019</p>
-                        <p>- Права и обязанности граждан в сфере охраны здоровья</p>
-                    </div>
+                <div class="footer-nav">
+                    <a href="/privacy">Политика конфиденциальности</a>
+                    <span class="nav-separator">|</span>
+                    <a href="/contacts">Контакты</a>
+                    <span class="nav-separator">|</span>
+                    <a href="/about">О нас</a>
+                    <span class="nav-separator">|</span>
+                    <a href="/doctors">Врачи</a>
+                    <span class="nav-separator">|</span>
+                    <a href="/prices">Цены</a>
+                    <span class="nav-separator">|</span>
+                    <a href="/promotions">Акции</a>
+                    <span class="nav-separator">|</span>
+                    <a href="/blog">Блог</a>
                 </div>
-                
-                
-                <div class="footer-column">
-                    <div class="license-section">
-                        <h3>Лицензия</h3>
-                        <div class="license-docs">
-                            <span class="doc-icon">📄</span>
-                            <span class="doc-icon">📄</span>
-                        </div>
-                        <p class="license-number">№Л041-01137-77/01242550</p>
-                        <p class="license-issued">от 13.06.2024 года выдана Департаментом здравоохранения города Москвы</p>
-                    </div>
-                    
-                    
+            </div>
+            <div class="footer-contacts">
+                <div class="footer-phones">
+                    <a href="tel:88003006103">8 800 300 61 03</a> <span class="emergency-footer">🚑 Круглосуточно</span>
+                    <span class="phone-separator">|</span>
+                    <a href="tel:84955324403">8 495 532 44 03</a> <span class="emergency-footer">🚑 Экстренная помощь</span>
+                </div>
+                <div class="footer-addresses">
+                    <span>Москва, Кутузовский пр-т, 36с1</span>
+                    <span class="address-separator">|</span>
+                    <span>Волоколамск, автовокзал</span>
                 </div>
             </div>
         </div>
-        
-        
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="footer-bottom-content">
-                    <div class="copyright">
-                        © 2018 - 2025 Все права защищены. ООО "ЦМПП Здравница"
-                    </div>
-                    <div class="footer-nav">
-                        <a href="/privacy">Политика конфиденциальности</a>
-                        <span class="nav-separator">|</span>
-                        <a href="/contacts">Контакты</a>
-                        <span class="nav-separator">|</span>
-                        <a href="/about">О нас</a>
-                        <span class="nav-separator">|</span>
-                        <a href="/doctors">Врачи</a>
-                        <span class="nav-separator">|</span>
-                        <a href="/prices">Цены</a>
-                        <span class="nav-separator">|</span>
-                        <a href="/promotions">Акции</a>
-                        <span class="nav-separator">|</span>
-                        <a href="/blog">Блог</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+    </div>
+</footer>
+
+
     
     
     <div class="floating-buttons">
-        <a href="#" class="floating-btn telegram-btn">📱</a>
-        <a href="#" class="floating-btn whatsapp-btn">📱</a>
-        <a href="#" class="floating-btn viber-btn">📱</a>
-        <a href="#" class="floating-btn scroll-top-btn">↑</a>
+        <a href="#" class="floating-btn scroll-top-btn" id="scrollTopBtn">↑</a>
     </div>
+    
+    <script>
+        
+        const scrollTopBtn = document.getElementById('scrollTopBtn');
+        if (scrollTopBtn) {
+            scrollTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    scrollTopBtn.classList.add('show');
+                } else {
+                    scrollTopBtn.classList.remove('show');
+                }
+            });
+            
+            
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            }
+        }
+    </script>
 </body>
 </html>

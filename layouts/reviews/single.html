@@ -12,16 +12,18 @@
   </header>
 
   <section class="review-single-media">
-    {{ with .Params.photo }}
+    {{ if .Params.photo }}
       <figure class="review-cover">
-        <img src="{{ . }}" alt="Фото пациента" loading="lazy" />
+        <img src="{{ .Params.photo }}" alt="Фото пациента" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'avatar-placeholder-large\\'>👤</div>';" />
+      </figure>
+    {{ else if .Params.avatar }}
+      <figure class="review-cover is-avatar">
+        <img src="{{ .Params.avatar }}" alt="Фото пациента" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\\'avatar-placeholder-large\\'>👤</div>';" />
       </figure>
     {{ else }}
-      {{ with .Params.avatar }}
-        <figure class="review-cover is-avatar">
-          <img src="{{ . }}" alt="Фото пациента" loading="lazy" />
-        </figure>
-      {{ end }}
+      <figure class="review-cover is-avatar">
+        <div class="avatar-placeholder-large">👤</div>
+      </figure>
     {{ end }}
   </section>
 
