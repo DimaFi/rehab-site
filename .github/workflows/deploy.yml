@@ -1,0 +1,124 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Позволяет запускать вручную из GitHub UI
+
+env:
+  HUGO_VERSION: '0.148.2'
+  NODE_VERSION: '20.x'
+
+jobs:
+  build-and-deploy:
+    name: Build Hugo site and deploy to VDS
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive  # Если используются подмодули для темы
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+
+      - name: Build CSS with PostCSS
+        run: |
+          npm run build 2>/dev/null || echo "No build script found, skipping CSS build"
+        continue-on-error: true
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: ${{ env.HUGO_VERSION }}
+          extended: true
+
+      - name: Build Hugo site
+        run: |
+          hugo --minify --gc
+
+      - name: Verify build output
+        run: |
+          if [ ! -f "public/index.html" ]; then
+            echo "Error: public/index.html not found!"
+            exit 1
+          fi
+          echo "Build successful! Files in public/:"
+          ls -lah public/ | head -20
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          
+          # Добавляем VDS в known_hosts
+          ssh-keyscan -H ${{ secrets.VDS_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
+          
+          # Проверяем подключение
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ${{ secrets.VDS_USER }}@${{ secrets.VDS_HOST }} "echo 'SSH connection successful'"
+
+      - name: Deploy to VDS via rsync
+        run: |
+          rsync -avz --delete \
+            --exclude '.git' \
+            --exclude 'node_modules' \
+            --exclude '.github' \
+            --exclude '*.md' \
+            --exclude 'archetypes' \
+            --exclude 'content' \
+            --exclude 'data' \
+            --exclude 'layouts' \
+            --exclude 'resources' \
+            --exclude 'static' \
+            --exclude 'themes' \
+            --exclude 'config.toml' \
+            --exclude 'hugo.toml' \
+            --exclude 'package.json' \
+            --exclude 'package-lock.json' \
+            --exclude 'hugo-bin' \
+            ./public/ \
+            ${{ secrets.VDS_USER }}@${{ secrets.VDS_HOST }}:${{ secrets.VDS_PATH }}/
+          
+          echo "Deployment completed successfully!"
+
+      - name: Set correct permissions on server
+        run: |
+          ssh -i ~/.ssh/id_rsa ${{ secrets.VDS_USER }}@${{ secrets.VDS_HOST }} \
+            "sudo chown -R ${{ secrets.VDS_USER }}:www-data ${{ secrets.VDS_PATH }} && \
+             sudo chmod -R 755 ${{ secrets.VDS_PATH }}"
+
+      - name: Verify deployment
+        run: |
+          DEPLOY_URL="https://${{ secrets.DOMAIN_NAME || 'rehab-center.ru' }}"
+          
+          echo "Waiting for deployment to be available..."
+          sleep 5
+          
+          # Проверяем доступность сайта
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 --location "${DEPLOY_URL}" || echo "000")
+          
+          if [ "$HTTP_CODE" = "200" ] || [ "$HTTP_CODE" = "301" ] || [ "$HTTP_CODE" = "302" ]; then
+            echo "✅ Deployment verified! Site is accessible (HTTP $HTTP_CODE)"
+          else
+            echo "⚠️ Warning: Site returned HTTP $HTTP_CODE"
+            echo "Deployment completed but verification failed. Please check manually."
+            exit 1
+          fi
+
+      - name: Cleanup SSH keys
+        if: always()
+        run: |
+          rm -f ~/.ssh/id_rsa
+          echo "SSH keys cleaned up"
+

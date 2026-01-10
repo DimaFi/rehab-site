@@ -1,0 +1,50 @@
+# Hugo
+/public/
+/resources/_gen/
+
+# Node.js
+node_modules/
+package-lock.json
+
+# Environment files
+.env
+.env.local
+.env.*.local
+deploy/.env
+
+# SSH Keys
+*.pem
+*.key
+id_rsa
+id_rsa.pub
+*.ppk
+.ssh/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Backup files
+*.bak
+*.backup
+*.old
+
+# Hugo specific
+hugo-bin/
+
