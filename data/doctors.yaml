@@ -3,6 +3,11 @@ categories:
   - key: leaders
     title: "Руководители"
     members:
+      - name: "Рыжих Дмитрий Игоревич"
+        role: "Руководитель реабилитационного отделения"
+        photo: "/images/photo-med/red_dmitry_igorevich.jpg"
+        slug: "/doctors/red-dmitry-igorevich/"
+        badge: "Руководитель"
       - name: "Мирзоев Умедджон Нурмахмадович"
         role: "Консультант высшей категории, руководитель стационара реабилитации"
         photo: "/images/photo-med/umeddjon2.png"
@@ -31,7 +36,7 @@ categories:
     members:
       - name: "Виктор Николаевич"
         role: "Специалист по реабилитации"
-        photo: "/images/photo-med/umeddjon2.png"
+        photo: ""
         slug: "/doctors/viktor-nikolaevich/"
 
   - key: massage
@@ -39,6 +44,6 @@ categories:
     members:
       - name: "Иванов Сергей Петрович"
         role: "Массажист"
-        photo: "/images/photo-med/umeddjon.jpeg"
+        photo: ""
         slug: "/doctors/sergey-ivanov/"
 

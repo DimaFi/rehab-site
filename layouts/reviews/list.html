@@ -5,10 +5,26 @@
   {{/* Мини-отзывы (фиксированные 9 по темам) */}}
   {{ partial "mini-reviews.html" . }}
 
+  {{/* Фильтр отзывов */}}
+  <div class="reviews-filter" style="margin: 30px 0; display: flex; gap: 10px; flex-wrap: wrap;">
+    <button class="filter-btn active" data-filter="all">Все</button>
+    <button class="filter-btn" data-filter="алкоголизм">Алкоголизм</button>
+    <button class="filter-btn" data-filter="наркомания">Наркомания</button>
+    <button class="filter-btn" data-filter="реабилитация">Реабилитация</button>
+    <button class="filter-btn" data-filter="детокс">Детокс</button>
+    <button class="filter-btn" data-filter="родственники">Родственникам</button>
+  </div>
+
   <div class="reviews-list">
     {{ $pages := .Pages.ByDate.Reverse }}
     {{ range $pages }}
-      <article class="review-item">
+      {{ $category := "алкоголизм" }}
+      {{ if in .Params.tags "наркомания" }}{{ $category = "наркомания" }}{{ end }}
+      {{ if in .Params.tags "реабилитация" }}{{ $category = "реабилитация" }}{{ end }}
+      {{ if in .Params.tags "детоксикация" }}{{ $category = "детокс" }}{{ end }}
+      {{ if in .Params.tags "родственники" }}{{ $category = "родственники" }}{{ end }}
+      {{ if .Params.category }}{{ $category = .Params.category }}{{ end }}
+      <article class="review-item" data-category="{{ $category }}">
         <div class="review-head">
           <div class="review-avatar">
             {{ if .Params.avatar }}
@@ -37,4 +53,63 @@
     {{ end }}
   </div>
 </section>
+
+<script>
+// Фильтрация отзывов на странице отзывов
+document.addEventListener('DOMContentLoaded', function() {
+    const filterButtons = document.querySelectorAll('.reviews-filter .filter-btn, .mini-filter .mini-btn');
+    const reviewItems = document.querySelectorAll('.review-item');
+    
+    if (!filterButtons.length || !reviewItems.length) return;
+    
+    filterButtons.forEach(function(button) {
+        if (button.tagName === 'A') return;
+        
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Убираем active со всех кнопок
+            filterButtons.forEach(function(btn) {
+                if (btn.tagName === 'BUTTON') {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Добавляем active к нажатой кнопке
+            this.classList.add('active');
+            
+            // Получаем значение фильтра
+            const filter = this.getAttribute('data-filter') || this.getAttribute('data-topic');
+            
+            // Фильтруем отзывы
+            reviewItems.forEach(function(item) {
+                const category = item.getAttribute('data-category');
+                let shouldShow = false;
+                
+                if (!filter || filter === 'all') {
+                    shouldShow = true;
+                } else if (category && category.toLowerCase() === filter.toLowerCase()) {
+                    shouldShow = true;
+                } else if (filter === 'детокс' && category === 'детокс') {
+                    shouldShow = true;
+                } else if (filter === 'реабилитация' && category === 'реабилитация') {
+                    shouldShow = true;
+                } else if (filter === 'родственники' && category === 'родственники') {
+                    shouldShow = true;
+                }
+                
+                if (shouldShow) {
+                    item.style.display = '';
+                    item.style.opacity = '1';
+                } else {
+                    item.style.opacity = '0';
+                    setTimeout(function() {
+                        item.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    });
+});
+</script>
 {{ end }}

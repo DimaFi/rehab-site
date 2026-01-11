@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Контакты - Центр медицинской и психологической помощи «Здравница» on Центр медицинской и психологической помощи «Здравница»</title>
+    <title>Контакты on Центр медицинской и психологической помощи</title>
     <link>http://localhost:1313/contacts/</link>
-    <description>Recent content in Контакты - Центр медицинской и психологической помощи «Здравница» on Центр медицинской и психологической помощи «Здравница»</description>
+    <description>Recent content in Контакты on Центр медицинской и психологической помощи</description>
     <generator>Hugo</generator>
     <language>ru-ru</language>
     <atom:link href="http://localhost:1313/contacts/index.xml" rel="self" type="application/rss+xml" />

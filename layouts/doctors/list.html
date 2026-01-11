@@ -11,14 +11,17 @@
         <section class="team-section">
             <h2 class="team-title">{{ .title }}</h2>
             <div class="team-grid">
+                {{ $categoryKey := .key }}
                 {{ range .members }}
                 <a class="team-card" href="{{ .slug | default "#" }}" aria-label="{{ .name }}">
                     {{ with .badge }}
                     <span class="team-ribbon">{{ . }}</span>
                     {{ end }}
+                    {{ if and (ne $categoryKey "rehab") (ne $categoryKey "massage") }}
                     <div class="team-photo">
                         <img src="{{ .photo }}" alt="{{ .name }}" loading="lazy">
                     </div>
+                    {{ end }}
                     <div class="team-info">
                         <div class="team-name">{{ .name }}</div>
                         <div class="team-role">{{ .role }}</div>

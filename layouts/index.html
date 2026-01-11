@@ -30,17 +30,17 @@
                 <div class="service-card-content">
                     <div class="service-item">
                         <span>Алкоголизм</span>
-                        <span class="price">от 3 000 ₽</span>
-                        <span class="arrow">→</span>
-                    </div>
-                    <div class="service-item">
-                        <span>Наркомания</span>
                         <span class="price">от 5 000 ₽</span>
                         <span class="arrow">→</span>
                     </div>
                     <div class="service-item">
+                        <span>Наркомания</span>
+                        <span class="price">от 6 000 ₽</span>
+                        <span class="arrow">→</span>
+                    </div>
+                    <div class="service-item">
                         <span>Кодирование</span>
-                        <span class="price">от 7 000 ₽</span>
+                        <span class="price">от 6 000 ₽</span>
                         <span class="arrow">→</span>
                     </div>
                 </div>
@@ -51,12 +51,12 @@
                 <div class="service-card-content">
                     <div class="service-item">
                         <span>Консультация</span>
-                        <span class="price">от 2 000 ₽</span>
+                        <span class="price">от 5 000 ₽</span>
                         <span class="arrow">→</span>
                     </div>
                     <div class="service-item">
                         <span>Лечение РПП</span>
-                        <span class="price">от 8 000 ₽</span>
+                        <span class="price">от 6 500 ₽</span>
                         <span class="arrow">→</span>
                     </div>
                 </div>
@@ -67,12 +67,12 @@
                 <div class="service-card-content">
                     <div class="service-item">
                         <span>Алкозависимых</span>
-                        <span class="price">от 25 000 ₽</span>
+                        <span class="price">от 8 000 ₽</span>
                         <span class="arrow">→</span>
                     </div>
                     <div class="service-item">
                         <span>Наркозависимых</span>
-                        <span class="price">от 30 000 ₽</span>
+                        <span class="price">от 8 000 ₽</span>
                         <span class="arrow">→</span>
                     </div>
                 </div>
@@ -83,12 +83,7 @@
                 <div class="service-card-content">
                     <div class="service-item">
                         <span>Консультация</span>
-                        <span class="price">от 1 500 ₽</span>
-                        <span class="arrow">→</span>
-                    </div>
-                    <div class="service-item">
-                        <span>Созависимость</span>
-                        <span class="price">от 2 500 ₽</span>
+                        <span class="price">от 4 500 ₽</span>
                         <span class="arrow">→</span>
                     </div>
                 </div>
@@ -100,11 +95,6 @@
                     <div class="service-item">
                         <span>Капельницы</span>
                         <span class="price">от 3 000 ₽</span>
-                        <span class="arrow">→</span>
-                    </div>
-                    <div class="service-item">
-                        <span>Медикаменты</span>
-                        <span class="price">от 1 500 ₽</span>
                         <span class="arrow">→</span>
                     </div>
                 </div>
@@ -290,7 +280,7 @@
         
         <div class="rehab-info">
             <h3>Реабилитационный центр</h3>
-            <p>Волоколамск, автовокзал</p>
+            <p>{{ .Site.Params.address }}</p>
         </div>
         
         <!-- Блок о клинике -->
@@ -299,7 +289,7 @@
                 <div class="clinic-info-item">
                     <div class="clinic-number">01</div>
                     <h4>Разнообразные специализации</h4>
-                    <p>Частный наркологический центр более 16 лет предоставляет профессиональные услуги в области наркологии, обеспечивая анонимное лечение зависимостей. Лицензированная клиника специализируется на комплексной помощи при наркомании, алкоголизме, игровой и компьютерной зависимостях. Программы лечения включают детоксикацию, психотерапию, мотивационную терапию и профилактику рецидивов, направленные на восстановление физического и психологического здоровья пациентов, а также их социальную адаптацию.</p>
+                    <p>Частный наркологический центр более 15 лет предоставляет профессиональные услуги в области наркологии, обеспечивая анонимное лечение зависимостей. Лицензированная клиника специализируется на комплексной помощи при наркомании, алкоголизме, игровой и компьютерной зависимостях. Программы лечения включают детоксикацию, психотерапию, мотивационную терапию и профилактику рецидивов, направленные на восстановление физического и психологического здоровья пациентов, а также их социальную адаптацию.</p>
                 </div>
                 
                 <div class="clinic-info-item">
@@ -327,68 +317,27 @@
             <button class="specialists-nav specialists-prev" type="button" aria-label="Предыдущие">❮</button>
             <div class="specialists-viewport">
                 <div class="specialists-track">
-            <div class="specialist-card">
-                <div class="specialist-avatar">
-                <img src="/images/photo-med/umeddjon2.png" alt="Фото специалиста">
-                </div>
-                <h3>Мирзоев Умедджон Нурмахмадович</h3>
-                <p class="specialization">Консультант высшей категории.<br> Руководитель стационара реабилитации.</p>
-                <p class="experience">Опыт работы в сфере реабилитации зависимых: 9 лет</p>
-            </div>
-            
-            <div class="specialist-card">
-                <div class="specialist-avatar">
-                    <img src="/images/photo-med/makarov.png" alt="Фото специалиста">
-                </div>
-                <h3>Макаров Никита Александрович</h3>
-                <p class="specialization">Консультант 1 категории.<br> Руководитель программы ресоциализации.</p>
-                <p class="experience">Опыт работы в сфере реабилитации зависимых: 5 лет</p>
-            </div>
-            
-            <div class="specialist-card">
-                <div class="specialist-avatar">
-                    <img src="/images/photo-med/kolenkina.png" alt="Фото специалиста">
-                </div>
-                <h3>Коленкина Ксения</h3>
-                <p class="specialization">Руководитель проекта для родственников и профилактики созависимости «Здоровая семья».</p>
-                <p class="experience">Стаж работы в сфере созависимости: 6 лет</p>
-            </div>
-            
-            <div class="specialist-card">
-                <div class="specialist-avatar">
-                    <img src="/images/photo-med/koyshnikova.png" alt="Фото специалиста">
-                </div>
-                <h3>Коышникова Ксения</h3>
-                <p class="specialization">Психолог, арт-терапевт.</p>
-                <p class="experience">Стаж работы в сфере реабилитации зависимых: 8 лет</p>
-            </div>
-
-            <div class="specialist-card">
-                <div class="specialist-avatar">
-                    <img src="/images/photo-med/koyshnikova.png" alt="Фото специалиста">
-                </div>
-                <h3>Коышникова Ксения 2</h3>
-                <p class="specialization">Психолог, арт-терапевт.</p>
-                <p class="experience">Стаж работы в сфере реабилитации зависимых: 8 лет</p>
-            </div>
-
-            <div class="specialist-card">
-                <div class="specialist-avatar">
-                    <img src="/images/photo-med/koyshnikova.png" alt="Фото специалиста">
-                </div>
-                <h3>Коышникова Ксения 3</h3>
-                <p class="specialization">Психолог, арт-терапевт.</p>
-                <p class="experience">Стаж работы в сфере реабилитации зависимых: 8 лет</p>
-            </div>
-
-            <div class="specialist-card">
-                <div class="specialist-avatar">
-                    <img src="/images/photo-med/koyshnikova.png" alt="Фото специалиста">
-                </div>
-                <h3>Коышникова Ксения 4</h3>
-                <p class="specialization">Психолог, арт-терапевт.</p>
-                <p class="experience">Стаж работы в сфере реабилитации зависимых: 8 лет</p>
-            </div>
+            {{ $data := .Site.Data.doctors }}
+            {{ if $data }}
+                {{ range $data.categories }}
+                    {{ range .members }}
+                    <a href="{{ .slug | default "#" }}" class="specialist-card" style="text-decoration: none; color: inherit;">
+                        <div class="specialist-avatar">
+                            {{ if and .photo (ne .photo "") }}
+                            <img src="{{ .photo }}" alt="{{ .name }}" loading="lazy">
+                            {{ else }}
+                            <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 48px; background: #f5f5f7;">👤</div>
+                            {{ end }}
+                        </div>
+                        <h3>{{ .name }}</h3>
+                        <p class="specialization">{{ .role }}</p>
+                        {{ with .badge }}
+                        <p class="experience">{{ . }}</p>
+                        {{ end }}
+                    </a>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
                 </div>
             </div>
             <button class="specialists-nav specialists-next" type="button" aria-label="Следующие">❯</button>
@@ -409,31 +358,106 @@
         </div>
         
         <div class="reviews-grid">
-            <div class="review-card" data-category="алкоголизм">
-                <div class="review-rating">⭐⭐⭐⭐⭐ 5.0</div>
-                <h3>Иван Смирнов</h3>
-                <p>Очень благодарен центру за помощь. Профессиональный подход и внимательное отношение к пациенту. Результат превзошел все ожидания.</p>
-                <a href="#" class="read-more">Читать полностью</a>
-            </div>
-            
-            <div class="review-card" data-category="наркомания">
-                <div class="review-rating">⭐⭐⭐⭐⭐ 5.0</div>
-                <h3>Мария Козлова</h3>
-                <p>Долго искала хороший центр для лечения близкого человека. Здесь нашли понимание и профессиональную помощь. Спасибо всему коллективу!</p>
-                <a href="#" class="read-more">Читать полностью</a>
-            </div>
-            
-            <div class="review-card" data-category="реабилитация">
-                <div class="review-rating">⭐⭐⭐⭐⭐ 5.0</div>
-                <h3>Александр Петров</h3>
-                <p>Прошел полный курс реабилитации. Врачи настоящие профессионалы своего дела. Теперь живу полноценной жизнью.</p>
-                <a href="#" class="read-more">Читать полностью</a>
-            </div>
+            {{ $reviews := where .Site.RegularPages "Section" "reviews" }}
+            {{ $alcoholReviews := where $reviews ".Params.category" "алкоголизм" }}
+            {{ $drugReviews := where $reviews ".Params.category" "наркомания" }}
+            {{ $rehabReviews := where $reviews ".Params.category" "реабилитация" }}
+            {{ $allReviews := union $alcoholReviews (union $drugReviews $rehabReviews) }}
+            {{ range $index, $review := $allReviews }}
+                {{ $category := $review.Params.category | default "алкоголизм" }}
+                <div class="review-card" data-category="{{ $category }}" {{ if ge $index 3 }}style="display: none;"{{ end }}>
+                    <div class="review-rating">
+                        {{ if $review.Params.rating }}
+                            {{ range (seq $review.Params.rating) }}⭐{{ end }} {{ $review.Params.rating }}.0
+                        {{ else }}
+                            ⭐⭐⭐⭐⭐ 5.0
+                        {{ end }}
+                    </div>
+                    <h3>{{ if $review.Title }}{{ $review.Title }}{{ else }}Анонимно{{ end }}</h3>
+                    <p>
+                        {{ if $review.Summary }}
+                            {{ $review.Summary | plainify | truncate 150 }}
+                        {{ else }}
+                            {{ $review.Plain | truncate 150 }}
+                        {{ end }}
+                    </p>
+                    {{ if or $review.Params.detail $review.Params.has_detail }}
+                    <a href="{{ $review.RelPermalink }}" class="read-more">Читать полностью</a>
+                    {{ end }}
+                </div>
+            {{ end }}
         </div>
         
         <div class="leave-review">
             <a href="/about/" class="leave-review-btn">Свяжитесь с нами - оставьте отзыв</a>
             <p class="review-note">Напишите нам через социальные сети или по телефону - мы добавим ваш отзыв на сайт</p>
+        </div>
+    </div>
+</div>
+
+<!-- Галерея фотографий центра -->
+<div class="gallery-section">
+    <div class="container">
+        <h2 class="section-title">Фотографии центра</h2>
+        
+        <div class="gallery-container">
+            <div class="gallery-slider" id="gallerySlider">
+                <button class="gallery-nav gallery-prev" type="button" aria-label="Предыдущее">❮</button>
+                <div class="gallery-viewport">
+                    <div class="gallery-track">
+                        <img src="/images/photo-hospital/1.jpg" alt="Фото центра" class="gallery-image" data-index="0">
+                        <img src="/images/photo-hospital/2.jpg" alt="Фото центра" class="gallery-image" data-index="1">
+                        <img src="/images/photo-hospital/3.jpg" alt="Фото центра" class="gallery-image" data-index="2">
+                        <img src="/images/photo-hospital/4.jpg" alt="Фото центра" class="gallery-image" data-index="3">
+                        <img src="/images/photo-hospital/5.jpg" alt="Фото центра" class="gallery-image" data-index="4">
+                        <img src="/images/photo-hospital/6.jpg" alt="Фото центра" class="gallery-image" data-index="5">
+                        <img src="/images/photo-hospital/7.jpeg" alt="Фото центра" class="gallery-image" data-index="6">
+                        <img src="/images/photo-hospital/8.jpeg" alt="Фото центра" class="gallery-image" data-index="7">
+                        <img src="/images/photo-hospital/9.jpeg" alt="Фото центра" class="gallery-image" data-index="8">
+                        <img src="/images/photo-hospital/10.jpeg" alt="Фото центра" class="gallery-image" data-index="9">
+                        <img src="/images/photo-hospital/11.jpeg" alt="Фото центра" class="gallery-image" data-index="10">
+                        <img src="/images/photo-hospital/12.jpeg" alt="Фото центра" class="gallery-image" data-index="11">
+                        <img src="/images/photo-hospital/13.jpeg" alt="Фото центра" class="gallery-image" data-index="12">
+                        <img src="/images/photo-hospital/14.jpeg" alt="Фото центра" class="gallery-image" data-index="13">
+                        <img src="/images/photo-hospital/15.jpeg" alt="Фото центра" class="gallery-image" data-index="14">
+                        <img src="/images/photo-hospital/16.jpeg" alt="Фото центра" class="gallery-image" data-index="15">
+                        <img src="/images/photo-hospital/17.jpeg" alt="Фото центра" class="gallery-image" data-index="16">
+                        <img src="/images/photo-hospital/18.jpeg" alt="Фото центра" class="gallery-image" data-index="17">
+                        <img src="/images/photo-hospital/19.jpeg" alt="Фото центра" class="gallery-image" data-index="18">
+                        <img src="/images/photo-hospital/20.jpeg" alt="Фото центра" class="gallery-image" data-index="19">
+                        <img src="/images/photo-hospital/21.jpeg" alt="Фото центра" class="gallery-image" data-index="20">
+                        <img src="/images/photo-hospital/22.jpeg" alt="Фото центра" class="gallery-image" data-index="21">
+                        <img src="/images/photo-hospital/23.jpeg" alt="Фото центра" class="gallery-image" data-index="22">
+                        <img src="/images/photo-hospital/24.jpeg" alt="Фото центра" class="gallery-image" data-index="23">
+                        <img src="/images/photo-hospital/25.jpeg" alt="Фото центра" class="gallery-image" data-index="24">
+                        <img src="/images/photo-hospital/26.jpeg" alt="Фото центра" class="gallery-image" data-index="25">
+                        <img src="/images/photo-hospital/27.jpeg" alt="Фото центра" class="gallery-image" data-index="26">
+                        <img src="/images/photo-hospital/28.jpeg" alt="Фото центра" class="gallery-image" data-index="27">
+                        <img src="/images/photo-hospital/29.jpeg" alt="Фото центра" class="gallery-image" data-index="28">
+                        <img src="/images/photo-hospital/30.jpeg" alt="Фото центра" class="gallery-image" data-index="29">
+                        <img src="/images/photo-hospital/31.jpeg" alt="Фото центра" class="gallery-image" data-index="30">
+                        <img src="/images/photo-hospital/32.jpeg" alt="Фото центра" class="gallery-image" data-index="31">
+                        <img src="/images/photo-hospital/33.jpeg" alt="Фото центра" class="gallery-image" data-index="32">
+                        <img src="/images/photo-hospital/34.jpeg" alt="Фото центра" class="gallery-image" data-index="33">
+                        <img src="/images/photo-hospital/35.jpeg" alt="Фото центра" class="gallery-image" data-index="34">
+                        <img src="/images/photo-hospital/36.jpeg" alt="Фото центра" class="gallery-image" data-index="35">
+                    </div>
+                </div>
+                <button class="gallery-nav gallery-next" type="button" aria-label="Следующее">❯</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно для полноэкранного просмотра -->
+<div id="galleryModal" class="gallery-modal">
+    <button class="gallery-modal-close" onclick="closeGalleryModal()">&times;</button>
+    <button class="gallery-modal-prev" onclick="prevGalleryImage()">❮</button>
+    <button class="gallery-modal-next" onclick="nextGalleryImage()">❯</button>
+    <div class="gallery-modal-content">
+        <img id="galleryModalImage" src="" alt="Фото центра">
+        <div class="gallery-modal-counter">
+            <span id="galleryModalCurrent">1</span> / <span id="galleryModalTotal">36</span>
         </div>
     </div>
 </div>
@@ -561,50 +585,45 @@
 <script>
 // Фильтрация отзывов
 document.addEventListener('DOMContentLoaded', function() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const reviewCards = document.querySelectorAll('.review-card');
+    const filterButtons = document.querySelectorAll('.reviews-filter .filter-btn');
+    const reviewCards = document.querySelectorAll('.reviews-grid .review-card');
     
     if (!filterButtons.length || !reviewCards.length) return;
     
-    filterButtons.forEach(function(button) {
-        // Пропускаем ссылки (кнопка "Все" теперь ссылка на /reviews/)
-        if (button.tagName === 'A') return;
+    // Функция для фильтрации отзывов
+    function filterReviews(filter) {
+        // Сначала скрываем все карточки
+        reviewCards.forEach(function(card) {
+            card.style.opacity = '0';
+            card.style.transform = 'scale(0.8)';
+            setTimeout(function() {
+                card.style.display = 'none';
+            }, 300);
+        });
         
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            // Убираем active со всех кнопок (кроме ссылок)
-            filterButtons.forEach(function(btn) {
-                if (btn.tagName === 'BUTTON') {
-                    btn.classList.remove('active');
-                }
-            });
-            
-            // Добавляем active к нажатой кнопке
-            this.classList.add('active');
-            
-            // Получаем значение фильтра
-            const filter = this.getAttribute('data-filter');
-            
-            // Фильтруем карточки отзывов
+        // Затем показываем нужные (максимум 3)
+        let visibleCount = 0;
+        const maxVisible = 3;
+        
+        setTimeout(function() {
             reviewCards.forEach(function(card) {
+                if (visibleCount >= maxVisible) return;
+                
                 const category = card.getAttribute('data-category');
                 let shouldShow = false;
                 
-                if (filter === 'all') {
+                if (!filter || filter === 'all') {
                     shouldShow = true;
                 } else if (category && category.toLowerCase() === filter.toLowerCase()) {
                     shouldShow = true;
                 }
                 
                 if (shouldShow) {
-                    // Показываем карточку
-                    if (card.style.display === 'none') {
-                        card.style.display = '';
-                        // Сбрасываем opacity и transform перед анимацией
-                        card.style.opacity = '0';
-                        card.style.transform = 'scale(0.8)';
-                    }
+                    visibleCount++;
+                    card.style.display = '';
+                    // Сбрасываем opacity и transform перед анимацией
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.8)';
                     // Используем requestAnimationFrame для плавной анимации
                     requestAnimationFrame(function() {
                         setTimeout(function() {
@@ -612,15 +631,44 @@ document.addEventListener('DOMContentLoaded', function() {
                             card.style.transform = 'scale(1)';
                         }, 10);
                     });
-                } else {
-                    // Скрываем карточку с анимацией
-                    card.style.opacity = '0';
-                    card.style.transform = 'scale(0.8)';
-                    setTimeout(function() {
-                        card.style.display = 'none';
-                    }, 300);
                 }
             });
+        }, 350);
+    }
+    
+    filterButtons.forEach(function(button) {
+        // Обработка ссылок (кнопка "Все")
+        if (button.tagName === 'A') {
+            // Ссылка уже ведет на /reviews/, ничего не делаем
+            return;
+        }
+        
+        // Обработка кнопок фильтрации
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Убираем active со всех кнопок
+            filterButtons.forEach(function(btn) {
+                if (btn.tagName === 'BUTTON') {
+                    btn.classList.remove('active');
+                }
+            });
+            
+            // Убираем active со ссылки "Все"
+            const allLink = document.querySelector('.reviews-filter .filter-btn[href="/reviews/"]');
+            if (allLink) {
+                allLink.classList.remove('active');
+            }
+            
+            // Добавляем active к нажатой кнопке
+            this.classList.add('active');
+            
+            // Получаем значение фильтра
+            const filter = this.getAttribute('data-filter');
+            
+            // Фильтруем отзывы
+            filterReviews(filter);
         });
     });
 });

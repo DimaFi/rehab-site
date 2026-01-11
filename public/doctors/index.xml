@@ -1,12 +1,40 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Врачи on Центр медицинской и психологической помощи «Здравница»</title>
+    <title>Врачи on Центр медицинской и психологической помощи</title>
     <link>http://localhost:1313/doctors/</link>
-    <description>Recent content in Врачи on Центр медицинской и психологической помощи «Здравница»</description>
+    <description>Recent content in Врачи on Центр медицинской и психологической помощи</description>
     <generator>Hugo</generator>
     <language>ru-ru</language>
     <atom:link href="http://localhost:1313/doctors/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Виктор Николаевич</title>
+      <link>http://localhost:1313/doctors/viktor-nikolaevich/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/doctors/viktor-nikolaevich/</guid>
+      <description>Опыт работы в сфере реабилитации зависимых.</description>
+    </item>
+    <item>
+      <title>Иванов Сергей Петрович</title>
+      <link>http://localhost:1313/doctors/sergey-ivanov/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/doctors/sergey-ivanov/</guid>
+      <description>Опыт работы в области лечебного массажа.</description>
+    </item>
+    <item>
+      <title>Коленкина Ксения</title>
+      <link>http://localhost:1313/doctors/kseniya-kolenkina/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/doctors/kseniya-kolenkina/</guid>
+      <description>Психолог, руководитель проекта для родственников и профилактики созависимости &amp;ldquo;Здоровая семья&amp;rdquo;.</description>
+    </item>
+    <item>
+      <title>Коышникова Ксения</title>
+      <link>http://localhost:1313/doctors/kseniya-koyshnikova/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/doctors/kseniya-koyshnikova/</guid>
+      <description>Психолог, арт-терапевт с опытом работы в сфере реабилитации зависимых.</description>
+    </item>
     <item>
       <title>Макаров Никита Александрович</title>
       <link>http://localhost:1313/doctors/nikita-makarov/</link>
@@ -20,6 +48,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/doctors/umeddjon-mirzoev/</guid>
       <description>Опыт работы в сфере реабилитации – 9 лет. Специализация: организация стационара, консультирование.</description>
+    </item>
+    <item>
+      <title>Рыжих Дмитрий Игоревич</title>
+      <link>http://localhost:1313/doctors/red-dmitry-igorevich/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/doctors/red-dmitry-igorevich/</guid>
+      <description>Опыт работы 10 лет. Руководит программами реабилитации.</description>
     </item>
     <item>
       <title>Терехов Василий Станиславович</title>

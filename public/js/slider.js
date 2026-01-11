@@ -339,4 +339,173 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
         }
     });
+    
+    // Инициализация галереи фотографий (с задержкой для загрузки изображений)
+    setTimeout(function() {
+        initGallerySlider();
+    }, 300);
+});
+
+// Галерея фотографий центра
+function initGallerySlider() {
+    const slider = document.getElementById('gallerySlider');
+    if (!slider) return;
+    
+    const track = slider.querySelector('.gallery-track');
+    const images = track.querySelectorAll('.gallery-image');
+    const prevBtn = slider.querySelector('.gallery-prev');
+    const nextBtn = slider.querySelector('.gallery-next');
+    
+    if (images.length === 0) return;
+    
+    let currentIndex = 0;
+    const visibleCount = window.innerWidth <= 768 ? 2 : 4;
+    
+    function updateSlider() {
+        if (images.length === 0) return;
+        const imageWidth = images[0].offsetWidth;
+        const gap = 20;
+        const maxIndex = Math.max(0, images.length - visibleCount);
+        currentIndex = Math.min(currentIndex, maxIndex);
+        const offset = -(currentIndex * (imageWidth + gap));
+        track.style.transform = `translateX(${offset}px)`;
+    }
+    
+    function nextSlide() {
+        const maxIndex = Math.max(0, images.length - visibleCount);
+        currentIndex = (currentIndex + 1) % (maxIndex + 1);
+        updateSlider();
+    }
+    
+    function prevSlide() {
+        const maxIndex = Math.max(0, images.length - visibleCount);
+        currentIndex = (currentIndex - 1 + (maxIndex + 1)) % (maxIndex + 1);
+        updateSlider();
+    }
+    
+    if (nextBtn) nextBtn.addEventListener('click', nextSlide);
+    if (prevBtn) prevBtn.addEventListener('click', prevSlide);
+    
+    // Обработчики клика на изображения для открытия в полноэкранном режиме
+    images.forEach((img, index) => {
+        img.addEventListener('click', function() {
+            window.openGalleryModal(index);
+        });
+    });
+    
+    // Обработка изменения размера окна
+    let resizeTimer;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(function() {
+            updateSlider();
+        }, 250);
+    });
+    
+    // Инициализация после загрузки изображений
+    const imagesLoaded = Array.from(images);
+    let loadedCount = 0;
+    imagesLoaded.forEach(function(img) {
+        if (img.complete) {
+            loadedCount++;
+        } else {
+            img.addEventListener('load', function() {
+                loadedCount++;
+                if (loadedCount === imagesLoaded.length) {
+                    updateSlider();
+                }
+            });
+        }
+    });
+    
+    if (loadedCount === imagesLoaded.length) {
+        // Все изображения уже загружены
+        setTimeout(updateSlider, 100);
+    } else {
+        // Ждем загрузки всех изображений
+        setTimeout(updateSlider, 500);
+    }
+}
+
+let currentGalleryIndex = 0;
+let galleryImagesList = [];
+
+// Глобальные функции для модального окна галереи
+window.openGalleryModal = function(index) {
+    const modal = document.getElementById('galleryModal');
+    const modalImage = document.getElementById('galleryModalImage');
+    const currentSpan = document.getElementById('galleryModalCurrent');
+    const totalSpan = document.getElementById('galleryModalTotal');
+    
+    if (!modal || !modalImage) return;
+    
+    // Инициализируем список изображений, если еще не сделано
+    if (galleryImagesList.length === 0) {
+        const images = document.querySelectorAll('.gallery-image');
+        galleryImagesList = Array.from(images).map(img => img.src);
+    }
+    
+    currentGalleryIndex = index;
+    modalImage.src = galleryImagesList[index];
+    if (currentSpan) currentSpan.textContent = index + 1;
+    if (totalSpan) totalSpan.textContent = galleryImagesList.length;
+    
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+};
+
+window.closeGalleryModal = function() {
+    const modal = document.getElementById('galleryModal');
+    if (!modal) return;
+    
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+};
+
+window.nextGalleryImage = function() {
+    if (galleryImagesList.length === 0) return;
+    currentGalleryIndex = (currentGalleryIndex + 1) % galleryImagesList.length;
+    const modalImage = document.getElementById('galleryModalImage');
+    const currentSpan = document.getElementById('galleryModalCurrent');
+    if (modalImage) modalImage.src = galleryImagesList[currentGalleryIndex];
+    if (currentSpan) currentSpan.textContent = currentGalleryIndex + 1;
+};
+
+window.prevGalleryImage = function() {
+    if (galleryImagesList.length === 0) return;
+    currentGalleryIndex = (currentGalleryIndex - 1 + galleryImagesList.length) % galleryImagesList.length;
+    const modalImage = document.getElementById('galleryModalImage');
+    const currentSpan = document.getElementById('galleryModalCurrent');
+    if (modalImage) modalImage.src = galleryImagesList[currentGalleryIndex];
+    if (currentSpan) currentSpan.textContent = currentGalleryIndex + 1;
+};
+
+// Закрытие модального окна по клику вне изображения и по клавишам
+document.addEventListener('DOMContentLoaded', function() {
+    // Инициализация массива изображений для модального окна
+    const images = document.querySelectorAll('.gallery-image');
+    galleryImagesList = Array.from(images).map(img => img.src);
+    
+    const modal = document.getElementById('galleryModal');
+    if (modal) {
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                window.closeGalleryModal();
+            }
+        });
+    }
+    
+    // Закрытие по клавише Escape и навигация по стрелкам
+    document.addEventListener('keydown', function(e) {
+        const modal = document.getElementById('galleryModal');
+        if (!modal || modal.style.display !== 'flex') return;
+        
+        if (e.key === 'Escape') {
+            window.closeGalleryModal();
+        } else if (e.key === 'ArrowLeft') {
+            window.prevGalleryImage();
+        } else if (e.key === 'ArrowRight') {
+            window.nextGalleryImage();
+        }
+    });
 });
