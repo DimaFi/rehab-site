@@ -204,20 +204,16 @@ server {
     }
 }
 
-# HTTPS конфигурация
+# HTTPS конфигурация (SSL будет добавлен certbot позже)
 server {
-    listen 443 ssl http2;
-    listen [::]:443 ssl http2;
+    listen 443 http2;
+    listen [::]:443 http2;
     server_name ${DOMAIN_NAME} www.${DOMAIN_NAME};
     
     root ${DEPLOY_PATH};
     index index.html index.htm;
     
-    # SSL сертификаты (будут установлены certbot)
-    # ssl_certificate /etc/letsencrypt/live/${DOMAIN_NAME}/fullchain.pem;
-    # ssl_certificate_key /etc/letsencrypt/live/${DOMAIN_NAME}/privkey.pem;
-    # include /etc/letsencrypt/options-ssl-nginx.conf;
-    # ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+    # SSL сертификаты будут установлены certbot автоматически
     
     # Логи
     access_log /var/log/nginx/${DOMAIN_NAME}-access.log;

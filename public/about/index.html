@@ -7,6 +7,7 @@
     <meta name="description" content="Центр медицинской и психологической помощи «Эволюция» - профессиональная помощь зависимым с более чем 15-летним опытом работы.">
     <link rel="stylesheet" href="/css/custom.css">
     <script src="/js/slider.js" defer></script>
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
     
@@ -121,6 +122,85 @@
 <p>Консультации, диагностика, амбулаторное лечение, психологическая помощь, семейные консультации, групповая терапия, стационарная реабилитация</p>
 </div>
 </div>
+
+<div class="map-section">
+    <div class="container">
+        <h2 class="section-title">Как нас найти</h2>
+        <div class="map-container">
+            <div class="yandex-map" data-map-id="map-1768154084-678358"></div>
+        </div>
+        <div class="map-address">
+            <p><strong>Адрес:</strong> Ижевск, ул. Азина, 150</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    
+    (function() {
+        
+        const center = [56.817567, 53.177166]; 
+        const address = 'Ижевск, ул. Азина, 150';
+        
+        function initYandexMaps() {
+            const mapContainers = document.querySelectorAll('.yandex-map:not([data-initialized])');
+            
+            if (mapContainers.length === 0) return;
+            
+            if (typeof ymaps !== 'undefined') {
+                ymaps.ready(function () {
+                    mapContainers.forEach(function(container, index) {
+                        const uniqueMapId = container.getAttribute('data-map-id') || 'map-' + Date.now() + '-' + index;
+                        container.id = uniqueMapId;
+                        container.setAttribute('data-initialized', 'true');
+                        
+                        const map = new ymaps.Map(uniqueMapId, {
+                            center: center,
+                            zoom: 16,
+                            controls: ['zoomControl', 'fullscreenControl']
+                        });
+
+                        
+                        const placemark = new ymaps.Placemark(center, {
+                            balloonContent: address,
+                            iconCaption: 'Медицинский центр'
+                        }, {
+                            preset: 'islands#blueMedicalIcon'
+                        });
+
+                        map.geoObjects.add(placemark);
+                        
+                        
+                        placemark.events.add('click', function () {
+                            placemark.balloon.open();
+                        });
+                    });
+                });
+            }
+        }
+        
+        
+        if (typeof ymaps !== 'undefined') {
+            initYandexMaps();
+        } else {
+            function checkAndInit() {
+                if (typeof ymaps !== 'undefined') {
+                    ymaps.ready(initYandexMaps);
+                } else {
+                    setTimeout(checkAndInit, 100);
+                }
+            }
+            
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', checkAndInit);
+            } else {
+                checkAndInit();
+            }
+        }
+    })();
+</script>
+
+
 <h2 id="контактная-информация">Контактная информация</h2>
 <div class="contact-section" id="contact-section">
 <h3 id="-телефоны">📞 Телефоны</h3>
@@ -192,7 +272,7 @@
         <div class="container">
             <div class="footer-bottom-content">
                 <div class="copyright">
-                    © 2018 - 2025 Все права защищены. ООО "Эвалюция" | ИНН: 1800041336
+                    © 2018 - 2026 Все права защищены. ООО "Эвалюция" | ИНН: 1800041336
                 </div>
                 <div class="footer-nav">
                     <a href="/privacy">Политика конфиденциальности</a>

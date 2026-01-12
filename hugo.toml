@@ -1,4 +1,4 @@
-baseURL = 'https://rehab-center.ru/'
+baseURL = 'https://narcologia-24.ru/'
 languageCode = 'ru-ru'
 title = 'Центр медицинской и психологической помощи'
 # theme = 'hugo-serif-theme'
