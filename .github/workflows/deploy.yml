@@ -83,23 +83,21 @@ jobs:
       # ⚠️ УБРАЛ шаг с sudo chown/chmod: в Actions он часто падает без NOPASSWD.
       # Права лучше настроить один раз на VPS вручную.
 
-      - name: Verify deployment (HTTPS -> HTTP fallback)
+      - name: Verify deployment (non-fatal)
         continue-on-error: true
         run: |
           DOMAIN="${DOMAIN_NAME:-narcologia-24.ru}"
-          HTTPS_URL="https://${DOMAIN}"
-          HTTP_URL="http://${DOMAIN}"
+          echo "Domain: $DOMAIN"
 
-          echo "Waiting for deployment to be available..."
-          sleep 5
+          echo "Try HTTPS..."
+          curl -I --max-time 15 -L "https://$DOMAIN" || true
 
-          CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 --location "$HTTPS_URL" || echo "000")
-          if [ "$CODE" = "000" ]; then
-            echo "HTTPS not ready, trying HTTP..."
-            CODE=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 --location "$HTTP_URL" || echo "000")
-          fi
+          echo "Try HTTP..."
+          curl -I --max-time 15 -L "http://$DOMAIN" || true
 
-          echo "Verification HTTP code: $CODE"
+          echo "Verification finished (non-fatal)"
+          true
+
 
 
 
