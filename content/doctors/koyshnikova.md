@@ -2,7 +2,7 @@
 title = "Коышникова Ксения"
 photo = "/images/photo-med/koyshnikova.png"
 subtitle = "Психолог, арт-терапевт"
-address = "Ижевск, ул. Азина, 150"
+address = "Ижевск, ул. Азина 150 к1"
 summary = "Психолог, арт-терапевт с опытом работы в сфере реабилитации зависимых."
 slug = "kseniya-koyshnikova"
 +++

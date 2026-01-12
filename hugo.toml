@@ -7,10 +7,15 @@ title = 'Центр медицинской и психологической п�
   description = "Центр медицинской и психологической помощи - лечение алкоголизма, наркомании, реабилитация зависимых"
   phone1 = "8 800 300 61 03"
   phone2 = "8 495 532 44 03"
-  address = "Ижевск, ул. Азина, 150"
+  address = "Ижевск, ул. Азина 150 к1"
   license = "Л041-01137-77/01242550"
   
 [menu]
+  [[menu.main]]
+    identifier = "zapoy"
+    name = "Вывод из запоя"
+    url = "/zapoy/"
+    weight = -1
   [[menu.main]]
     identifier = "narcology"
     name = "Наркология"
@@ -37,25 +42,34 @@ title = 'Центр медицинской и психологической п�
     url = "/therapy/"
     weight = 5
   [[menu.main]]
-    identifier = "doctors"
-    name = "Врачи"
-    url = "/doctors/"
+    identifier = "info"
+    name = "О нас"
+    url = "#"
     weight = 6
-  [[menu.main]]
-    identifier = "prices"
-    name = "Цены"
-    url = "/prices/"
-    weight = 7
   [[menu.main]]
     identifier = "about"
     name = "О нас"
     url = "/about/"
-    weight = 8
+    weight = 1
+    parent = "info"
+  [[menu.main]]
+    identifier = "prices"
+    name = "Цены"
+    url = "/prices/"
+    weight = 2
+    parent = "info"
+  [[menu.main]]
+    identifier = "doctors"
+    name = "Врачи"
+    url = "/doctors/"
+    weight = 3
+    parent = "info"
   [[menu.main]]
     identifier = "posts"
     name = "Статьи"
     url = "/posts/"
-    weight = 9
+    weight = 4
+    parent = "info"
 
 [markup]
   [markup.goldmark]

@@ -190,11 +190,111 @@ html { scroll-behavior: smooth; }
     border-bottom: 2px solid transparent;
     transition: border-color 0.3s;
     white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+}
+
+.nav-link-dropdown {
+    display: inline-flex;
+    align-items: center;
 }
 
 .nav-menu a:hover,
 .nav-menu a.active {
     border-bottom-color: #3498db;
+}
+
+/* Выпадающее меню */
+.nav-item-dropdown {
+    position: relative;
+}
+
+.nav-link-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.dropdown-arrow {
+    font-size: 10px;
+    transition: transform 0.3s;
+}
+
+.nav-item-dropdown.active .dropdown-arrow {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 6px;
+    list-style: none;
+    padding: 8px 0;
+    margin: 8px 0 0 0;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.nav-item-dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* На десктопе выпадающее меню открывается при наведении */
+@media (min-width: 769px) {
+    .nav-item-dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    border-bottom: none;
+    transition: background-color 0.2s;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu a.active {
+    background-color: #f8f9fa;
+    border-bottom: none;
+}
+
+/* Мобильный логотип в меню */
+.mobile-logo-item {
+    display: none;
+}
+
+.mobile-logo-link {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 2px solid #e9ecef;
+    margin-bottom: 10px;
+}
+
+.mobile-logo-link span {
+    font-weight: 600;
+    font-size: 16px;
 }
 
 /* Главная секция */
@@ -2290,6 +2390,46 @@ footer {
     .nav-menu a.active {
         background: rgba(52, 152, 219, 0.2);
         font-weight: 600;
+    }
+    
+    /* Мобильный логотип */
+    .mobile-logo-item {
+        display: block;
+    }
+    
+    /* Выпадающее меню на мобильных */
+    .nav-item-dropdown .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: rgba(0,0,0,0.2);
+        margin: 0;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+    
+    .nav-item-dropdown.active .dropdown-menu {
+        max-height: 500px;
+        padding: 10px 0;
+    }
+    
+    .nav-item-dropdown .dropdown-menu a {
+        padding-left: 50px;
+        font-size: 14px;
+        color: rgba(255,255,255,0.8);
+    }
+    
+    .nav-link-dropdown {
+        border-bottom: none;
+    }
+    
+    .nav-link-dropdown .dropdown-arrow {
+        margin-left: auto;
+        font-size: 12px;
     }
     
     /* Основной контент */

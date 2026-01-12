@@ -53,8 +53,40 @@
             </button>
             <div class="nav-menu-overlay" id="navMenuOverlay"></div>
             <ul class="nav-menu" id="navMenu">
+                <li class="mobile-logo-item">
+                    <a href="/" class="mobile-logo-link">
+                        <span>Главная</span>
+                    </a>
+                </li>
                 {{ range .Site.Menus.main }}
-                <li><a href="{{ .URL }}" {{ if eq .URL $.RelPermalink }}class="active"{{ end }}>{{ .Name }}</a></li>
+                    {{ if eq .Identifier "zapoy" }}
+                        <li><a href="{{ .URL }}" {{ if eq .URL $.RelPermalink }}class="active"{{ end }}>{{ .Name }}</a></li>
+                    {{ end }}
+                {{ end }}
+                {{ range .Site.Menus.main }}
+                    {{ if and (ne .Identifier "zapoy") (not .HasChildren) }}
+                        <li><a href="{{ .URL }}" {{ if eq .URL $.RelPermalink }}class="active"{{ end }}>{{ .Name }}</a></li>
+                    {{ end }}
+                {{ end }}
+                {{ range .Site.Menus.main }}
+                    {{ if and (ne .Identifier "zapoy") (.HasChildren) }}
+                        {{ $hasActiveChild := false }}
+                        {{ range .Children }}
+                            {{ if eq .URL $.RelPermalink }}
+                                {{ $hasActiveChild = true }}
+                            {{ end }}
+                        {{ end }}
+                        <li class="nav-item-dropdown">
+                            <a href="{{ .URL }}" class="nav-link-dropdown">
+                                {{ .Name }} <span class="dropdown-arrow">▼</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                {{ range .Children }}
+                                <li><a href="{{ .URL }}" {{ if eq .URL $.RelPermalink }}class="active"{{ end }}>{{ .Name }}</a></li>
+                                {{ end }}
+                            </ul>
+                        </li>
+                    {{ end }}
                 {{ end }}
             </ul>
         </div>
@@ -134,8 +166,8 @@
                 navMenuOverlay.addEventListener('click', closeMenu);
             }
             
-            // Закрытие меню при клике на ссылку
-            const navLinks = navMenu.querySelectorAll('a');
+            // Закрытие меню при клике на ссылку (кроме выпадающего меню)
+            const navLinks = navMenu.querySelectorAll('a:not(.nav-link-dropdown)');
             navLinks.forEach(link => {
                 link.addEventListener('click', closeMenu);
             });
@@ -149,6 +181,37 @@
                 }
             });
         }
+        
+        // Выпадающее меню
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownToggles = document.querySelectorAll('.nav-link-dropdown');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const dropdown = this.nextElementSibling;
+                    const isActive = this.parentElement.classList.contains('active');
+                    
+                    // Закрыть все другие выпадающие меню
+                    document.querySelectorAll('.nav-item-dropdown').forEach(item => {
+                        if (item !== this.parentElement) {
+                            item.classList.remove('active');
+                        }
+                    });
+                    
+                    // Переключить текущее меню
+                    this.parentElement.classList.toggle('active');
+                });
+            });
+            
+            // Закрытие при клике вне меню
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.nav-item-dropdown')) {
+                    document.querySelectorAll('.nav-item-dropdown').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                }
+            });
+        });
     </script>
 </body>
 </html>

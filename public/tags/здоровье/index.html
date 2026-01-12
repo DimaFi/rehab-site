@@ -15,7 +15,7 @@
         <div class="container">
             <div class="top-bar-left">
                 
-                <span class="address">Ижевск, ул. Азина, 150</span>
+                <span class="address">Ижевск, ул. Азина 150 к1</span>
                 
             </div>
             <div class="top-bar-center">
@@ -23,8 +23,14 @@
             </div>
             <div class="top-bar-right">
                 <div class="phone-numbers">
-                    <span>8 800 300 61 03 <span class="emergency-note">🚑 Круглосуточно</span></span>
-                    <span>8 495 532 44 03 <span class="emergency-note">🚑 Экстренная помощь</span></span>
+                    <span>
+                        <a href="tel:88003006103">8 800 300 61 03</a>
+                        <span class="emergency-note">🚑 Круглосуточно</span>
+                    </span>
+                    <span>
+                        <a href="tel:84955324403">8 495 532 44 03</a>
+                        <span class="emergency-note">🚑 Экстренная помощь</span>
+                    </span>
                 </div>
                 <a class="order-call-btn" href="#contact-social">Заказать звонок</a>
             </div>
@@ -45,25 +51,96 @@
                 <span></span>
                 <span></span>
             </button>
+            <div class="nav-menu-overlay" id="navMenuOverlay"></div>
             <ul class="nav-menu" id="navMenu">
+                <li class="mobile-logo-item">
+                    <a href="/" class="mobile-logo-link">
+                        <span>Главная</span>
+                    </a>
+                </li>
                 
-                <li><a href="/narcology/" >Наркология</a></li>
+                    
+                        <li><a href="/zapoy/" >Вывод из запоя</a></li>
+                    
                 
-                <li><a href="/psychiatry/" >Психиатрия</a></li>
+                    
                 
-                <li><a href="/rehabilitation/" >Реабилитация</a></li>
+                    
                 
-                <li><a href="/psychology/" >Психология</a></li>
+                    
                 
-                <li><a href="/therapy/" >Терапия</a></li>
+                    
                 
-                <li><a href="/doctors/" >Врачи</a></li>
+                    
                 
-                <li><a href="/prices/" >Цены</a></li>
+                    
                 
-                <li><a href="/about/" >О нас</a></li>
                 
-                <li><a href="/posts/" >Статьи</a></li>
+                    
+                
+                    
+                        <li><a href="/narcology/" >Наркология</a></li>
+                    
+                
+                    
+                        <li><a href="/psychiatry/" >Психиатрия</a></li>
+                    
+                
+                    
+                        <li><a href="/rehabilitation/" >Реабилитация</a></li>
+                    
+                
+                    
+                        <li><a href="/psychology/" >Психология</a></li>
+                    
+                
+                    
+                        <li><a href="/therapy/" >Терапия</a></li>
+                    
+                
+                    
+                
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+                    
+                        
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                            
+                        
+                        <li class="nav-item-dropdown">
+                            <a href="#" class="nav-link-dropdown">
+                                О нас <span class="dropdown-arrow">▼</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                
+                                <li><a href="/about/" >О нас</a></li>
+                                
+                                <li><a href="/prices/" >Цены</a></li>
+                                
+                                <li><a href="/doctors/" >Врачи</a></li>
+                                
+                                <li><a href="/posts/" >Статьи</a></li>
+                                
+                            </ul>
+                        </li>
+                    
                 
             </ul>
         </div>
@@ -130,12 +207,17 @@
             </div>
             <div class="footer-contacts">
                 <div class="footer-phones">
-                    <a href="tel:88003006103">8 800 300 61 03</a> <span class="emergency-footer">🚑 Круглосуточно</span>
-                    <span class="phone-separator">|</span>
-                    <a href="tel:84955324403">8 495 532 44 03</a> <span class="emergency-footer">🚑 Экстренная помощь</span>
+                    <span>
+                        <a href="tel:88003006103">8 800 300 61 03</a>
+                        <span class="emergency-footer">🚑 Круглосуточно</span>
+                    </span>
+                    <span>
+                        <a href="tel:84955324403">8 495 532 44 03</a>
+                        <span class="emergency-footer">🚑 Экстренная помощь</span>
+                    </span>
                 </div>
                 <div class="footer-addresses">
-                    <span>Ижевск, ул. Азина, 150</span>
+                    <span>Ижевск, ул. Азина 150 к1</span>
                 </div>
             </div>
         </div>
@@ -179,33 +261,84 @@
         
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
         const navMenu = document.getElementById('navMenu');
+        const navMenuOverlay = document.getElementById('navMenuOverlay');
+        
+        function toggleMenu() {
+            const isActive = navMenu.classList.contains('active');
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+            if (navMenuOverlay) {
+                navMenuOverlay.classList.toggle('active');
+            }
+            document.body.style.overflow = !isActive ? 'hidden' : 'auto';
+        }
+        
+        function closeMenu() {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            if (navMenuOverlay) {
+                navMenuOverlay.classList.remove('active');
+            }
+            document.body.style.overflow = 'auto';
+        }
         
         if (mobileMenuToggle && navMenu) {
-            mobileMenuToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('active');
-                mobileMenuToggle.classList.toggle('active');
-                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+            mobileMenuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleMenu();
             });
             
             
-            const navLinks = navMenu.querySelectorAll('a');
+            if (navMenuOverlay) {
+                navMenuOverlay.addEventListener('click', closeMenu);
+            }
+            
+            
+            const navLinks = navMenu.querySelectorAll('a:not(.nav-link-dropdown)');
             navLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    navMenu.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
-                    document.body.style.overflow = 'auto';
+                link.addEventListener('click', closeMenu);
+            });
+            
+            
+            document.addEventListener('click', function(e) {
+                if (navMenu.classList.contains('active') && 
+                    !navMenu.contains(e.target) && 
+                    !mobileMenuToggle.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+        }
+        
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownToggles = document.querySelectorAll('.nav-link-dropdown');
+            dropdownToggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const dropdown = this.nextElementSibling;
+                    const isActive = this.parentElement.classList.contains('active');
+                    
+                    
+                    document.querySelectorAll('.nav-item-dropdown').forEach(item => {
+                        if (item !== this.parentElement) {
+                            item.classList.remove('active');
+                        }
+                    });
+                    
+                    
+                    this.parentElement.classList.toggle('active');
                 });
             });
             
             
             document.addEventListener('click', function(e) {
-                if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
-                    navMenu.classList.remove('active');
-                    mobileMenuToggle.classList.remove('active');
-                    document.body.style.overflow = 'auto';
+                if (!e.target.closest('.nav-item-dropdown')) {
+                    document.querySelectorAll('.nav-item-dropdown').forEach(item => {
+                        item.classList.remove('active');
+                    });
                 }
             });
-        }
+        });
     </script>
 </body>
 </html>

@@ -1,0 +1,75 @@
+{{ define "main" }}
+<div class="post-page">
+    <!-- Хлебные крошки -->
+    <nav class="breadcrumbs container">
+        <a href="/">Главная</a> <span class="sep">/</span>
+        <span>{{ .Title }}</span>
+    </nav>
+
+    <!-- Hero секция -->
+    <div class="post-hero">
+        <div class="container">
+            <h1 class="post-title">{{ .Title }}</h1>
+            {{ if .Params.description }}
+            <p class="post-description">{{ .Params.description }}</p>
+            {{ end }}
+        </div>
+    </div>
+
+    <!-- Блок с ценами -->
+    <div class="container">
+        <div class="price-section">
+            <h2>Цены на вывод из запоя</h2>
+            <div class="price-row">
+                <span class="price-name">Вывод из запоя на дому (стандартная капельница)</span>
+                <span class="price-dots"></span>
+                <span class="price-value">5 200 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Вывод из запоя на дому (восстановительная капельница)</span>
+                <span class="price-dots"></span>
+                <span class="price-value">9 200 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Вывод из запоя на дому (комплексная капельница)</span>
+                <span class="price-dots"></span>
+                <span class="price-value">12 200 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Вывод из запоя в стационаре (стандарт)</span>
+                <span class="price-dots"></span>
+                <span class="price-value">5 200 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Вывод из запоя в стационаре (восстановительная)</span>
+                <span class="price-dots"></span>
+                <span class="price-value">7 200 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Вывод из запоя в стационаре (усиленная)</span>
+                <span class="price-dots"></span>
+                <span class="price-value">9 200 ₽</span>
+            </div>
+        </div>
+
+        <p class="price-note"><strong>Важно:</strong> Цены указаны в рублях и актуальны на текущий момент. Уточняйте актуальные цены по телефону {{ .Site.Params.phone2 }}.</p>
+    </div>
+
+    <!-- Основной контент -->
+    <div class="container">
+        <article class="post-content">
+            {{ .Content }}
+        </article>
+
+        <!-- CTA секция -->
+        <div class="post-cta">
+            <h2>Нужна помощь специалиста?</h2>
+            <p>Запишитесь на консультацию к нашим наркологам. Первая консультация бесплатна и анонимна.</p>
+            <div class="cta-buttons">
+                <a href="tel:{{ .Site.Params.phone1 }}" class="cta-btn-primary">Позвонить: {{ .Site.Params.phone1 }}</a>
+                <a href="tel:{{ .Site.Params.phone2 }}" class="cta-btn-secondary">Позвонить: {{ .Site.Params.phone2 }}</a>
+            </div>
+        </div>
+    </div>
+</div>
+{{ end }}
