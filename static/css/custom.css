@@ -2133,17 +2133,285 @@ footer {
     display: flex; /* Показывается при прокрутке */
 }
 
+/* Мобильное меню */
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 1001;
+    position: relative;
+}
+
+.mobile-menu-toggle span {
+    width: 28px;
+    height: 3px;
+    background-color: #333;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+    display: block;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(9px, 9px);
+    background-color: #fff;
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(8px, -8px);
+    background-color: #fff;
+}
+
 /* Адаптивность */
 @media (max-width: 768px) {
-    .work-grid { grid-template-columns: 1fr; gap: 20px; }
+    /* Верхняя панель */
+    .top-bar {
+        padding: 8px 0;
+        font-size: 10px;
+        background-color: #f8f9fa;
+    }
+    
+    .top-bar .container {
+        flex-direction: column;
+        gap: 10px;
+        align-items: stretch;
+    }
+    
+    .top-bar-left {
+        width: 100%;
+        text-align: center;
+        padding-bottom: 8px;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .top-bar-left .address {
+        font-size: 11px;
+        color: #555;
+    }
+    
+    .top-bar-center {
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+        font-size: 11px;
+        color: #666;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .top-bar-right {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+        padding-top: 8px;
+    }
+    
+    .phone-numbers {
+        flex-direction: column;
+        gap: 8px;
+        width: 100%;
+    }
+    
+    .phone-numbers span {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        padding: 10px;
+        background: #fff;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    
+    .phone-numbers span a {
+        font-size: 15px;
+        font-weight: 700;
+        color: #3498db;
+        text-decoration: none;
+        transition: color 0.2s ease;
+    }
+    
+    .phone-numbers span a:active {
+        color: #2980b9;
+    }
+    
+    .emergency-note {
+        font-size: 10px;
+        margin: 0;
+        padding: 2px 6px;
+        background: rgba(231, 76, 60, 0.1);
+        border-radius: 3px;
+        color: #e74c3c;
+    }
+    
+    .order-call-btn {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+        font-size: 14px;
+        font-weight: 600;
+        border-radius: 6px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .order-call-btn:active {
+        transform: scale(0.98);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    /* Навигация */
+    .main-nav {
+        position: relative;
+        padding: 10px 0;
+    }
+    
+    .main-nav .container {
+        position: relative;
+    }
+    
+    .logo-text {
+        font-size: 14px;
+    }
+    
+    .logo-circle {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    
+    /* Overlay для мобильного меню */
+    .nav-menu-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.5);
+        z-index: 999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    
+    .nav-menu-overlay.active {
+        display: block;
+        opacity: 1;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 85%;
+        max-width: 320px;
+        height: 100vh;
+        background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+        flex-direction: column;
+        gap: 0;
+        padding: 70px 0 20px;
+        box-shadow: 2px 0 20px rgba(0,0,0,0.3);
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1000;
+        overflow-y: auto;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-menu li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .nav-menu li:first-child {
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+    
+    .nav-menu a {
+        display: block;
+        padding: 18px 25px;
+        font-size: 16px;
+        font-weight: 500;
+        color: rgba(255,255,255,0.9);
+        border-bottom: none;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .nav-menu a::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: #3498db;
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .nav-menu a:hover,
+    .nav-menu a.active {
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+        padding-left: 30px;
+    }
+    
+    .nav-menu a:hover::before,
+    .nav-menu a.active::before {
+        transform: scaleY(1);
+    }
+    
+    .nav-menu a.active {
+        background: rgba(52, 152, 219, 0.2);
+        font-weight: 600;
+    }
+    
+    /* Основной контент */
+    .work-grid { 
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+    }
+    
     .hero-section {
         grid-template-columns: 1fr;
         gap: 20px;
+        padding: 30px 0;
+        min-height: auto;
     }
-    .specialist-card { flex-basis: calc((100% - 20px) / 2); }
+    
+    .specialist-card { 
+        flex-basis: calc((100% - 20px) / 2); 
+    }
     
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .service-card-header {
+        font-size: 14px;
+        padding: 12px;
+    }
+    
+    .service-item {
+        font-size: 12px;
+        padding: 6px 0;
     }
     
     .features-grid {
@@ -2156,10 +2424,12 @@ footer {
     
     .reviews-grid {
         grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .articles-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
     }
     
     .work-content {
@@ -2170,46 +2440,161 @@ footer {
         grid-template-columns: 1fr;
     }
     
-    .nav-menu {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .top-bar .container {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
     .hero-title {
-        font-size: 28px;
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    
+    .hero-description {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+    
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 14px;
+        width: 100%;
+    }
+    
+    .consultation-box {
+        max-width: 100%;
+        padding: 15px;
+        gap: 10px;
+    }
+    
+    .doctor-avatar {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+    }
+    
+    .consultation-text {
+        font-size: 12px;
     }
     
     .section-title {
-        font-size: 24px;
+        font-size: 22px;
+        margin-bottom: 30px;
     }
     
     /* Адаптивность футера */
+    /* Футер */
+    .footer-bottom {
+        padding: 25px 15px;
+    }
+    
     .footer-bottom-content {
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
         text-align: center;
+        margin-bottom: 20px;
+    }
+    
+    .copyright {
+        font-size: 11px;
+        line-height: 1.6;
+        color: #bdc3c7;
+        word-wrap: break-word;
     }
     
     .footer-nav {
-        flex-wrap: wrap;
-        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .footer-nav a {
+        font-size: 13px;
+        padding: 10px 20px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        display: block;
+        width: 100%;
+        max-width: 250px;
+        text-align: center;
+    }
+    
+    .footer-nav a:hover,
+    .footer-nav a:active {
+        background: rgba(255,255,255,0.2);
+        color: #fff;
+        transform: translateY(-2px);
+    }
+    
+    .nav-separator {
+        display: none;
     }
     
     .footer-contacts {
         text-align: center;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        margin-top: 20px;
     }
     
     .footer-phones {
-        justify-content: center;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 15px;
+        width: 100%;
+    }
+    
+    .footer-phones > span {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 4px;
+        width: 100%;
+    }
+    
+    .footer-phones a {
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        text-decoration: none;
+        padding: 12px 24px;
+        background: rgba(255,255,255,0.15);
+        border-radius: 8px;
+        display: inline-block;
+        transition: all 0.3s ease;
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+    
+    .footer-phones a:hover,
+    .footer-phones a:active {
+        background: rgba(255,255,255,0.25);
+        transform: scale(1.02);
+    }
+    
+    .emergency-footer {
+        display: block;
+        margin-top: 6px;
+        font-size: 10px;
+        color: #27ae60;
+    }
+    
+    .phone-separator {
+        display: none;
     }
     
     .footer-addresses {
         justify-content: center;
+        font-size: 11px;
+        color: #bdc3c7;
+        line-height: 1.6;
+        text-align: center;
+        padding: 0 10px;
+    }
+    
+    .footer-main .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        padding: 30px 15px;
     }
     
     .floating-buttons {
@@ -2221,6 +2606,121 @@ footer {
         width: 45px;
         height: 45px;
         font-size: 18px;
+    }
+    
+    /* Реабилитационный центр */
+    .rehab-center-section {
+        padding: 30px 0;
+    }
+    
+    .clinic-info-item {
+        max-width: 100%;
+        padding: 20px;
+    }
+    
+    .clinic-number {
+        font-size: 150px;
+        line-height: 120px;
+        top: -40px;
+    }
+    
+    /* Секция "Как мы работаем" */
+    .how-we-work-section {
+        padding: 40px 0;
+    }
+    
+    .work-card {
+        padding: 20px;
+        min-height: auto;
+    }
+    
+    .work-card h3 {
+        font-size: 18px;
+    }
+    
+    .phone-number {
+        font-size: 20px;
+    }
+    
+    /* Специалисты */
+    .specialists-section {
+        padding: 40px 0;
+    }
+    
+    .specialist-card {
+        padding: 15px;
+    }
+    
+    .specialist-avatar {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+    }
+    
+    .specialist-card h3 {
+        font-size: 16px;
+    }
+    
+    /* Отзывы */
+    .reviews-section {
+        padding: 40px 0;
+    }
+    
+    .reviews-filter {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+    
+    .filter-btn {
+        padding: 8px 16px;
+        font-size: 13px;
+    }
+    
+    .review-card {
+        padding: 20px;
+    }
+    
+    /* Галерея */
+    .gallery-section {
+        padding: 40px 0;
+    }
+    
+    .gallery-image {
+        flex: 0 0 calc((100% - 10px) / 2);
+        height: 180px;
+    }
+    
+    /* Документы */
+    .documents-section {
+        padding: 40px 0;
+    }
+    
+    .documents-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    /* Статьи */
+    .articles-section {
+        padding: 40px 0;
+    }
+    
+    .article-card h3 {
+        font-size: 14px;
+    }
+    
+    /* Контактная форма */
+    .contact-form-section {
+        padding: 40px 0;
+    }
+    
+    .contact-methods {
+        flex-direction: column;
+    }
+    
+    .contact-method {
+        padding: 20px;
     }
     
     /* Адаптивность слайдера */
@@ -2296,8 +2796,95 @@ footer {
 }
 
 @media (max-width: 480px) {
+    /* Верхняя панель */
+    .top-bar {
+        font-size: 10px;
+        padding: 6px 0;
+    }
+    
+    .top-bar .container {
+        gap: 8px;
+    }
+    
+    .top-bar-left {
+        padding-bottom: 6px;
+    }
+    
+    .top-bar-left .address {
+        font-size: 10px;
+    }
+    
+    .top-bar-center {
+        padding: 6px 0;
+        font-size: 10px;
+    }
+    
+    .top-bar-center span {
+        font-size: 10px;
+    }
+    
+    .top-bar-right {
+        gap: 8px;
+        padding-top: 6px;
+    }
+    
+    .phone-numbers {
+        gap: 6px;
+    }
+    
+    .phone-numbers span {
+        padding: 6px;
+    }
+    
+    .phone-numbers span a {
+        font-size: 13px;
+    }
+    
+    .emergency-note {
+        font-size: 9px;
+        padding: 2px 4px;
+    }
+    
+    .order-call-btn {
+        padding: 10px;
+        font-size: 13px;
+    }
+    
+    /* Навигация */
+    .logo-text {
+        font-size: 12px;
+    }
+    
+    .logo-circle {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .nav-menu {
+        width: 85%;
+    }
+    
+    /* Основной контент */
+    .hero-title {
+        font-size: 20px;
+    }
+    
+    .hero-description {
+        font-size: 13px;
+    }
+    
+    .section-title {
+        font-size: 20px;
+    }
+    
     .services-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
+    }
+    
+    .service-card-header {
+        font-size: 13px;
+        padding: 10px;
     }
     
     .features-grid {
@@ -2308,10 +2895,116 @@ footer {
         grid-template-columns: 1fr;
     }
     
+    .specialist-card { 
+        flex-basis: 100%; 
+    }
+    
     .articles-grid {
         grid-template-columns: 1fr;
+        gap: 12px;
     }
-    .specialist-card { flex-basis: 100%; }
+    
+    .article-card h3 {
+        font-size: 13px;
+        margin: 15px 15px 8px;
+    }
+    
+    .article-card p {
+        font-size: 12px;
+        margin: 0 15px 15px;
+    }
+    
+    /* Отзывы */
+    .reviews-filter {
+        gap: 8px;
+    }
+    
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .review-card {
+        padding: 15px;
+    }
+    
+    .review-card h3 {
+        font-size: 16px;
+    }
+    
+    .review-card p {
+        font-size: 13px;
+    }
+    
+    /* Галерея */
+    .gallery-image {
+        flex: 0 0 100%;
+        height: 200px;
+    }
+    
+    .gallery-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+    }
+    
+    /* Документы */
+    .document-preview {
+        height: 150px;
+    }
+    
+    .document-info {
+        padding: 15px;
+    }
+    
+    .document-info h3 {
+        font-size: 16px;
+    }
+    
+    /* Контакты */
+    .work-card {
+        padding: 15px;
+    }
+    
+    .phone-link {
+        font-size: 18px;
+        padding: 12px 16px;
+    }
+    
+    .social-link {
+        padding: 10px 12px;
+        font-size: 13px;
+    }
+    
+    /* Футер */
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .footer-nav {
+        flex-direction: column;
+        gap: 8px;
+        align-items: center;
+    }
+    
+    .nav-separator {
+        display: none;
+    }
+    
+    .footer-phones {
+        flex-direction: column;
+        gap: 5px;
+        align-items: center;
+    }
+    
+    .phone-separator {
+        display: none;
+    }
+    
+    .footer-addresses {
+        text-align: center;
+    }
     
     .documents-grid {
         grid-template-columns: 1fr;

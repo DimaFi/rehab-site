@@ -24,8 +24,14 @@
             </div>
             <div class="top-bar-right">
                 <div class="phone-numbers">
-                    <span>8 800 300 61 03 <span class="emergency-note">🚑 Круглосуточно</span></span>
-                    <span>8 495 532 44 03 <span class="emergency-note">🚑 Экстренная помощь</span></span>
+                    <span>
+                        <a href="tel:88003006103">8 800 300 61 03</a>
+                        <span class="emergency-note">🚑 Круглосуточно</span>
+                    </span>
+                    <span>
+                        <a href="tel:84955324403">8 495 532 44 03</a>
+                        <span class="emergency-note">🚑 Экстренная помощь</span>
+                    </span>
                 </div>
                 <a class="order-call-btn" href="#contact-social">Заказать звонок</a>
             </div>
@@ -41,7 +47,13 @@
                     </div>
                 <div class="logo-text">Наркологическая Клиника Эволюция</div>
             </a>
-            <ul class="nav-menu">
+            <button class="mobile-menu-toggle" aria-label="Меню" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu-overlay" id="navMenuOverlay"></div>
+            <ul class="nav-menu" id="navMenu">
                 
                 <li><a href="/narcology/" >Наркология</a></li>
                 
@@ -1115,7 +1127,7 @@
     <div class="container">
         <h2 class="section-title">Как нас найти</h2>
         <div class="map-container">
-            <div class="yandex-map" data-map-id="map-1768154084-07bdbe"></div>
+            <div class="yandex-map" data-map-id="map-1768178217-07bdbe"></div>
         </div>
         <div class="map-address">
             <p><strong>Адрес:</strong> Ижевск, ул. Азина, 150</p>
@@ -1448,9 +1460,14 @@ document.addEventListener('DOMContentLoaded', function() {
             </div>
             <div class="footer-contacts">
                 <div class="footer-phones">
-                    <a href="tel:88003006103">8 800 300 61 03</a> <span class="emergency-footer">🚑 Круглосуточно</span>
-                    <span class="phone-separator">|</span>
-                    <a href="tel:84955324403">8 495 532 44 03</a> <span class="emergency-footer">🚑 Экстренная помощь</span>
+                    <span>
+                        <a href="tel:88003006103">8 800 300 61 03</a>
+                        <span class="emergency-footer">🚑 Круглосуточно</span>
+                    </span>
+                    <span>
+                        <a href="tel:84955324403">8 495 532 44 03</a>
+                        <span class="emergency-footer">🚑 Экстренная помощь</span>
+                    </span>
                 </div>
                 <div class="footer-addresses">
                     <span>Ижевск, ул. Азина, 150</span>
@@ -1492,6 +1509,57 @@ document.addEventListener('DOMContentLoaded', function() {
             if (window.pageYOffset > 300) {
                 scrollTopBtn.classList.add('show');
             }
+        }
+        
+        
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navMenuOverlay = document.getElementById('navMenuOverlay');
+        
+        function toggleMenu() {
+            const isActive = navMenu.classList.contains('active');
+            navMenu.classList.toggle('active');
+            mobileMenuToggle.classList.toggle('active');
+            if (navMenuOverlay) {
+                navMenuOverlay.classList.toggle('active');
+            }
+            document.body.style.overflow = !isActive ? 'hidden' : 'auto';
+        }
+        
+        function closeMenu() {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            if (navMenuOverlay) {
+                navMenuOverlay.classList.remove('active');
+            }
+            document.body.style.overflow = 'auto';
+        }
+        
+        if (mobileMenuToggle && navMenu) {
+            mobileMenuToggle.addEventListener('click', function(e) {
+                e.stopPropagation();
+                toggleMenu();
+            });
+            
+            
+            if (navMenuOverlay) {
+                navMenuOverlay.addEventListener('click', closeMenu);
+            }
+            
+            
+            const navLinks = navMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+            
+            
+            document.addEventListener('click', function(e) {
+                if (navMenu.classList.contains('active') && 
+                    !navMenu.contains(e.target) && 
+                    !mobileMenuToggle.contains(e.target)) {
+                    closeMenu();
+                }
+            });
         }
     </script>
 </body>

@@ -40,7 +40,12 @@
                     </div>
                 <div class="logo-text">Наркологическая Клиника Эволюция</div>
             </a>
-            <ul class="nav-menu">
+            <button class="mobile-menu-toggle" aria-label="Меню" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
                 
                 <li><a href="/narcology/" >Наркология</a></li>
                 
@@ -261,6 +266,37 @@
             if (window.pageYOffset > 300) {
                 scrollTopBtn.classList.add('show');
             }
+        }
+        
+        
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (mobileMenuToggle && navMenu) {
+            mobileMenuToggle.addEventListener('click', function() {
+                navMenu.classList.toggle('active');
+                mobileMenuToggle.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : 'auto';
+            });
+            
+            
+            const navLinks = navMenu.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                });
+            });
+            
+            
+            document.addEventListener('click', function(e) {
+                if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
         }
     </script>
 </body>
