@@ -2171,99 +2171,9 @@ footer {
 
 /* Адаптивность */
 @media (max-width: 768px) {
-    /* Верхняя панель */
+    /* Верхняя панель - скрыта на мобильных */
     .top-bar {
-        padding: 8px 0;
-        font-size: 10px;
-        background-color: #f8f9fa;
-    }
-    
-    .top-bar .container {
-        flex-direction: column;
-        gap: 10px;
-        align-items: stretch;
-    }
-    
-    .top-bar-left {
-        width: 100%;
-        text-align: center;
-        padding-bottom: 8px;
-        border-bottom: 1px solid #e9ecef;
-    }
-    
-    .top-bar-left .address {
-        font-size: 11px;
-        color: #555;
-    }
-    
-    .top-bar-center {
-        width: 100%;
-        text-align: center;
-        padding: 8px 0;
-        font-size: 11px;
-        color: #666;
-        border-bottom: 1px solid #e9ecef;
-    }
-    
-    .top-bar-right {
-        width: 100%;
-        flex-direction: column;
-        gap: 10px;
-        padding-top: 8px;
-    }
-    
-    .phone-numbers {
-        flex-direction: column;
-        gap: 8px;
-        width: 100%;
-    }
-    
-    .phone-numbers span {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 4px;
-        padding: 10px;
-        background: #fff;
-        border-radius: 8px;
-        border: 1px solid #e9ecef;
-        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    
-    .phone-numbers span a {
-        font-size: 15px;
-        font-weight: 700;
-        color: #3498db;
-        text-decoration: none;
-        transition: color 0.2s ease;
-    }
-    
-    .phone-numbers span a:active {
-        color: #2980b9;
-    }
-    
-    .emergency-note {
-        font-size: 10px;
-        margin: 0;
-        padding: 2px 6px;
-        background: rgba(231, 76, 60, 0.1);
-        border-radius: 3px;
-        color: #e74c3c;
-    }
-    
-    .order-call-btn {
-        width: 100%;
-        text-align: center;
-        padding: 12px;
-        font-size: 14px;
-        font-weight: 600;
-        border-radius: 6px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-    
-    .order-call-btn:active {
-        transform: scale(0.98);
-        box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        display: none;
     }
     
     /* Навигация */
@@ -2796,59 +2706,7 @@ footer {
 }
 
 @media (max-width: 480px) {
-    /* Верхняя панель */
-    .top-bar {
-        font-size: 10px;
-        padding: 6px 0;
-    }
-    
-    .top-bar .container {
-        gap: 8px;
-    }
-    
-    .top-bar-left {
-        padding-bottom: 6px;
-    }
-    
-    .top-bar-left .address {
-        font-size: 10px;
-    }
-    
-    .top-bar-center {
-        padding: 6px 0;
-        font-size: 10px;
-    }
-    
-    .top-bar-center span {
-        font-size: 10px;
-    }
-    
-    .top-bar-right {
-        gap: 8px;
-        padding-top: 6px;
-    }
-    
-    .phone-numbers {
-        gap: 6px;
-    }
-    
-    .phone-numbers span {
-        padding: 6px;
-    }
-    
-    .phone-numbers span a {
-        font-size: 13px;
-    }
-    
-    .emergency-note {
-        font-size: 9px;
-        padding: 2px 4px;
-    }
-    
-    .order-call-btn {
-        padding: 10px;
-        font-size: 13px;
-    }
+    /* Верхняя панель уже скрыта через @media (max-width: 768px) */
     
     /* Навигация */
     .logo-text {
