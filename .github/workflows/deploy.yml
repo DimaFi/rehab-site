@@ -10,12 +10,11 @@ on:
 env:
   HUGO_VERSION: "0.148.2"
   NODE_VERSION: "20"
-  # Берём из secrets, но если не задан — будет дефолт
   DOMAIN_NAME: ${{ secrets.DOMAIN_NAME }}
 
 jobs:
   build-and-deploy:
-    name: Build Hugo site and deploy to VDS
+    name: Build Hugo site and deploy to hosting
     runs-on: ubuntu-latest
 
     steps:
@@ -39,7 +38,7 @@ jobs:
             npm install
           fi
 
-      - name: Build CSS (optional)
+      - name: Build CSS optional
         run: |
           npm run build 2>/dev/null || echo "No build script found, skipping CSS build"
         continue-on-error: true
@@ -60,50 +59,20 @@ jobs:
           echo "Build successful! Top files in public/:"
           ls -lah public/ | head -20
 
-      - name: Setup SSH key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H ${{ secrets.VDS_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
+      - name: Deploy public/ to hosting via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.HOST }}
+          username: ${{ secrets.USER }}
+          password: ${{ secrets.PASSWORD }}
+          protocol: ftp
+          local-dir: ./public/
+          server-dir: ${{ secrets.TARGET }}
 
-      - name: Verify SSH connection
-        run: |
-          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519 \
-            ${{ secrets.VDS_USER }}@${{ secrets.VDS_HOST }} "echo 'SSH connection successful'"
-
-      - name: Deploy public/ to VDS via rsync
-        run: |
-          rsync -avz --delete \
-            -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
-            ./public/ \
-            ${{ secrets.VDS_USER }}@${{ secrets.VDS_HOST }}:${{ secrets.VDS_PATH }}/
-
-          echo "Deployment completed successfully!"
-
-      # ⚠️ УБРАЛ шаг с sudo chown/chmod: в Actions он часто падает без NOPASSWD.
-      # Права лучше настроить один раз на VPS вручную.
-
-      - name: Verify deployment (non-fatal)
+      - name: Verify deployment non-fatal
         continue-on-error: true
         run: |
           DOMAIN="${DOMAIN_NAME:-narcologia-24.ru}"
           echo "Domain: $DOMAIN"
-
-          echo "Try HTTPS..."
           curl -I --max-time 15 -L "https://$DOMAIN" || true
-
-          echo "Try HTTP..."
-          curl -I --max-time 15 -L "http://$DOMAIN" || true
-
-          echo "Verification finished (non-fatal)"
-          true
-
-
-
-
-      - name: Cleanup SSH keys
-        if: always()
-        run: |
-          rm -f ~/.ssh/id_ed25519
-          echo "SSH keys cleaned up"
+          curl -I --max-time 15 -L "http://$DOMAIN" || trueы
