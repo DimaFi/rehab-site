@@ -603,15 +603,24 @@ html { scroll-behavior: smooth; }
     padding: 8px 0;
     border-bottom: 1px solid #f0f0f0;
     font-size: 14px;
+    gap: 10px;
 }
 
 .service-item:last-child {
     border-bottom: none;
 }
 
+.service-item > span:first-child {
+    flex: 1;
+    min-width: 0;
+}
+
 .price {
     color: #666;
     font-weight: 500;
+    white-space: nowrap;
+    text-align: right;
+    min-width: 90px;
 }
 
 .arrow {
@@ -1942,7 +1951,7 @@ html { scroll-behavior: smooth; }
 /* Герой: полноширинный фон, контент в контейнере */
 .hero-wrapper {
     width: 100%;
-    background-image: url('/images/back.jpg');
+    background-image: url('/images/back.webp');
     background-size: 100%; /* тянем фон на всю ширину экрана */
     background-position: top center;
     background-repeat: no-repeat;
@@ -3274,23 +3283,30 @@ footer {
 }
 
 /* === Pricing page === */
-.price-section { margin: 32px 0; }
+.price-section {
+  margin: 32px 0;
+  padding: 24px 22px 20px;
+  background: #fff;
+  border: 1px solid #e8edf2;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .04);
+}
 .price-section h2 { font-size: 22px; color: #2c3e50; margin-bottom: 14px; }
-.price-row { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 10px; padding: 8px 0; border-bottom: 1px dashed #eee; }
+.price-row { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 10px; padding: 12px 0; border-bottom: 1px dashed #e2e7ec; }
 .price-name { position: relative; padding-right: 10px; }
 .price-dots { display: none; }
-.price-value { font-weight: 600; color: #2c3e50; text-align: right; min-width: 110px; }
+.price-value { font-weight: 700; color: #17324d; text-align: right; min-width: 110px; white-space: nowrap; }
 .price-free { color: #e74c3c; }
 .badge-promo { display: inline-block; margin-left: 8px; padding: 2px 6px; font-size: 11px; font-weight: 700; color: #fff; background: #e74c3c; border-radius: 10px; vertical-align: middle; }
 
 /* Dotted leader effect for long names */
 .price-row { position: relative; }
-.price-name, .price-value { background: #f8f9fa; }
-.price-row { background: #f8f9fa; }
+.price-name, .price-value { background: transparent; }
+.price-row { background: transparent; }
 
 /* === Pricing page container and cards === */
 .price-page { padding: 10px 0 30px; }
-.price-page .price-section { background: #fff; border: 1px solid #eee; border-radius: 8px; padding: 16px 18px; margin: 18px 0; box-shadow: 0 2px 8px rgba(0,0,0,.03); }
+.price-page .price-section { margin: 18px 0; }
 .price-page .price-section h2 { margin: 0 0 10px 0; }
 .price-page .price-row { background: transparent; border-bottom: 1px dashed #e6e6e6; }
 .price-page .price-name, .price-page .price-value { background: transparent; }
@@ -3422,7 +3438,7 @@ footer {
   .price-section h2 { font-size: 18px; }
   .price-row { grid-template-columns: 1fr; gap: 4px; }
   .price-name:after { display: none; }
-  .price-value { text-align: left; }
+  .price-value { min-width: 0; text-align: left; }
 }
 
 /* ==============================

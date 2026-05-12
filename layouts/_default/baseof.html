@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Title }} - {{ .Site.Title }}</title>
     <meta name="description" content="{{ .Description | default .Site.Params.description }}">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="alternate icon" href="/favicon.ico">
     <link rel="stylesheet" href="/css/custom.css">
     <script src="/js/slider.js" defer></script>
     <script src="https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU" type="text/javascript"></script>
@@ -24,11 +26,11 @@
             <div class="top-bar-right">
                 <div class="phone-numbers">
                     <span>
-                        <a href="tel:88003006103">{{ .Site.Params.phone1 }}</a>
+                        <a href="tel:+79610060303">{{ .Site.Params.phone1 }}</a>
                         <span class="emergency-note">🚑 Круглосуточно</span>
                     </span>
                     <span>
-                        <a href="tel:84955324403">{{ .Site.Params.phone2 }}</a>
+                        <a href="tel:+79610060303">{{ .Site.Params.phone2 }}</a>
                         <span class="emergency-note">🚑 Экстренная помощь</span>
                     </span>
                 </div>

@@ -21,38 +21,39 @@
         <div class="price-section">
             <h2>Цены на психиатрические услуги</h2>
             <div class="price-row">
-                <span class="price-name">Первичная консультация психиатра <span class="badge-promo">АКЦИЯ</span></span>
-                <span class="price-dots"></span>
-                <span class="price-value price-free">Бесплатно</span>
-            </div>
-            <div class="price-row">
-                <span class="price-name">Консультация психиатра</span>
+                <span class="price-name">Амбулаторный прием врача психиатра, первичный</span>
                 <span class="price-dots"></span>
                 <span class="price-value">5 000 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Консультация психотерапевта</span>
+                <span class="price-name">Амбулаторный прием врача психиатра, повторный</span>
                 <span class="price-dots"></span>
-                <span class="price-value">6 000 ₽</span>
+                <span class="price-value">4 000 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Консультация психиатра высшей категории</span>
+                <span class="price-name">Стационарный прием врача психиатра, первичный</span>
                 <span class="price-dots"></span>
-                <span class="price-value">10 000 ₽</span>
+                <span class="price-value">4 000 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Консультация психиатра-нарколога семейная</span>
+                <span class="price-name">Стационарный прием врача психиатра, повторный</span>
                 <span class="price-dots"></span>
-                <span class="price-value">7 000 ₽</span>
+                <span class="price-value">3 000 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Стационарная помощь при ПРЛ (1 сутки)</span>
+                <span class="price-name">Контрольный прием врача</span>
                 <span class="price-dots"></span>
-                <span class="price-value">6 500 ₽</span>
+                <span class="price-value">1 500 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Индивидуальный подбор схемы лечения</span>
+                <span class="price-dots"></span>
+                <span class="price-value">5 000 ₽</span>
             </div>
         </div>
 
-        <p class="price-note"><strong>Важно:</strong> Цены указаны в рублях и актуальны на текущий момент. Уточняйте актуальные цены по телефону {{ .Site.Params.phone2 }}.</p>
+        <p class="price-note"><strong>Важно:</strong> цены указаны в рублях по прайс-листу за март 2026 года. Перед записью сверяйте актуальную стоимость по телефону {{ .Site.Params.phone2 }}.</p>
+        <p class="price-note"><a href="/prices/#narcology-psychiatry">Смотреть полный прайс по психиатрии</a></p>
     </div>
 
     <!-- Основной контент -->
@@ -64,14 +65,12 @@
         <!-- CTA секция -->
         <div class="post-cta">
             <h2>Нужна помощь специалиста?</h2>
-            <p>Запишитесь на консультацию к нашим психиатрам. Первая консультация бесплатна и анонимна.</p>
+            <p>Запишитесь на консультацию к нашим психиатрам. Стоимость и формат приема уточняйте по телефону.</p>
             <div class="cta-buttons">
-                <a href="tel:{{ .Site.Params.phone1 }}" class="cta-btn-primary">Позвонить: {{ .Site.Params.phone1 }}</a>
-                <a href="tel:{{ .Site.Params.phone2 }}" class="cta-btn-secondary">Позвонить: {{ .Site.Params.phone2 }}</a>
+                <a href="tel:+79610060303" class="cta-btn-primary">Позвонить: {{ .Site.Params.phone1 }}</a>
+                <a href="tel:+79610060303" class="cta-btn-secondary">Позвонить: {{ .Site.Params.phone2 }}</a>
             </div>
         </div>
     </div>
 </div>
 {{ end }}
-
-

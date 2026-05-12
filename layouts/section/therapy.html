@@ -21,38 +21,44 @@
         <div class="price-section">
             <h2>Цены на терапевтические услуги</h2>
             <div class="price-row">
-                <span class="price-name">Первичная консультация <span class="badge-promo">АКЦИЯ</span></span>
+                <span class="price-name">Непрерывное внутривенное введение лекарственных препаратов</span>
                 <span class="price-dots"></span>
-                <span class="price-value price-free">Бесплатно</span>
+                <span class="price-value">2 000 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Восстановительное лечение (капельница)</span>
+                <span class="price-name">Оздоровительная капельница «Антистресс»</span>
+                <span class="price-dots"></span>
+                <span class="price-value">2 900 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Оздоровительная капельница «IMMUNITY»</span>
                 <span class="price-dots"></span>
                 <span class="price-value">3 000 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Амбулаторная помощь при абстинентном состоянии (стандартная капельница)</span>
+                <span class="price-name">Оздоровительная капельница «Восстановление печени»</span>
                 <span class="price-dots"></span>
-                <span class="price-value">8 500 ₽</span>
+                <span class="price-value">4 900 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Амбулаторная помощь при абстинентном состоянии (восстановительная капельница)</span>
+                <span class="price-name">Оздоровительная капельница «Миланский коктейль»</span>
                 <span class="price-dots"></span>
-                <span class="price-value">12 500 ₽</span>
+                <span class="price-value">5 900 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Амбулаторная помощь при абстинентном состоянии (комплексная капельница)</span>
+                <span class="price-name">ВЛОК, внутривенное лазерное облучение крови</span>
                 <span class="price-dots"></span>
-                <span class="price-value">15 500 ₽</span>
+                <span class="price-value">2 500 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Стационарная помощь при абстинентном состоянии (стандарт)</span>
+                <span class="price-name">Стандартное восстановление, 200 мл</span>
                 <span class="price-dots"></span>
-                <span class="price-value">8 000 ₽</span>
+                <span class="price-value">1 500 ₽</span>
             </div>
         </div>
 
-        <p class="price-note"><strong>Важно:</strong> Цены указаны в рублях и актуальны на текущий момент. Уточняйте актуальные цены по телефону {{ .Site.Params.phone2 }}.</p>
+        <p class="price-note"><strong>Важно:</strong> цены указаны в рублях по прайс-листу за март 2026 года. Перед записью сверяйте актуальную стоимость по телефону {{ .Site.Params.phone2 }}.</p>
+        <p class="price-note"><a href="/prices/#detox">Оздоровительные капельницы</a> · <a href="/prices/#physiotherapy">Физиотерапия</a> · <a href="/prices/#inpatient-infusion">Инфузионная терапия в стационаре</a></p>
     </div>
 
     <!-- Основной контент -->
@@ -64,14 +70,12 @@
         <!-- CTA секция -->
         <div class="post-cta">
             <h2>Нужна помощь специалиста?</h2>
-            <p>Запишитесь на консультацию по медикаментозной терапии. Первая консультация бесплатна и анонимна.</p>
+            <p>Запишитесь на консультацию по медикаментозной терапии. Стоимость и формат приема уточняйте по телефону.</p>
             <div class="cta-buttons">
-                <a href="tel:{{ .Site.Params.phone1 }}" class="cta-btn-primary">Позвонить: {{ .Site.Params.phone1 }}</a>
-                <a href="tel:{{ .Site.Params.phone2 }}" class="cta-btn-secondary">Позвонить: {{ .Site.Params.phone2 }}</a>
+                <a href="tel:+79610060303" class="cta-btn-primary">Позвонить: {{ .Site.Params.phone1 }}</a>
+                <a href="tel:+79610060303" class="cta-btn-secondary">Позвонить: {{ .Site.Params.phone2 }}</a>
             </div>
         </div>
     </div>
 </div>
 {{ end }}
-
-

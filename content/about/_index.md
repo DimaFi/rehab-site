@@ -45,11 +45,11 @@ description: "Центр медицинской и психологическо�
 **Круглосуточная горячая линия:**
 
 <div class="phone-links-large">
-<a href="tel:88003006103" class="phone-link-large">
-8 800 300 61 03 — Бесплатно по России 🚑 Экстренная помощь 24/7
+<a href="tel:+79610060303" class="phone-link-large">
+8 (961) 006-03-03 — Бесплатно по России 🚑 Экстренная помощь 24/7
 </a>
-<a href="tel:84955324403" class="phone-link-large">
-8 495 532 44 03 — Москва 🚑 Консультации и запись
+<a href="tel:+79610060303" class="phone-link-large">
+8 (961) 006-03-03 — Москва 🚑 Консультации и запись
 </a>
 </div>
 
@@ -58,14 +58,14 @@ description: "Центр медицинской и психологическо�
 Мы всегда на связи! Напишите нам в удобном для вас мессенджере:
 
 <div class="social-links-large">
-<a href="https://wa.me/74955324403" class="social-link-large whatsapp" target="_blank">
-📱 WhatsApp: +7 495 532 44 03
+<a href="https://wa.me/79610060303" class="social-link-large whatsapp" target="_blank">
+📱 WhatsApp: 8 (961) 006-03-03
 </a>
 <a href="https://t.me/zdravnitsa_center" class="social-link-large telegram" target="_blank">
 📱 Telegram: @zdravnitsa_center
 </a>
-<a href="viber://chat?number=74955324403" class="social-link-large viber">
-📱 Viber: +7 495 532 44 03
+<a href="viber://chat?number=79610060303" class="social-link-large viber">
+📱 Viber: 8 (961) 006-03-03
 </a>
 </div>
 

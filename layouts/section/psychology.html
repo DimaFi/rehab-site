@@ -21,38 +21,44 @@
         <div class="price-section">
             <h2>Цены на психологические услуги</h2>
             <div class="price-row">
-                <span class="price-name">Первичная консультация психолога <span class="badge-promo">АКЦИЯ</span></span>
+                <span class="price-name">Индивидуальное клинико-психологическое консультирование, первичное</span>
                 <span class="price-dots"></span>
-                <span class="price-value price-free">Бесплатно</span>
+                <span class="price-value">3 000 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Консультация клинического психолога</span>
+                <span class="price-name">Индивидуальное клинико-психологическое консультирование, повторное</span>
                 <span class="price-dots"></span>
-                <span class="price-value">4 500 ₽</span>
+                <span class="price-value">2 000 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Сеанс психологической коррекции</span>
+                <span class="price-name">Семейное клинико-психологическое консультирование</span>
                 <span class="price-dots"></span>
-                <span class="price-value">4 200 ₽</span>
+                <span class="price-value">5 000 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Консультация психотерапевта семейная</span>
+                <span class="price-name">Клинико-психологическое консультирование онлайн</span>
+                <span class="price-dots"></span>
+                <span class="price-value">2 000 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Индивидуальное клинико-психологическое консультирование, курс 4 сессии</span>
+                <span class="price-dots"></span>
+                <span class="price-value">10 000 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Мотивационное консультирование</span>
+                <span class="price-dots"></span>
+                <span class="price-value">1 500 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Консультация психолога, психодиагностика (1 час 20 минут)</span>
                 <span class="price-dots"></span>
                 <span class="price-value">7 000 ₽</span>
             </div>
-            <div class="price-row">
-                <span class="price-name">Трансовая методика коррекции влечения</span>
-                <span class="price-dots"></span>
-                <span class="price-value">4 500 ₽</span>
-            </div>
-            <div class="price-row">
-                <span class="price-name">Курс когнитивно-поведенческой терапии (5 сессий)</span>
-                <span class="price-dots"></span>
-                <span class="price-value">20 000 ₽</span>
-            </div>
         </div>
 
-        <p class="price-note"><strong>Важно:</strong> Цены указаны в рублях и актуальны на текущий момент. Уточняйте актуальные цены по телефону {{ .Site.Params.phone2 }}.</p>
+        <p class="price-note"><strong>Важно:</strong> цены указаны в рублях по прайс-листу за март 2026 года. Перед записью сверяйте актуальную стоимость по телефону {{ .Site.Params.phone2 }}.</p>
+        <p class="price-note"><a href="/prices/#psychology">Смотреть полный прайс по психологии</a></p>
     </div>
 
     <!-- Основной контент -->
@@ -64,14 +70,12 @@
         <!-- CTA секция -->
         <div class="post-cta">
             <h2>Нужна помощь специалиста?</h2>
-            <p>Запишитесь на консультацию к нашим психологам. Первая консультация бесплатна и анонимна.</p>
+            <p>Запишитесь на консультацию к нашим психологам. Стоимость и формат приема уточняйте по телефону.</p>
             <div class="cta-buttons">
-                <a href="tel:{{ .Site.Params.phone1 }}" class="cta-btn-primary">Позвонить: {{ .Site.Params.phone1 }}</a>
-                <a href="tel:{{ .Site.Params.phone2 }}" class="cta-btn-secondary">Позвонить: {{ .Site.Params.phone2 }}</a>
+                <a href="tel:+79610060303" class="cta-btn-primary">Позвонить: {{ .Site.Params.phone1 }}</a>
+                <a href="tel:+79610060303" class="cta-btn-secondary">Позвонить: {{ .Site.Params.phone2 }}</a>
             </div>
         </div>
     </div>
 </div>
 {{ end }}
-
-

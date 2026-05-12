@@ -21,53 +21,54 @@
         <div class="price-section">
             <h2>Цены на наркологические услуги</h2>
             <div class="price-row">
-                <span class="price-name">Первичная диагностическая консультация с наркологом <span class="badge-promo">АКЦИЯ</span></span>
+                <span class="price-name">Прием врача психиатра-нарколога, первичный</span>
                 <span class="price-dots"></span>
-                <span class="price-value price-free">Бесплатно</span>
+                <span class="price-value">3 500 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Консультация психиатра-нарколога</span>
+                <span class="price-name">Прием врача психиатра-нарколога, повторный</span>
+                <span class="price-dots"></span>
+                <span class="price-value">2 000 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Индивидуальный подбор схемы лечения</span>
+                <span class="price-dots"></span>
+                <span class="price-value">5 000 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Медикаментозное сопровождение пациента</span>
+                <span class="price-dots"></span>
+                <span class="price-value">1 650 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Внутривенное введение препарата «Дисульфирам» (3 месяца)</span>
+                <span class="price-dots"></span>
+                <span class="price-value">4 200 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Внутривенное введение препарата «SIT» (6 месяцев)</span>
                 <span class="price-dots"></span>
                 <span class="price-value">6 000 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Комплексное лечение на дому</span>
+                <span class="price-name">Кодирование от алкоголизма «Классический гипноз», 12 месяцев</span>
                 <span class="price-dots"></span>
-                <span class="price-value">8 500 ₽</span>
+                <span class="price-value">13 000 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Амбулаторная помощь при абстинентном состоянии (стандартная капельница)</span>
-                <span class="price-dots"></span>
-                <span class="price-value">8 500 ₽</span>
-            </div>
-            <div class="price-row">
-                <span class="price-name">Амбулаторная помощь при абстинентном состоянии (комплексная капельница)</span>
-                <span class="price-dots"></span>
-                <span class="price-value">15 500 ₽</span>
-            </div>
-            <div class="price-row">
-                <span class="price-name">Кодирование от алкоголя (внутривенно, 1 год)</span>
-                <span class="price-dots"></span>
-                <span class="price-value">6 000 ₽</span>
-            </div>
-            <div class="price-row">
-                <span class="price-name">Кодирование от алкоголя (внутривенно, 3 года)</span>
-                <span class="price-dots"></span>
-                <span class="price-value">8 000 ₽</span>
-            </div>
-            <div class="price-row">
-                <span class="price-name">Кодирование от алкоголя (внутримышечно, имплант, 1 год)</span>
-                <span class="price-dots"></span>
-                <span class="price-value">10 500 ₽</span>
-            </div>
-            <div class="price-row">
-                <span class="price-name">Кодирование от ПАВ</span>
+                <span class="price-name">Кодирование от алкоголизма по методу Довженко, 1 год</span>
                 <span class="price-dots"></span>
                 <span class="price-value">15 000 ₽</span>
             </div>
+            <div class="price-row">
+                <span class="price-name">Пребывание пациентов с наркотической зависимостью, 4-местная палата, 1 сутки</span>
+                <span class="price-dots"></span>
+                <span class="price-value">7 500 ₽</span>
+            </div>
         </div>
 
-        <p class="price-note"><strong>Важно:</strong> Цены указаны в рублях и актуальны на текущий момент. Уточняйте актуальные цены по телефону {{ .Site.Params.phone2 }}.</p>
+        <p class="price-note"><strong>Важно:</strong> цены указаны в рублях по прайс-листу за март 2026 года. Перед записью сверяйте актуальную стоимость по телефону {{ .Site.Params.phone2 }}.</p>
+        <p class="price-note"><a href="/prices/#narcology-psychiatry">Консультации</a> · <a href="/prices/#coding">Гипнотерапия и кодирование</a> · <a href="/prices/#anti-relapse">Противорецидивные процедуры</a> · <a href="/prices/#stationary">Стационар</a></p>
     </div>
 
     <!-- Основной контент -->
@@ -79,14 +80,12 @@
         <!-- CTA секция -->
         <div class="post-cta">
             <h2>Нужна помощь специалиста?</h2>
-            <p>Запишитесь на консультацию к нашим наркологам. Первая консультация бесплатна и анонимна.</p>
+            <p>Запишитесь на консультацию к нашим наркологам. Стоимость и формат приема уточняйте по телефону.</p>
             <div class="cta-buttons">
-                <a href="tel:{{ .Site.Params.phone1 }}" class="cta-btn-primary">Позвонить: {{ .Site.Params.phone1 }}</a>
-                <a href="tel:{{ .Site.Params.phone2 }}" class="cta-btn-secondary">Позвонить: {{ .Site.Params.phone2 }}</a>
+                <a href="tel:+79610060303" class="cta-btn-primary">Позвонить: {{ .Site.Params.phone1 }}</a>
+                <a href="tel:+79610060303" class="cta-btn-secondary">Позвонить: {{ .Site.Params.phone2 }}</a>
             </div>
         </div>
     </div>
 </div>
 {{ end }}
-
-

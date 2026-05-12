@@ -21,38 +21,49 @@
         <div class="price-section">
             <h2>Цены на реабилитационные услуги</h2>
             <div class="price-row">
-                <span class="price-name">Первичная консультация <span class="badge-promo">АКЦИЯ</span></span>
-                <span class="price-dots"></span>
-                <span class="price-value price-free">Бесплатно</span>
-            </div>
-            <div class="price-row">
-                <span class="price-name">Стационарная помощь при абстинентном состоянии (стандарт)</span>
-                <span class="price-dots"></span>
-                <span class="price-value">8 000 ₽</span>
-            </div>
-            <div class="price-row">
-                <span class="price-name">Стационарная помощь при абстинентном состоянии (восстановительная)</span>
-                <span class="price-dots"></span>
-                <span class="price-value">10 000 ₽</span>
-            </div>
-            <div class="price-row">
-                <span class="price-name">Стационарная помощь при абстинентном состоянии (усиленная)</span>
-                <span class="price-dots"></span>
-                <span class="price-value">12 000 ₽</span>
-            </div>
-            <div class="price-row">
-                <span class="price-name">Стационарная помощь при ПРЛ (1 сутки)</span>
+                <span class="price-name">Лечение алкогольной зависимости, 4-местная палата, 1 сутки</span>
                 <span class="price-dots"></span>
                 <span class="price-value">6 500 ₽</span>
             </div>
             <div class="price-row">
-                <span class="price-name">Доплата за 1-местную палату</span>
+                <span class="price-name">Лечение алкогольной зависимости, 3-местная палата, 1 сутки</span>
                 <span class="price-dots"></span>
-                <span class="price-value">5 000 ₽</span>
+                <span class="price-value">7 500 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Пребывание пациентов с наркотической зависимостью, 4-местная палата, 1 сутки</span>
+                <span class="price-dots"></span>
+                <span class="price-value">7 500 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Пребывание пациентов с наркотической зависимостью, 3-местная палата, 1 сутки</span>
+                <span class="price-dots"></span>
+                <span class="price-value">8 500 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Медико-терапевтическая программа (5 дней)</span>
+                <span class="price-dots"></span>
+                <span class="price-value">124 000 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Медико-терапевтическая программа (10 дней)</span>
+                <span class="price-dots"></span>
+                <span class="price-value">248 000 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Амбулаторная реабилитация: индивидуальное клинико-психологическое сопровождение (14 дней)</span>
+                <span class="price-dots"></span>
+                <span class="price-value">20 000 ₽</span>
+            </div>
+            <div class="price-row">
+                <span class="price-name">Амбулаторная реабилитация: индивидуальное клинико-психологическое сопровождение (28 дней)</span>
+                <span class="price-dots"></span>
+                <span class="price-value">35 000 ₽</span>
             </div>
         </div>
 
-        <p class="price-note"><strong>Важно:</strong> Цены указаны в рублях и актуальны на текущий момент. Уточняйте актуальные цены по телефону {{ .Site.Params.phone2 }}.</p>
+        <p class="price-note"><strong>Важно:</strong> цены указаны в рублях по прайс-листу за март 2026 года. Перед записью сверяйте актуальную стоимость по телефону {{ .Site.Params.phone2 }}.</p>
+        <p class="price-note"><a href="/prices/#stationary">Стационарное лечение и размещение</a> · <a href="/prices/#psychology">Амбулаторное психологическое сопровождение</a></p>
     </div>
 
     <!-- Основной контент -->
@@ -64,14 +75,12 @@
         <!-- CTA секция -->
         <div class="post-cta">
             <h2>Нужна помощь специалиста?</h2>
-            <p>Запишитесь на консультацию по реабилитации. Первая консультация бесплатна и анонимна.</p>
+            <p>Запишитесь на консультацию по реабилитации. Стоимость и формат приема уточняйте по телефону.</p>
             <div class="cta-buttons">
-                <a href="tel:{{ .Site.Params.phone1 }}" class="cta-btn-primary">Позвонить: {{ .Site.Params.phone1 }}</a>
-                <a href="tel:{{ .Site.Params.phone2 }}" class="cta-btn-secondary">Позвонить: {{ .Site.Params.phone2 }}</a>
+                <a href="tel:+79610060303" class="cta-btn-primary">Позвонить: {{ .Site.Params.phone1 }}</a>
+                <a href="tel:+79610060303" class="cta-btn-secondary">Позвонить: {{ .Site.Params.phone2 }}</a>
             </div>
         </div>
     </div>
 </div>
 {{ end }}
-
-
