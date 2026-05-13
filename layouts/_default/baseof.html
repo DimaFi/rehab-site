@@ -7,9 +7,8 @@
     <meta name="description" content="{{ .Description | default .Site.Params.description }}">
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="alternate icon" href="/favicon.ico">
-    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/css/custom.css?v=20260513-contact">
     <script src="/js/slider.js" defer></script>
-    <script src="https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU" type="text/javascript"></script>
 </head>
 <body>
     <!-- Верхняя панель -->
@@ -24,17 +23,7 @@
                 <span>Задайте вопрос наркологу. Это бесплатно и анонимно</span>
             </div>
             <div class="top-bar-right">
-                <div class="phone-numbers">
-                    <span>
-                        <a href="tel:+79610060303">{{ .Site.Params.phone1 }}</a>
-                        <span class="emergency-note">🚑 Круглосуточно</span>
-                    </span>
-                    <span>
-                        <a href="tel:+79610060303">{{ .Site.Params.phone2 }}</a>
-                        <span class="emergency-note">🚑 Экстренная помощь</span>
-                    </span>
-                </div>
-                <a class="order-call-btn" href="#contact-social">Заказать звонок</a>
+                <a class="order-call-btn phone-link-top" href="tel:+79610060303">{{ .Site.Params.phone2 }}</a>
             </div>
         </div>
     </div>
@@ -48,7 +37,7 @@
                     </div>
                 <div class="logo-text">Наркологическая Клиника Эволюция</div>
             </a>
-            <button class="mobile-menu-toggle" aria-label="Меню" id="mobileMenuToggle">
+            <button class="mobile-menu-toggle" aria-label="Меню" id="mobileMenuToggle" aria-controls="navMenu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -90,6 +79,15 @@
                         </li>
                     {{ end }}
                 {{ end }}
+                <li class="mobile-menu-contact">
+                    <div class="mobile-menu-contact-title">Связаться с нами</div>
+                    <a class="mobile-menu-phone" href="tel:+79610060303">{{ .Site.Params.phone2 }}</a>
+                    <div class="mobile-menu-actions">
+                        <a class="mobile-menu-action" href="https://wa.me/79610060303" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                        <a class="mobile-menu-action mobile-menu-action-secondary" href="https://t.me/zdravnitsa_center" target="_blank" rel="noopener noreferrer">Telegram</a>
+                    </div>
+                    <span class="mobile-menu-address">{{ .Site.Params.address }}</span>
+                </li>
             </ul>
         </div>
     </nav>
@@ -104,6 +102,12 @@
     <!-- Плавающие кнопки -->
     <div class="floating-buttons">
         <a href="#" class="floating-btn scroll-top-btn" id="scrollTopBtn">↑</a>
+    </div>
+
+    <div class="mobile-cta-bar" aria-label="Быстрые действия">
+        <a href="tel:+79610060303" class="mobile-cta-link mobile-cta-primary">Позвонить</a>
+        <a href="/about/#contact-section" class="mobile-cta-link">Контакты</a>
+        <a href="https://yandex.ru/maps/?text=Ижевск%2C%20ул.%20Азина%20150%20к1" class="mobile-cta-link" target="_blank" rel="noopener noreferrer">На карте</a>
     </div>
     
     <script>
@@ -142,18 +146,22 @@
             const isActive = navMenu.classList.contains('active');
             navMenu.classList.toggle('active');
             mobileMenuToggle.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', String(!isActive));
             if (navMenuOverlay) {
                 navMenuOverlay.classList.toggle('active');
             }
+            document.body.classList.toggle('menu-open', !isActive);
             document.body.style.overflow = !isActive ? 'hidden' : 'auto';
         }
         
         function closeMenu() {
             navMenu.classList.remove('active');
             mobileMenuToggle.classList.remove('active');
+            mobileMenuToggle.setAttribute('aria-expanded', 'false');
             if (navMenuOverlay) {
                 navMenuOverlay.classList.remove('active');
             }
+            document.body.classList.remove('menu-open');
             document.body.style.overflow = 'auto';
         }
         
@@ -179,6 +187,12 @@
                 if (navMenu.classList.contains('active') && 
                     !navMenu.contains(e.target) && 
                     !mobileMenuToggle.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && navMenu.classList.contains('active')) {
                     closeMenu();
                 }
             });

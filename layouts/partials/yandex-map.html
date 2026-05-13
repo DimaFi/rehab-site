@@ -17,6 +17,28 @@
         // Точные координаты: Ижевск, ул. Азина 150 к1
         const center = [56.818267, 53.177399]; // Широта, долгота
         const address = '{{ .Site.Params.address }}';
+        const apiSrc = 'https://api-maps.yandex.ru/2.1/?apikey=&lang=ru_RU';
+
+        function loadYandexMapsApi() {
+            if (typeof ymaps !== 'undefined') {
+                return Promise.resolve();
+            }
+
+            if (window.yandexMapsLoading) {
+                return window.yandexMapsLoading;
+            }
+
+            window.yandexMapsLoading = new Promise(function(resolve, reject) {
+                const script = document.createElement('script');
+                script.src = apiSrc;
+                script.async = true;
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+
+            return window.yandexMapsLoading;
+        }
         
         function initYandexMaps() {
             const mapContainers = document.querySelectorAll('.yandex-map:not([data-initialized])');
@@ -55,23 +77,21 @@
             }
         }
         
-        // Загрузка карты после загрузки страницы и API
-        if (typeof ymaps !== 'undefined') {
-            initYandexMaps();
+        function initWhenReady() {
+            loadYandexMapsApi().then(function() {
+                ymaps.ready(initYandexMaps);
+            }).catch(function() {
+                const mapContainers = document.querySelectorAll('.yandex-map:not([data-initialized])');
+                mapContainers.forEach(function(container) {
+                    container.innerHTML = '<div class="map-error">Карта временно недоступна. Адрес: ' + address + '</div>';
+                });
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initWhenReady);
         } else {
-            function checkAndInit() {
-                if (typeof ymaps !== 'undefined') {
-                    ymaps.ready(initYandexMaps);
-                } else {
-                    setTimeout(checkAndInit, 100);
-                }
-            }
-            
-            if (document.readyState === 'loading') {
-                document.addEventListener('DOMContentLoaded', checkAndInit);
-            } else {
-                checkAndInit();
-            }
+            initWhenReady();
         }
     })();
 </script>
