@@ -1684,134 +1684,188 @@ html { scroll-behavior: smooth; }
 
 /* Документы и разрешения */
 .documents-section {
-    padding: 60px 0;
-    background-color: white;
+    padding: 76px 0;
+    background: #f7f9fb;
 }
 
 .documents-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
 }
 
 .document-card {
-    background-color: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #fff;
+    border: 1px solid #e6edf2;
+    border-radius: 22px;
+    padding: 16px;
+    box-shadow: 0 18px 42px rgba(18, 43, 68, 0.07);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
 .document-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transform: translateY(-3px);
+    border-color: #d9e5ec;
+    box-shadow: 0 22px 48px rgba(18, 43, 68, 0.1);
 }
 
 .document-preview {
     position: relative;
-    height: 200px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    background: linear-gradient(180deg, #f6f9fb 0%, #eef4f7 100%);
+    border: 1px solid #e4edf3;
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 18px;
     overflow: hidden;
+    cursor: pointer;
+    appearance: none;
+    font: inherit;
+    transition: border-color 0.22s ease, background 0.22s ease;
 }
 
-.pdf-icon {
-    font-size: 80px;
-    color: white;
-    z-index: 2;
-    position: relative;
+.document-preview:hover,
+.document-preview:focus-visible {
+    border-color: #bcd8e8;
+    background: linear-gradient(180deg, #f9fbfc 0%, #edf5f8 100%);
+    outline: none;
 }
 
-.document-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.7);
+.pdf-sheet {
+    width: min(58%, 142px);
+    aspect-ratio: 210 / 297;
+    background: #fff;
+    border: 1px solid #dce7ee;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(18, 43, 68, 0.12);
+    padding: 14px 13px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    flex-direction: column;
+    gap: 8px;
 }
 
-.document-card:hover .document-overlay {
-    opacity: 1;
+.pdf-sheet-header {
+    width: 34px;
+    height: 8px;
+    border-radius: 999px;
+    background: #2fa66a;
 }
 
-.view-pdf {
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+.pdf-sheet-title {
+    width: 78%;
+    height: 14px;
+    border-radius: 6px;
+    background: #17324d;
+    opacity: 0.9;
+}
+
+.pdf-sheet-line {
+    width: 72%;
+    height: 6px;
+    border-radius: 999px;
+    background: #d9e4eb;
+}
+
+.pdf-sheet-line.wide {
+    width: 100%;
+}
+
+.pdf-sheet-line.short {
+    width: 48%;
+}
+
+.pdf-sheet-table {
+    width: 100%;
+    height: 42px;
+    border-radius: 8px;
+    background:
+        linear-gradient(#e4edf3 1px, transparent 1px),
+        linear-gradient(90deg, #e4edf3 1px, transparent 1px),
+        #f7fafc;
+    background-size: 100% 14px, 33.33% 100%;
+}
+
+.document-preview-label {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    padding: 7px 11px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.86);
+    color: #17324d;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0 8px 18px rgba(18, 43, 68, 0.08);
 }
 
 .document-info {
-    padding: 25px;
-    text-align: center;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 4px 2px;
+    text-align: left;
 }
 
 .document-info h3 {
-    font-size: 18px;
-    font-weight: bold;
-    color: #2c3e50;
-    margin-bottom: 10px;
+    margin: 0 0 8px;
+    color: #17324d;
+    font-size: 19px;
+    font-weight: 800;
+    line-height: 1.28;
 }
 
 .document-info p {
+    margin: 0 0 14px;
+    color: #5c6b78;
     font-size: 14px;
-    color: #666;
-    margin-bottom: 20px;
-    line-height: 1.5;
+    line-height: 1.55;
 }
 
-.document-actions {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-}
-
-.preview-btn, .download-btn {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    border: none;
-    cursor: pointer;
-}
-
-.preview-btn {
-    background-color: #3498db;
-    color: white;
-}
-
-.preview-btn:hover {
-    background-color: #2980b9;
-    transform: translateY(-2px);
+.document-meta {
+    margin: auto 0 16px;
+    color: #7d8b97;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
 }
 
 .download-btn {
-    background-color: #27ae60;
-    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    padding: 11px 16px;
+    border: 1px solid #d8e6ee;
+    border-radius: 14px;
+    background: #f8fbfc;
+    color: #17324d;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 800;
+    transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
 }
 
 .download-btn:hover {
-    background-color: #229954;
+    background: #eaf6ef;
+    border-color: #bfe2cf;
+    color: #1f7a4c;
     transform: translateY(-2px);
 }
 
-.preview-icon, .download-icon {
-    font-size: 16px;
+.download-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    flex: 0 0 18px;
 }
 
 /* Модальное окно для предпросмотра PDF */
@@ -1928,51 +1982,69 @@ html { scroll-behavior: smooth; }
 }
 
 .full-pdf-icon {
-    font-size: 18px;
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+    flex: 0 0 18px;
 }
 
 /* Интересные статьи */
 .articles-section {
-    padding: 60px 0;
-    background-color: #f8f9fa;
+    padding: 76px 0;
+    background: #f7f9fb;
 }
 
 .articles-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    margin-bottom: 40px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin-bottom: 34px;
 }
 
 .article-card {
-    background-color: white;
-    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    min-height: 210px;
+    background: #fff;
+    border: 1px solid #e6edf2;
+    border-radius: 22px;
     overflow: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
+    text-decoration: none;
+    box-shadow: 0 16px 36px rgba(18, 43, 68, 0.06);
+    transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
 }
 
 .article-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-3px);
+    border-color: #d9e5ec;
+    box-shadow: 0 22px 44px rgba(18, 43, 68, 0.09);
 }
 
 .article-image {
-    width: 100%;
-    height: 150px;
-    background-color: #3498db;
+    width: auto;
+    height: 64px;
+    margin: 22px 22px 0;
+    border-radius: 18px;
+    background: #eef5f8;
     display: flex;
     align-items: center;
-    justify-content: center;
-    font-size: 60px;
-    color: white;
+    justify-content: flex-start;
+    padding: 0 18px;
+    color: #2fa66a;
+}
+
+.article-image svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
 }
 
 .article-card h3 {
-    font-size: 16px;
-    font-weight: bold;
-    color: #2c3e50;
-    margin: 20px 20px 10px;
-    line-height: 1.4;
+    margin: 18px 22px 24px;
+    color: #17324d;
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 1.36;
 }
 
 .article-card p {
@@ -1987,19 +2059,26 @@ html { scroll-behavior: smooth; }
 }
 
 .show-all-btn {
-    background-color: #2c3e50;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 12px 22px;
+    border: 1px solid #d8e6ee;
+    border-radius: 14px;
+    background: #fff;
+    color: #17324d;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    transition: background 0.22s ease, border-color 0.22s ease, color 0.22s ease, transform 0.22s ease;
 }
 
 .show-all-btn:hover {
-    background-color: #34495e;
+    background: #eaf6ef;
+    border-color: #bfe2cf;
+    color: #1f7a4c;
+    transform: translateY(-2px);
 }
 
 /* Футер */
@@ -6387,5 +6466,98 @@ main > h1:has(+ .content .privacy-page) {
   .privacy-page p {
     font-size: 16px;
     line-height: 1.65;
+  }
+}
+
+/* Modern document cards final responsive rules */
+@media (max-width: 900px) {
+  .documents-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .document-card {
+    max-width: 520px;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .documents-section {
+    padding: 46px 0;
+  }
+
+  .document-card {
+    padding: 14px;
+    border-radius: 20px;
+    gap: 14px;
+  }
+
+  .document-preview {
+    display: none;
+  }
+
+  .document-info {
+    padding: 6px 2px 2px;
+  }
+
+  .document-info h3 {
+    font-size: 18px;
+  }
+
+  .document-info p {
+    margin-bottom: 10px;
+  }
+
+  .document-meta {
+    margin: 0 0 14px;
+  }
+
+  .document-info::before {
+    content: "PDF";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    margin-bottom: 12px;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: #eef5f8;
+    color: #1f7a4c;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 0.05em;
+  }
+
+  .download-btn {
+    width: 100%;
+    min-height: 46px;
+  }
+
+  .article-card {
+    min-height: auto;
+    border-radius: 18px;
+  }
+
+  .article-image {
+    height: 52px;
+    margin: 16px 16px 0;
+    border-radius: 14px;
+  }
+
+  .article-card h3 {
+    margin: 14px 16px 18px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .documents-grid {
+    gap: 18px;
+  }
+
+  .document-preview {
+    display: none;
   }
 }

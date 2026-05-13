@@ -171,14 +171,14 @@
                 
                 <div class="clinic-info-item">
                     <div class="clinic-number">02</div>
-                    <h4>Специализированные центры и передовые технологии</h4>
-                    <p>Клиника состоит из двух основных структурных подразделений, которые обеспечивают полный цикл лечения зависимостей - это наркологический центр и реабилитационный центр.</p>
+                    <h4>Анонимность, поддержка и комфортные условия</h4>
+                    <p>Клиника предоставляет помощь пациентам в комфортных условиях с соблюдением конфиденциальности и внимательным отношением к каждому обращению. Основная задача центра — не только стабилизация состояния, но и дальнейшее восстановление психологического и физического благополучия пациента.</p>
                 </div>
 
                  <div class="clinic-info-item">
                     <div class="clinic-number">03</div>
-                    <h4>Специализированные центры и передовые технологии</h4>
-                    <p>Клиника состоит из двух основных структурных подразделений, которые обеспечивают полный цикл лечения зависимостей - это наркологический центр и реабилитационный центр.</p>
+                    <h4>Современный подход к лечению зависимостей</h4>
+                    <p>Программы центра формируются индивидуально и могут включать медикаментозную помощь, наблюдение специалистов, психотерапию и восстановительные мероприятия. Комплексный подход позволяет учитывать особенности состояния пациента и повышать эффективность дальнейшей реабилитации.</p>
                 </div>
             </div>      
         </div>
@@ -361,72 +361,77 @@
         <h2 class="section-title">Документы и разрешения</h2>
         
         <div class="documents-grid">
-            <div class="document-card" data-pdf="/documents/license.pdf">
-                <div class="document-preview">
-                    <div class="pdf-icon">📄</div>
-                    <div class="document-overlay">
-                        <span class="view-pdf">Просмотреть PDF</span>
-                    </div>
-                </div>
+            <div class="document-card">
+                <button class="document-preview" type="button" onclick="previewPDF('/documents/license.pdf')" aria-label="Открыть предпросмотр документа: Лицензия">
+                    <span class="pdf-sheet" aria-hidden="true">
+                        <span class="pdf-sheet-header"></span>
+                        <span class="pdf-sheet-title"></span>
+                        <span class="pdf-sheet-line wide"></span>
+                        <span class="pdf-sheet-line"></span>
+                        <span class="pdf-sheet-line short"></span>
+                        <span class="pdf-sheet-table"></span>
+                        <span class="pdf-sheet-line wide"></span>
+                        <span class="pdf-sheet-line"></span>
+                    </span>
+                    <span class="document-preview-label">Просмотреть</span>
+                </button>
                 <div class="document-info">
                     <h3>Лицензия</h3>
-                    <p>Медицинская лицензия центра</p>
-                    <div class="document-actions">
-                        <button class="preview-btn" onclick="previewPDF('/documents/license.pdf')">
-                            <span class="preview-icon">👁️</span>
-                            Предпросмотр
-                        </button>
-                        <a href="/documents/license.pdf" class="download-btn" target="_blank">
-                            <span class="download-icon">⬇️</span>
-                            Открыть PDF
-                        </a>
-                    </div>
+                    <p>Документ, подтверждающий право на медицинскую деятельность.</p>
+                    <div class="document-meta">PDF · 615 КБ</div>
+                    <a href="/documents/license.pdf" class="download-btn" target="_blank" rel="noopener noreferrer" download>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1Zm-7 15a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>
+                        Скачать PDF
+                    </a>
                 </div>
             </div>
             
-            <div class="document-card" data-pdf="/documents/registry-extract.pdf">
-                <div class="document-preview">
-                    <div class="pdf-icon">🏥</div>
-                    <div class="document-overlay">
-                        <span class="view-pdf">Просмотреть PDF</span>
-                    </div>
-                </div>
+            <div class="document-card">
+                <button class="document-preview" type="button" onclick="previewPDF('/documents/registry-extract.pdf')" aria-label="Открыть предпросмотр документа: Сведения в государственном реестре">
+                    <span class="pdf-sheet" aria-hidden="true">
+                        <span class="pdf-sheet-header"></span>
+                        <span class="pdf-sheet-title"></span>
+                        <span class="pdf-sheet-line wide"></span>
+                        <span class="pdf-sheet-line"></span>
+                        <span class="pdf-sheet-table"></span>
+                        <span class="pdf-sheet-line wide"></span>
+                        <span class="pdf-sheet-line"></span>
+                        <span class="pdf-sheet-line short"></span>
+                    </span>
+                    <span class="document-preview-label">Просмотреть</span>
+                </button>
                 <div class="document-info">
-                    <h3>Выписка из реестра лицензий</h3>
+                    <h3>Сведения в государственном реестре</h3>
                     <p>Сведения в государственном реестре</p>
-                    <div class="document-actions">
-                        <button class="preview-btn" onclick="previewPDF('/documents/registry-extract.pdf')">
-                            <span class="preview-icon">👁️</span>
-                            Предпросмотр
-                        </button>
-                        <a href="/documents/registry-extract.pdf" class="download-btn" target="_blank">
-                            <span class="download-icon">⬇️</span>
-                            Открыть PDF
-                        </a>
-                    </div>
+                    <div class="document-meta">PDF · 244 КБ</div>
+                    <a href="/documents/registry-extract.pdf" class="download-btn" target="_blank" rel="noopener noreferrer" download>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1Zm-7 15a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>
+                        Скачать PDF
+                    </a>
                 </div>
             </div>
             
-            <div class="document-card" data-pdf="/documents/Прайс Март 2026-2.pdf">
-                <div class="document-preview">
-                    <div class="pdf-icon">📋</div>
-                    <div class="document-overlay">
-                        <span class="view-pdf">Просмотреть PDF</span>
-                    </div>
-                </div>
+            <div class="document-card">
+                <button class="document-preview" type="button" onclick="previewPDF('/documents/Прайс Март 2026-2.pdf')" aria-label="Открыть предпросмотр документа: Прайс-лист за март 2026">
+                    <span class="pdf-sheet" aria-hidden="true">
+                        <span class="pdf-sheet-header"></span>
+                        <span class="pdf-sheet-title"></span>
+                        <span class="pdf-sheet-line wide"></span>
+                        <span class="pdf-sheet-table"></span>
+                        <span class="pdf-sheet-line wide"></span>
+                        <span class="pdf-sheet-line"></span>
+                        <span class="pdf-sheet-line short"></span>
+                    </span>
+                    <span class="document-preview-label">Просмотреть</span>
+                </button>
                 <div class="document-info">
                     <h3>Прайс-лист за март 2026</h3>
                     <p>Актуальность данных уточняйте по телефону</p>
-                    <div class="document-actions">
-                        <button class="preview-btn" onclick="previewPDF('/documents/Прайс Март 2026-2.pdf')">
-                            <span class="preview-icon">👁️</span>
-                            Предпросмотр
-                        </button>
-                        <a href="/documents/Прайс Март 2026-2.pdf" class="download-btn" target="_blank">
-                            <span class="download-icon">⬇️</span>
-                            Открыть PDF
-                        </a>
-                    </div>
+                    <div class="document-meta">PDF · 359 КБ · март 2026</div>
+                    <a href="/documents/Прайс Март 2026-2.pdf" class="download-btn" target="_blank" rel="noopener noreferrer" download>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a1 1 0 0 1 1 1v9.59l3.3-3.3a1 1 0 1 1 1.4 1.42l-5 5a1 1 0 0 1-1.4 0l-5-5a1 1 0 1 1 1.4-1.42l3.3 3.3V4a1 1 0 0 1 1-1Zm-7 15a1 1 0 0 1 1 1v1h12v-1a1 1 0 1 1 2 0v2a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Z"/></svg>
+                        Скачать PDF
+                    </a>
                 </div>
             </div>
         </div>
@@ -445,7 +450,7 @@
         </div>
         <div class="pdf-modal-footer">
             <a id="fullPdfLink" href="" class="full-pdf-btn" target="_blank">
-                <span class="full-pdf-icon">📄</span>
+                <svg class="full-pdf-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2h8l5 5v15H6V2Zm7 1.8V8h4.2L13 3.8ZM8 11h8v1.6H8V11Zm0 3.2h8v1.6H8v-1.6Zm0 3.2h5v1.6H8v-1.6Z"/></svg>
                 Открыть полный PDF
             </a>
         </div>
@@ -461,7 +466,9 @@
             {{ $posts := first 6 (where .Site.RegularPages "Section" "posts") }}
             {{ range $posts }}
             <a class="article-card" href="{{ .RelPermalink }}">
-                <div class="article-image">📰</div>
+                <div class="article-image" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v12H7a3 3 0 0 1-3-3V5a1 1 0 0 1 1-1Zm2 3v8.75c0 .69.56 1.25 1.25 1.25H17V7a1 1 0 0 0-1-1H7Zm2 2h6v1.7H9V9Zm0 3.2h6v1.7H9v-1.7Zm0 3.2h4v1.6H9v-1.6Z"/></svg>
+                </div>
                 <h3>{{ .Title }}</h3>
             </a>
             {{ end }}
