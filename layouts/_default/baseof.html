@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Title }} - {{ .Site.Title }}</title>
+    <title>{{ if .IsHome }}Вывод из запоя | Клиника Эволюция{{ else }}{{ .Title }} - {{ .Site.Title }}{{ end }}</title>
     <meta name="description" content="{{ .Description | default .Site.Params.description }}">
     <link rel="icon" href="/favicon.ico?v=20260519-large">
     <link rel="shortcut icon" href="/favicon.ico?v=20260519-large">
