@@ -56,14 +56,17 @@ description: "Центр медицинской и психологическо�
 Мы всегда на связи! Напишите нам в удобном для вас мессенджере:
 
 <div class="social-links-large">
-<a href="https://wa.me/79610060303" class="social-link-large whatsapp" target="_blank">
-📱 WhatsApp: 8 (961) 006-03-03
+<a href="https://t.me/Evolucia123" class="social-link-large telegram" target="_blank">
+<span class="social-link-large-icon" aria-hidden="true">
+<img src="/images/icons/telegram.svg" alt="" width="24" height="24">
+</span>
+<span>Telegram</span>
 </a>
-<a href="https://t.me/zdravnitsa_center" class="social-link-large telegram" target="_blank">
-📱 Telegram: @zdravnitsa_center
-</a>
-<a href="viber://chat?number=79610060303" class="social-link-large viber">
-📱 Viber: 8 (961) 006-03-03
+<a href="https://max.ru/u/f9LHodD0cOJz0Qzww4Yx_js2jDrqKmP9S2Rn01RLGS22KLUEtRJLBOwMGEI" class="social-link-large max" target="_blank">
+<span class="social-link-large-icon" aria-hidden="true">
+<img src="/images/icons/max-messenger-sign.webp" alt="" width="24" height="24">
+</span>
+<span>MAX</span>
 </a>
 </div>
 
@@ -76,7 +79,7 @@ description: "Центр медицинской и психологическо�
 Напишите нам через социальные сети или позвоните по телефону - мы с радостью добавим ваш отзыв на наш сайт. Ваше мнение очень важно для нас и помогает другим людям принять решение о начале лечения.
 
 **Как оставить отзыв:**
-1. Напишите нам в WhatsApp, Telegram или Viber
+1. Напишите нам в Telegram или MAX
 2. Позвоните по телефону и расскажите о своем опыте
 3. Мы обработаем вашу информацию и опубликуем отзыв на сайте
 
@@ -86,6 +89,7 @@ description: "Центр медицинской и психологическо�
 
 **ООО "Эволюция"**
 - **ИНН:** 1800041336
+- **КПП:** 180001001
 
 Предложения на сайте носят информационный характер и не являются публичной офертой, определяемой положениями Статьи 437 (2) ГК РФ.
 

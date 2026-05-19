@@ -40,20 +40,19 @@ contact_info: true
 
 ### Онлайн консультации:
 
-#### WhatsApp консультация
-**Номер:** {{ .Site.Params.phone1 }}  
-**Время:** Круглосуточно  
-**Возможности:**
-- Бесплатная консультация
-- Отправка документов
-- Запись на прием
-
 #### Telegram канал
-**Канал:** @zdravnitsa_help  
+**Канал:** [Telegram](https://t.me/Evolucia123)  
 **Возможности:**
 - Новости центра
 - Полезные статьи
 - Онлайн консультации
+
+#### MAX
+**Ссылка:** https://max.ru/u/f9LHodD0cOJz0Qzww4Yx_js2jDrqKmP9S2Rn01RLGS22KLUEtRJLBOwMGEI  
+**Возможности:**
+- Бесплатная консультация
+- Отправка документов
+- Запись на прием
 
 ### Запись на прием:
 
@@ -96,12 +95,12 @@ contact_info: true
 ### Обратная связь:
 
 #### Жалобы и предложения
-**Email:** info@zdravnitsa.ru  
+**Email:** info@clinic-evolution.ru  
 **Телефон:** {{ .Site.Params.phone2 }}  
 **Время:** Пн-Пт 9:00-18:00
 
 #### Сотрудничество
-**Email:** partner@zdravnitsa.ru  
+**Email:** info@clinic-evolution.ru  
 **Телефон:** {{ .Site.Params.phone2 }}  
 **Время:** Пн-Пт 9:00-18:00
 

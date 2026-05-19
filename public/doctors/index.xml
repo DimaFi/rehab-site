@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Врачи on Центр медицинской и психологической помощи</title>
+    <title>Врачи on Центр медицинской и психологической помощи в Ижевске</title>
     <link>http://localhost:1313/doctors/</link>
-    <description>Recent content in Врачи on Центр медицинской и психологической помощи</description>
+    <description>Recent content in Врачи on Центр медицинской и психологической помощи в Ижевске</description>
     <generator>Hugo</generator>
     <language>ru-ru</language>
     <atom:link href="http://localhost:1313/doctors/index.xml" rel="self" type="application/rss+xml" />
